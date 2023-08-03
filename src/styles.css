@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import "~aos/dist/aos.css";
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+
+:root {
+	--d-blue: #1f00dd;
+	--green: #0b8511;
+	--orange: #ffbd00;
+	--purple: #6a0dad;
+	--white: #fff;
+	--red: #f14141;
+	--Poppins:"Poppins";
+	--font-default: 'Manrope', sans-serif;
+    --font-secondary: 'Handlee', cursive;
+    --fontawesome: "Font Awesome 5 Pro";
+    --black: #000000;
+    --dark: #1f4e3d;
+    --white: #ffffff;
+    --color-primary: #49a760;
+    --color-secondary: #f7c35f;
+    --color-heading: #04000b;
+    --color-paragraph: #787878;
+    --box-shadow-primary: -1px 3px 10px 0 rgba(0, 0, 0, 0.6);
+    --box-shadow-secondary: 0 10px 30px 0 rgba(44, 130, 237, 0.4);
+    --box-shadow-regular: 0px 2px 12px 0px #e7e7e7;
+    --bg-gray: #eff2f5;
+    --bg-gradient: linear-gradient(97deg, #49a760 50%, rgba(252,197,27,1) 100%);
+    --darkbrown: #c15635
+}
+
+.green-snackbar {
+	background-color: var(--green);
+	color: var(--white);
+}
+
+.red-snackbar {
+	background-color: var(--red);
+	color: var(--white);
+}
+.secondary-color {color: var(--color-secondary);}
+.brown {color: var(--darkbrown);}
+.text-green {color: var(--dark);}

@@ -1,0 +1,101 @@
+ <!-- ======= Header ======= -->
+
+ <header id="header" class="fixed-top">
+    <div class="topbar dark-bg">
+      <div class="row">
+        <div class="col-md-3">
+          &nbsp;
+          <img src="assets/img/Flag_of_India.svg.png" style="width: 24px" />
+          {{'GOVERNMENT_OF_INDIA' | translate}}
+        </div>
+        <div class="col-md-9 text-end topbar-right d-none d-sm-block">
+          <a href="#" class="btn_farmer_reg">Farmer Registration</a>
+          <a href="#" class="btn_drplog">Department Login</a>
+          <span><a href="screen-reader.html">{{'SCREEN_READER' | translate}}</a> &nbsp; |
+          </span>
+          <!-- <span>
+            <select class="language"  (change)="changeLanguage($event)">
+              <option *ngFor="let lang of supportedLanguages" [value]="lang" (click)="changeLanguage(lang)">
+                {{ lang=='en' ? 'English' : 'Hindi' }}
+              </option>
+            </select>
+            &nbsp; |</span> -->
+            <span >
+              <a href="#" (click)="changeLanguage(displayLanguage=='English' ? 'en' : 'hi')"> {{displayLanguage}}</a>
+               <!-- <select class="language"  (change)="changeLanguage($event)">
+                 <option *ngFor="let lang of supportedLanguages" [value]="lang" (click)="changeLanguage(lang)">
+                   {{ lang=='en' ? 'English' : 'Hindi' }}
+                   {{displayLanguage}}
+                 </option>
+               </select> -->
+               &nbsp; |</span>
+          <span><a href="#skiptomain">{{'SKIP_TO_CONTENT' | translate}}</a> &nbsp; | </span>
+          <span><a href="">A+</a> &nbsp; | </span>
+          <span><a href="">A</a> &nbsp; | </span>
+          <span><a href="">A-</a> &nbsp; |</span>
+          <span>
+            <div class="form-check form-switch">
+              <input class="form-check-input mt-2" type="checkbox" role="switch" id="toggleStyle" (click)="toggleTheme($event)" />
+              <label class="form-check-label" for="flexSwitchCheckDefault">{{'DARK_LIGHT_MODE' | translate}}</label>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="menu-bar">
+      <div class="container-fluid d-flex align-items-center justify-content-lg-between">
+
+
+        <div class="logo">
+          <img src="assets/img/logo.svg" alt="" class="img-fluid" style="width: 80px;" />
+          <span class="d-none d-sm-block">{{'DEPARTMENT_OF_AGRICULTURE' | translate}}<br>{{'GOVERNMENT_OF_UTTARPRADESH' | translate}}</span>
+          <img src="assets/img/darshan.png" alt="" class="img-fluid" style="width: 80px;" />
+            <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.svg" alt="" class="img-fluid" style="width: 80px;" /></a>
+            <span style="font-size: 10px;">Department of Agriculture</span>
+            <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/darshan.png" alt="" class="img-fluid" style="width: 80px;" /></a> -->
+        </div>
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <!-- <li>
+              <a class="nav-link scrollto active" href="index.html">Home</a>
+            </li> -->
+            <li class="dropdown">
+                <a href="#"><span>{{ 'ABOUT_US' | translate }}</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="#">{{ 'HISTORY' | translate }}</a></li>
+                </ul>
+              </li>
+            <li><a class="nav-link scrollto" href="#">{{'SCHEMES' | translate}}</a></li>
+            <li><a class="nav-link scrollto" href="#">{{'KISAN_CORNER' | translate}}</a></li>
+            <li class="dropdown">
+                <a href="#"><span>{{'GALLERY' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="#">{{'PHOTO_GALLERY' | translate}}</a></li>
+                  <li><a href="#">{{'VIDEO_GALLERY' | translate}}</a></li>
+                </ul>
+              </li>
+            <li><a class="nav-link scrollto" href="#">{{'DOWNLOADS' | translate}}</a></li>
+            <li><a class="nav-link scrollto" href="#">{{'FAQ' | translate}}</a></li>
+            <li class="dropdown">
+                <a href="#"><span>{{'WHATS_NEW' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="#">{{'CIRCULAR' | translate}}</a></li>
+                  <li><a href="#">{{'PRESS_RELEASE' | translate}}</a></li>
+                  <li><a href="#">{{'ANNOUNCEMENT' | translate}}</a></li>
+                </ul>
+              </li>
+            <li><a class="nav-link scrollto" href="#">{{'CONTACT_US' | translate}}</a></li>
+
+
+
+
+
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </div>
+  </header>
+  <!-- End Header -->

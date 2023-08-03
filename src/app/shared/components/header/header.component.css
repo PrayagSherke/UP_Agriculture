@@ -1,0 +1,14 @@
+
+.dark-bg {background-color: var(--dark);}
+.topbar {
+    height: 40px;
+    color: #fff;
+    line-height: 40px;
+    font-size: 13px;
+  }
+  .language { border: none; outline: none;   scroll-behavior: smooth;
+    display: inline;  background:var(--dark);  color: #fff;
+  }
+  .form-switch {
+    line-height: 26px;
+}

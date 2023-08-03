@@ -1,0 +1,20 @@
+<form [formGroup]="formGroup" (ngSubmit)="login()">
+  <div class="container">
+    <div class="row  justify-content-md-center">
+      <div class="col-md-6">
+        <legend>Login</legend>
+        <div class="mb-3">
+          <app-form-control [inputId]="'email'" [lable]="'Email'" [placeholder]="placeholderValue + ' email'" [control]="formGroup.controls.email"
+            [inputType]="'input'" [isRequired]="true"></app-form-control>
+        </div>
+        <div class="mb-3">
+          <app-form-control [inputId]="'password'" [placeholder]="placeholderValue + ' password'" [lable]="'Password'" [control]="formGroup.controls.password"
+            [inputType]="'input'" [isRequired]="true"></app-form-control>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-dark">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,18 @@
+<label [for]="inputId" class="form-label">{{lable}} <span *ngIf="isRequired" class="text-danger">*</span></label>
+
+<div *ngIf="inputType=='input'">
+    <input type="text" [formControl]="control" class="form-control" [placeholder]="placeholder"
+        [maxlength]="maxlength" />
+</div>
+
+<div *ngIf="inputType=='select'">
+    <select [formControl]="control" [id]="inputId" class="form-select">
+        <option *ngFor="let item of dropdownData" [value]="item.value">{{item.name}}</option>
+    </select>
+</div>
+
+<ng-container *ngIf="control.invalid && control.touched">
+    <div *ngFor="let err of control.errors | keyvalue " class="text-danger fs-7">
+        {{errorMessage[err.key]}}
+    </div>
+</ng-container>

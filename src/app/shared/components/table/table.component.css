@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-header-row {
+    background-color: #005173;
+  }
+  
+  th.mat-sort-header {
+    color: white;
+  }
+  
+  :host ::ng-deep .mat-sort-header-arrow {
+    color: white;
+  }
+  
+  .count {
+    line-height: 60px;
+    text-align: right;
+  }
