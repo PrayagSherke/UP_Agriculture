@@ -1,10 +1,11 @@
 
-.dark-bg {background-color: var(--dark);}
+.white-bg {background-color: #fff;}
 .topbar {
     height: 40px;
-    color: #fff;
+    color: #000;
     line-height: 40px;
     font-size: 13px;
+    border-bottom: solid 1px #ccc;
   }
   .language { border: none; outline: none;   scroll-behavior: smooth;
     display: inline;  background:var(--dark);  color: #fff;

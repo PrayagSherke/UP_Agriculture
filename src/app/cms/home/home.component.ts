@@ -43,12 +43,12 @@ SwiperCore.use([
 })
 export class HomeComponent implements OnInit {
   slidesImg = [
-    'client-1.png',
-    'client-2.png',
-    'client-3.png',
-    'client-4.png',
-    'client-5.png',
-    'client-6.png',
+    'indiaGov.gif',
+    'rti-icon.gif',
+    'upgov-icon.gif',
+    'cm-office.gif',
+    'chief.gif',
+    'election.gif',
     // Add more image paths here
   ];
 
@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  
+
 
   home() {
     if (this.formGroup.status == "INVALID") {
@@ -146,7 +146,7 @@ export class HomeComponent implements OnInit {
     (el, index) => `Slide ${index + 1}`
   );
 
-  
+
 
   breakPointsToggle: boolean;
   breakpointChange() {
@@ -157,6 +157,6 @@ export class HomeComponent implements OnInit {
       1024: { slidesPerView: this.breakPointsToggle ? 7 : 5, spaceBetween: 50 }
     };
   }
-  
+
 
 }

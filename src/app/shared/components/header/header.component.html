@@ -1,7 +1,7 @@
  <!-- ======= Header ======= -->
 
  <header id="header" class="fixed-top">
-    <div class="topbar dark-bg">
+    <div class="topbar white-bg">
       <div class="row">
         <div class="col-md-3">
           &nbsp;
@@ -9,8 +9,8 @@
           {{'GOVERNMENT_OF_INDIA' | translate}}
         </div>
         <div class="col-md-9 text-end topbar-right d-none d-sm-block">
-          <a href="#" class="btn_farmer_reg">Farmer Registration</a>
-          <a href="#" class="btn_drplog">Department Login</a>
+          <!-- <a href="#" class="btn_farmer_reg">Farmer Registration</a> -->
+          <!-- <a href="#" class="btn_drplog">Department Login</a> -->
           <span><a href="screen-reader.html">{{'SCREEN_READER' | translate}}</a> &nbsp; |
           </span>
           <!-- <span>
@@ -46,6 +46,7 @@
       <div class="container-fluid d-flex align-items-center justify-content-lg-between">
 
 
+       <div class="col-lg-6">
         <div class="logo">
           <img src="assets/img/logo.svg" alt="" class="img-fluid" style="width: 80px;" />
           <span class="d-none d-sm-block">{{'DEPARTMENT_OF_AGRICULTURE' | translate}}<br>{{'GOVERNMENT_OF_UTTARPRADESH' | translate}}</span>
@@ -54,48 +55,57 @@
             <span style="font-size: 10px;">Department of Agriculture</span>
             <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/darshan.png" alt="" class="img-fluid" style="width: 80px;" /></a> -->
         </div>
+       </div>
+        <div class="col-lg-6">
+          <div class="logo_right">
+            <a href="https://www.g20.org/en/" target="_blank"><img src="assets/img/g20_logo.svg" alt="logo"></a>
 
-        <nav id="navbar" class="navbar order-last order-lg-0">
-          <ul>
-            <!-- <li>
-              <a class="nav-link scrollto active" href="index.html">Home</a>
-            </li> -->
-            <li class="dropdown">
-                <a href="#"><span>{{ 'ABOUT_US' | translate }}</span> <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                  <li><a href="#">{{ 'HISTORY' | translate }}</a></li>
-                </ul>
-              </li>
-            <li><a class="nav-link scrollto" href="#">{{'SCHEMES' | translate}}</a></li>
-            <li><a class="nav-link scrollto" href="#">{{'KISAN_CORNER' | translate}}</a></li>
-            <li class="dropdown">
-                <a href="#"><span>{{'GALLERY' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                  <li><a href="#">{{'PHOTO_GALLERY' | translate}}</a></li>
-                  <li><a href="#">{{'VIDEO_GALLERY' | translate}}</a></li>
-                </ul>
-              </li>
-            <li><a class="nav-link scrollto" href="#">{{'DOWNLOADS' | translate}}s</a></li>
-            <li><a class="nav-link scrollto" href="#">{{'FAQ' | translate}}</a></li>
-            <li class="dropdown">
-                <a href="#"><span>{{'WHATS_NEW' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                  <li><a href="#">{{'CIRCULAR' | translate}}</a></li>
-                  <li><a href="#">{{'PRESS_RELEASE' | translate}}</a></li>
-                  <li><a href="#">{{'ANNOUNCEMENT' | translate}}</a></li>
-                </ul>
-              </li>
-            <li><a class="nav-link scrollto" href="#">{{'CONTACT_US' | translate}}</a></li>
+            <a href="https://www.mygov.in/campaigns/millets/" target="_blank"><img src="assets/img/millets.svg" alt="logo"></a>
+          </div>
+        </div>
 
-
-
-
-
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
         <!-- .navbar -->
       </div>
     </div>
+
+    <nav id="navbar" class="navbar menu-bg">
+      <ul>
+        <li>
+          <a class="nav-link scrollto active" href="index.html"><i class="fa fa-home"></i></a>
+        </li>
+        <li class="dropdown">
+            <a href="#"><span>{{ 'ABOUT_US' | translate }}</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">{{ 'HISTORY' | translate }}</a></li>
+            </ul>
+          </li>
+        <li><a class="nav-link scrollto" href="#">{{'SCHEMES' | translate}}</a></li>
+        <li class="dropdown">
+          <a href="#"><span>{{'WHATS_NEW' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="#">{{'CIRCULAR' | translate}}</a></li>
+            <li><a href="#">{{'PRESS_RELEASE' | translate}}</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link scrollto" href="#">{{'KISAN_CORNER' | translate}}</a></li>
+        <!-- <li class="dropdown">
+            <a href="#"><span>{{'GALLERY' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">{{'PHOTO_GALLERY' | translate}}</a></li>
+              <li><a href="#">{{'VIDEO_GALLERY' | translate}}</a></li>
+            </ul>
+          </li> -->
+        <li><a class="nav-link scrollto" href="#">{{'DOWNLOADS' | translate}}</a></li>
+        <li><a class="nav-link scrollto" href="#">{{'FAQ' | translate}}</a></li>
+
+        <li><a class="nav-link scrollto" href="#">{{'CONTACT_US' | translate}}</a></li>
+        <div class="button_link">
+          <a href="#" class="btn_frm_reg">Farmer Registration</a>
+            <a href="#" class="btn_dprt_login">Department Login</a>
+        </div>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+
+    </nav>
   </header>
   <!-- End Header -->
