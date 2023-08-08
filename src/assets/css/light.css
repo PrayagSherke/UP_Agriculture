@@ -75,6 +75,7 @@ h6 {
   visibility: visible;
   opacity: 1;
 }
+.white-bg {background-color: #fff;}
 
 /*--------------------------------------------------------------
 # Preloader
@@ -144,7 +145,7 @@ h6 {
   justify-content: flex-start;
   font-size: 32px;
   margin: 0;
-  padding: 3px 0;
+  padding: 3px 0 10px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: 2px;
@@ -158,12 +159,21 @@ h6 {
 #header .logo a span {
   color: #ffc451;
 }
+#header .logo p {
+  font-size: 2rem;
+  padding: 0 0.4rem;
+  margin: 0;
+  text-align: left;
+  color: #000;
+  font-weight: 700;
+}
 #header .logo span {
   font-size: 1rem;
-  padding: 0 0.4rem;
-  text-align: center;
-  color: #000;
-  font-weight: 500;
+    padding: 0 0.4rem;
+    text-align: justify;
+    color: #000;
+    font-weight: 500;
+    line-height: 12px;
 }
 #header .logo img {
   /* max-height: 40px; */
@@ -202,9 +212,9 @@ h6 {
 /**
 * Desktop Navigation
 */
-.navbar {
+/* .navbar {
   padding: 0;
-}
+} */
 
 .navbar ul {
   margin: 0;
@@ -485,11 +495,12 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 .carousel__slide__overlay h1 {
+  text-align: left;
   margin: 0;
-  font-size: 52px;
+  font-size: 2.5rem;
+  font-weight: 800;
   font-weight: normal;
   line-height: 64px;
   color: #fff;
@@ -502,8 +513,9 @@ h6 {
 
 .carousel__slide__overlay h2 {
   color: rgba(255, 255, 255, 0.9);
-  margin: 10px 0 0 0;
-  font-size: 24px;
+  margin: 10px 0 1rem;
+  font-size: 2.5rem;
+  text-align: left;
 }
 
 

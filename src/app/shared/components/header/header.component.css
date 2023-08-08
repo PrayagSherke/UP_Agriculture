@@ -13,3 +13,4 @@
   .form-switch {
     line-height: 26px;
 }
+.scheme-submenu {height: 300px; overflow: auto;}

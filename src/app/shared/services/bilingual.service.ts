@@ -5,13 +5,13 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
   providedIn: 'root',
 })
 export class BilingualService {
-  private supportedLanguages = ['en', 'hi']; // Add more languages as needed
+  private supportedLanguages = ['hi', 'en']; // Add more languages as needed
 
   constructor(private translate: TranslateService) {}
 
   init(): Promise<void> {
     return new Promise<void>((resolve) => {
-      this.translate.setDefaultLang('en'); // Set default language
+      this.translate.setDefaultLang('hi'); // Set default language
       this.translate.addLangs(this.supportedLanguages); // Add supported languages
       this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
         // Save the selected language in local storage or cookies
@@ -27,7 +27,7 @@ export class BilingualService {
     if (savedLanguage && this.supportedLanguages.includes(savedLanguage)) {
       this.translate.use(savedLanguage);
     } else {
-      this.translate.use('en'); // Default to English if no saved language found
+      this.translate.use('hi'); // Default to English if no saved language found
     }
   }
 

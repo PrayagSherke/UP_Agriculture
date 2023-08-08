@@ -1,25 +1,83 @@
 <app-header></app-header>
 <div class="carousel">
   <div class="carousel__slide">
-    <div class="carousel__slide__inner">
+    <carousel [interval]="3000" class="carousel">
+      <slide *ngFor="let slide of bannerImages" [active]="slide.active">
+        <img [src]="slide.image" alt="Carousel Image">
+        <div class="carousel-caption">
+          <h1>
+            {{slide.title | translate}}
+             </h1>
+          <h2>
+            {{slide.description}}
+
+          </h2>
+          <a href="#" class="btn_draw">{{slide.links}}</a>
+        </div>
+      </slide>
+    </carousel>
+    <!-- <div class="carousel__slide__inner">
       <div class="image-container">
-        <img class="carousel__image" src="assets/img/banner2_430.jpg" alt="Image" />
+        <img class="carousel__image" src="assets/img/banner1.jpg" alt="Image" />
       </div>
       <div class="carousel__slide__overlay">
         <div class="container position_set" [attr.data-aos]="'fade-up'">
-          <div class="row justify-content-center" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="150">
+          <div class="row" [attr.data-aos]="'fade-up'" [attr.data-aos-delay]="150">
             <div class="col-xl-12 col-lg-12">
               <h1>
-                {{'DIGITAL' | translate}}
-                <span class="secondary-color font-weight-bold">{{'AGRICULTURE' | translate}}</span>
-                {{'REALTIME_SERVICE' | translate}},
-              </h1>
-              <h1>
-                {{'HASSELFREE_ASSISTANCE' | translate}}
-                <span class="secondary-color font-weight-bold">
-                  {{'INITIATIVE' | translate}}
-                </span>
-              </h1>
+                {{'IMPORTANT_NOTICE' | translate}}
+                 </h1>
+              <h2>
+                {{'FOR_FARMER_BROTHERS' | translate}}
+
+              </h2>
+              <a href="#" class="btn_draw">Draw tokens for Subsidy on Machinery/ Farm Ponds</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="what_new">
+    <div class="whatnew_inner">
+      <h2>{{'WHATS_NEW' | translate}}</h2>
+      <div class="scroll-bar-wrap">
+        <div class="scroll-box">
+        <ul class="newsTicker">
+          <li><a href="#">{{'COMPLICATION_GOVERNMENT' | translate}}</a></li>
+          <li><a href="#">{{'RABI_STRATERGY' | translate}}</a></li>
+          <li><a href="#">{{'PERMISSIBLE_TO_FARMERS' | translate}}</a></li>
+          <li><a href="#">{{'BENEFICERY_DDO_LOGIN' | translate}}</a></li>
+          <li><a href="#">{{'FOUR_DISTRICT_SHAMLI' | translate}}</a></li>
+          <li><a href="#">{{'SOLVING_PROBLEMS' | translate}}</a></li>
+        </ul>
+        </div>
+        <div class="cover-bar"></div>
+      </div>
+      <a href="#">{{'VIEW_ALL'|translate}}</a>
+    </div>
+  </div>
+</div>
+<!-- End Hero -->
+
+<!-- announcement start here -->
+<div class="announcement_sec">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="annunc_notice">
+          <div class="ticker_wrap">
+            <div class="ticker_breaking"> <img src="assets/img/announcment.svg" alt="announcement"><span>{{'IMP_ANNOUNCEMENTS'| translate}}:</span></div>
+            <div class="ticker_viewport">
+              <marquee behavior="scroll" gap="0" truespeed="" direction="left" scrollamount="2" scrolldelay="50" onmouseover="this.stop();" onmouseout="this.start();">
+              <ul class="ticker_list" data-ticker="list">
+                <li class="ticker_item" data-ticker="item">
+                  <a href="#">{{'ANNOUNCEMENT_1'|translate}}</a>
+                </li>
+                <li class="ticker_item" data-ticker="item"><a href="#">{{'ANNOUNCEMENT_1'|translate}}</a></li>
+              </ul>
+            </marquee>
             </div>
           </div>
         </div>

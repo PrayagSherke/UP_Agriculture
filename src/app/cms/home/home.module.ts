@@ -11,6 +11,8 @@ import { UsersEffect } from "../users/store/users.effect";
 import { SharedModule } from "src/app/shared/shared.module";
 import * as Aos from 'aos';
 
+import { CarouselModule } from "ngx-bootstrap/carousel";
+
 import { SwiperModule } from "swiper/angular";
 
 const routes: Routes = [
@@ -28,11 +30,12 @@ const routes: Routes = [
     FormsModule, ReactiveFormsModule,
     SharedModule,
     SwiperModule,
+    CarouselModule.forRoot(),
     StoreModule.forFeature('home', homeReducer),
     EffectsModule.forFeature([HomeEffect]),
     RouterModule.forChild(routes)],
 })
-export class HomeModule { 
+export class HomeModule {
   constructor() {
     Aos.init();
   }

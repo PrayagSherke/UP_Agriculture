@@ -42,6 +42,12 @@ SwiperCore.use([
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  bannerImages = [
+    {image:'assets/img/banner1.jpg',title:'Important Notice:', description: 'For Farmer Brothers', links: 'Draw tokens for Subsidy on Machinery/ Farm Ponds', active:true},
+    {image:'assets/img/banner2.jpg',title:'Important Notice:', description: 'For Farmer Brothers', links: 'Draw tokens for Subsidy on Machinery/ Farm Ponds', active:false}
+  ];
+
   slidesImg = [
     'indiaGov.gif',
     'rti-icon.gif',
