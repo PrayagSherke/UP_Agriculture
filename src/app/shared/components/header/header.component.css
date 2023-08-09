@@ -1,9 +1,9 @@
 
-.white-bg {background-color: #fff;}
+
 .topbar {
-    height: 40px;
+    height: 32px;
     color: #000;
-    line-height: 40px;
+    line-height: 32px;
     font-size: 13px;
     border-bottom: solid 1px #ccc;
   }
@@ -13,4 +13,6 @@
   .form-switch {
     line-height: 26px;
 }
-.scheme-submenu {height: 300px; overflow: auto;}
+.scheme-submenu {height: 300px; overflow-y: auto;}
+.pointer {cursor: pointer;}
+.pointer:hover {color: #ffc451;}

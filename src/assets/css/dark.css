@@ -126,6 +126,7 @@ h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+
 #header {
   transition: all 0.5s;
   z-index: 997;
@@ -159,7 +160,7 @@ h6 {
   color: #ffc451;
 }
 #header .logo p {
-  font-size: 2rem;
+  font-size: 1.4rem;
   padding: 0 0.4rem;
   margin: 0;
   text-align: left;
@@ -481,6 +482,9 @@ h6 {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+.carousel-control-prev-icon {
+  display: none;
+}
 .carousel__slide__inner {
   position: relative;
 }
@@ -2291,6 +2295,64 @@ bottom: 0px;}
 }
 /* light css end */
 /* new css start here */
+
+.layer-overlay.overlay-dark::before {
+  background-color: rgba(17, 17, 17, 0.85);
+}
+.layer-overlay::before {
+  background: rgba(17, 17, 17, 0.65) none repeat scroll 0 0;
+  content: " ";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+.mt-55 {
+  margin-top: 100px;
+}
+.breadcrumb {
+  background-color: transparent;
+  padding-left: 0;
+  text-align: center;
+}
+.breadcrumb li {
+  color: #ffc451;
+  padding-right: 8px;
+}
+.breadcrumb {
+  padding: 20px 15px;
+  margin-bottom: 10px;
+  list-style: none;
+  border-radius: 4px;
+  position: relative;
+}
+.screen-reader h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+ }
+ .form-check label{
+  color: #ffd800;
+  }
+
+ .table tr th {
+  color: #000;
+  font-size: 14px;
+  background: #ffd800;
+}
+
+.table tr td a {
+  color: #ffd800;
+}
+.table tr td {
+  color: #ffd800;
+}
+.screen-reader p {
+  color: #ffd800;
+}
+
 .btn_chqreg {
   color: #521e1b;
   font-size: 0.75rem;
@@ -2384,7 +2446,7 @@ bottom: 4px;
 
 .circulars {
   margin-left: 4rem;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.7);
   padding: 1rem 3rem 3rem;
   border-radius: 0 0 0 112px;
 }
@@ -2522,14 +2584,20 @@ color: #2EB73D;
 /* dashboard css */
 /* announcement scroll css */
 marquee {
-  width: 720px;
+  width: 746px;
   height: auto;
 
   line-height: 1.4em;
 }
+.carousel {
+  position: relative;
+  height: 570px;
+}
 .announcement_sec {
   background: #283F0D;
-
+  position: relative;
+  top: 6px;
+  z-index: 4;
 }
 
 .ticker_wrap {
@@ -2819,7 +2887,7 @@ max-width: 450px;
 
 .scroll-box {
   width: 100%;
-  height: 290px;
+  height: 240px;
   margin-bottom: .8rem;
   overflow-y: scroll;
 }
@@ -2854,8 +2922,8 @@ max-width: 450px;
   -webkit-transition: all .5s;
 }
 .what_new {
-  height: 410px;
-  background: rgba(0, 0, 0, 0.9);
+  height: 370px;
+  background: rgba(0, 0, 0, 0.7);
   padding: 1rem 1.2rem;
   border-radius: 0 112px 0 0;
   position: absolute;

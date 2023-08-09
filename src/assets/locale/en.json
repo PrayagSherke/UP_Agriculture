@@ -1,19 +1,4 @@
 {
-    "ABOUT_US": "About Us",
-    "SCHEMES": "Schemes & Guidelines ",
-    "KISAN_CORNER": "Kisan Corner",
-    "GALLERY": "Gallery",
-    "PHOTO_GALLERY":"Photo Gallery",
-    "VIDEO_GALLERY":"Video Gallery",
-    "DOWNLOADS":"Information",
-    "FAQ":"FAQ",
-    "WHATS_NEW":"Booking & Generate Token",
-    "CIRCULAR":"Machines/Drones/Solar Pump",
-    "PRESS_RELEASE":"Machinery/Farm Ponds",
-
-    "CONTACT_US":"Contact Us",
-    "DEPARTMENT_OF_AGRICULTURE":"Department of Agriculture",
-    "GOVERNMENT_OF_UTTARPRADESH":"Government of Uttar Pradesh",
 
   "SCHEMES": "Schemes ",
 
@@ -77,7 +62,7 @@
 
   "SKIP_TO_MAIN":"Skip to main",
   "LIGHT_DARK_MODE":"Light/Dark Mode",
-  "CHECK_REGISTRATION":"Check your Registration",
+  "CHECK_REGISTRATION":"Check your Registration Number",
   "SCREEN_READER":"Screen Reader",
   "FONT_SIZE":"Font size (+, -)",
   "LANGUAGE":"Language",
@@ -145,7 +130,7 @@
   "PROGRESS_REPORT":"Progress report of uploading in the new system of INSITU instruments",
   "BILL_MONITORING_SYSYEM":"Bill Monitoring System - Directorate of Agriculture",
   "PROGRESS_DBT":"Progress of DBT of Agricultural Machinery (Except Solar Pump)",
-  "SOLAR_PUMP":"Solar Pump Beneficiary Selection Verification Progress",
+
   "PROGRESS_REPORT_INSTRUMENTS":"Progress report against the selection of physical targets of the instruments",
   "MILLIPN_FARMER_SCHOOL":"The Million Farmers School (Kisan Pathshala) Participating Farmers List",
   "SOIL_HEALTH_CARD_MS":"Soil Health Card Monitoring System",
@@ -204,6 +189,34 @@
   "SITEMAP":"Sitemap",
 
   "SEED_DBT":"Seed DBT Report",
-  "KRISHI_DBT":"Krishi Yantra DBT"
+  "KRISHI_DBT":"Krishi Yantra DBT",
+  "FOOTER_PARA1":"Content on this website is published and managed by State Agriculture Directorate Uttar Pradesh Krishi Bhawan Lucknow.",
+  "FOOTER_PARA2":"For any questions about this website, please contact 'Web Information Manager.",
+  "SOLAR_PUMP":"Solar Pump Beneficiary Selection Verification Progress",
+
+  "option1":"Farm pond scheme for rain water harvesting",
+  "option2":"Paramparagat Krishi Vikas Yojana (PKVY)",
+  "option3":"Cleanliness Action Plan Namami Gange Clean Campaign",
+  "option4":"National Project on Soil Health and Fertility",
+  "option5":"Rainfed Area Development (RAD) Program",
+  "option6":"Pandit Deendayal Upadhyay Kisan Samridhi Yojana",
+  "option7":"Soil Survey and Testing Program",
+  "option8":"Strengthening of bio-fertilizer production laboratories / program to encourage the use of bio-fertilizers",
+  "option9":"Soil Health Strengthening Scheme",
+  "option10":"Gypsum distribution plan to remove the deficiency of micro elements in the soil and for land improvement",
+  "option11":"Scheme for development of organic farming in district Hamirpur",
+  "option12":"Cow based natural farming scheme in Bundelkhand",
+  "option13":"Under the National Agriculture Development Scheme, the schemes of crop rearing run by the Agriculture Department",
+  "option14":"Agricultural extension, agricultural investment and technical management to increase agricultural production",
+  "option15":"National Food Security Mission-Rice Dhatak",
+  "option16":"National Mission on Edible Oil",
+  "option17":"Pradhan Mantri Kisan Urja Suraksha Evam Utthan Mahabhiyan (PM Kusum) Solar Pump Scheme",
+  "option18":"Pest control by various eco-resources",
+  "option19":"Scheme to promote the use of hybrid seeds",
+  "option20":"subsidy on certified seeds",
+  "option21":"Promotion of Agriculture Mechanization for In-Situ Management of Crop Residue",
+  "option22":"National Mission on Agriculture Extension and Technology",
+  "option23":"Trained Agricultural Entrepreneur Self Reliance Scheme",
+  "option24":"Vermi compost unit establishment plan"
 
 }

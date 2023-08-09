@@ -49,12 +49,14 @@ export class HomeComponent implements OnInit {
   ];
 
   slidesImg = [
-    'indiaGov.gif',
-    'rti-icon.gif',
-    'upgov-icon.gif',
-    'cm-office.gif',
-    'chief.gif',
-    'election.gif',
+    {image:'indiaGov.gif', link:"https://www.india.gov.in/"},
+    {image:'rti-icon.gif', link:"https://rti.gov.in/"},
+    {image:'upgov-icon.gif', link:"https://up.gov.in/en"},
+    {image:'cm-office.gif', link:"https://upcmo.up.nic.in/"},
+    {image:'chief.gif', link:"https://ceouttarpradesh.nic.in/"},
+    {image:'election.gif', link:"https://eci.gov.in/"},
+
+
     // Add more image paths here
   ];
 
@@ -77,6 +79,7 @@ export class HomeComponent implements OnInit {
     this.formGroup.valueChanges.subscribe((val) => this.homeForm = val)
 
   }
+
 
 
 

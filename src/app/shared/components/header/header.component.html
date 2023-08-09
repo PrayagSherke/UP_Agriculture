@@ -11,7 +11,8 @@
         <div class="col-md-9 text-end topbar-right d-none d-sm-block">
           <!-- <a href="#" class="btn_farmer_reg">Farmer Registration</a> -->
           <!-- <a href="#" class="btn_drplog">Department Login</a> -->
-          <span><a href="screen-reader.html">{{'SCREEN_READER' | translate}}</a> &nbsp; |
+          <a href="http://agriculture.up.gov.in/kisan_suvidha.html" target="_blank" class="btn_chqreg"><img src="assets/img/reg-top.svg" alt="">{{'CHECK_REGISTRATION'|translate}}</a>
+          <span><a href="screen-reader">{{'SCREEN_READER' | translate}}</a> &nbsp; |
           </span>
           <!-- <span>
             <select class="language"  (change)="changeLanguage($event)">
@@ -20,8 +21,8 @@
               </option>
             </select>
             &nbsp; |</span> -->
-            <span >
-              <a href="#" (click)="changeLanguage(displayLanguage=='English' ? 'en' : 'hi')"> {{displayLanguage}}</a>
+            <span class="pointer" (click)="changeLanguage(displayLanguage=='English' ? 'en' : 'hi')">
+              {{displayLanguage}}
                <!-- <select class="language"  (change)="changeLanguage($event)">
                  <option *ngFor="let lang of supportedLanguages" [value]="lang" (click)="changeLanguage(lang)">
                    {{ lang=='en' ? 'English' : 'Hindi' }}
@@ -29,7 +30,8 @@
                  </option>
                </select> -->
                &nbsp; |</span>
-          <span><a href="#skiptomain">{{'SKIP_TO_CONTENT' | translate}}</a> &nbsp; | </span>
+          <!-- <span><a href="#" (click)="scroll()">{{'SKIP_TO_MAIN' | translate}}</a> &nbsp; | </span> -->
+          <span (click)="scroll()" class="pointer">{{'SKIP_TO_MAIN' | translate}} &nbsp; | </span>
           <span><a href="">A+</a> &nbsp; | </span>
           <span><a href="">A</a> &nbsp; | </span>
           <span><a href="">A-</a> &nbsp; |</span>
@@ -46,7 +48,7 @@
       <div class="container-fluid d-flex align-items-center justify-content-lg-between">
 
 
-       <div class="col-lg-6">
+       <div class="col-lg-5">
         <div class="logo">
           <a href="http://agriculture.up.gov.in/" target="_blank"><img src="assets/img/logo.svg" alt="" class="img-fluid" style="width: 80px;" /></a>
           <p>{{'DEPARTMENT_OF_AGRICULTURE' | translate}}<span class="d-none d-sm-block"><br>{{'GOVERNMENT_OF_UTTARPRADESH' | translate}}</span></p>
@@ -56,7 +58,7 @@
             <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/darshan.png" alt="" class="img-fluid" style="width: 80px;" /></a> -->
         </div>
        </div>
-        <div class="col-lg-6">
+        <div class="col-lg-7">
           <div class="logo_right">
             <a href="https://www.g20.org/en/" target="_blank"><img src="assets/img/g20_logo.svg" alt="logo"></a>
 
@@ -76,32 +78,66 @@
         <li class="dropdown">
             <a href="#"><span>{{ 'ABOUT_US' | translate }}</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">{{ 'HISTORY' | translate }}</a></li>
+              <li><a href="https://upagripardarshi.gov.in/StaticPages/History-hi.aspx"
+                target="_blank">{{ 'HISTORY' | translate }}</a></li>
             </ul>
           </li>
-        <li><a class="nav-link scrollto" href="#">{{'SCHEMES' | translate}}</a></li>
         <li class="dropdown">
-          <a href="#"><span>{{'WHATS_NEW' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a href="#">{{'CIRCULAR' | translate}}</a></li>
-            <li><a href="#">{{'PRESS_RELEASE' | translate}}</a></li>
+          <a class="nav-link scrollto" href="#">{{'SCHEMES_GUIDELINES' | translate}} <i class="bi bi-chevron-down"></i></a>
+          <ul class="scheme-submenu">
+            <li><a href="#">{{'option1' | translate}}</a></li>
+            <li><a href="#">{{'option2' | translate}}</a></li>
+            <li><a href="#">{{'option3' | translate}}</a></li>
+            <li><a href="#">{{'option4' | translate}}</a></li>
+            <li><a href="#">{{'option5' | translate}}</a></li>
+            <li><a href="#">{{'option6' | translate}}</a></li>
+            <li><a href="#">{{'option7' | translate}}</a></li>
+            <li><a href="#">{{'option8' | translate}}</a></li>
+            <li><a href="#">{{'option9' | translate}}</a></li>
+            <li><a href="#">{{'option10' | translate}}</a></li>
+            <li><a href="#">{{'option11' | translate}}</a></li>
+            <li><a href="#">{{'option12' | translate}}</a></li>
+            <li><a href="#">{{'option13' | translate}}</a></li>
+            <li><a href="#">{{'option14' | translate}}</a></li>
+            <li><a href="#">{{'option15' | translate}}</a></li>
+            <li><a href="#">{{'option16' | translate}}</a></li>
+            <li><a href="#">{{'option17' | translate}}</a></li>
+            <li><a href="#">{{'option18' | translate}}</a></li>
+            <li><a href="#">{{'option19' | translate}}</a></li>
+            <li><a href="#">{{'option20' | translate}}</a></li>
+            <li><a href="#">{{'option21' | translate}}</a></li>
+            <li><a href="#">{{'option22' | translate}}</a></li>
+            <li><a href="#">{{'option23' | translate}}</a></li>
+            <li><a href="#">{{'option24' | translate}}</a></li>
           </ul>
         </li>
-        <li><a class="nav-link scrollto" href="#">{{'KISAN_CORNER' | translate}}</a></li>
-        <!-- <li class="dropdown">
-            <a href="#"><span>{{'GALLERY' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">{{'PHOTO_GALLERY' | translate}}</a></li>
-              <li><a href="#">{{'VIDEO_GALLERY' | translate}}</a></li>
-            </ul>
-          </li> -->
-        <li><a class="nav-link scrollto" href="#">{{'DOWNLOADS' | translate}}</a></li>
+        <li class="dropdown">
+          <a href="#"><span>{{'BOOKING_GENERATE_TOKEN' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="https://pmkusum.upagriculture.com/" target="_blank">{{'MACHINES_DRONES_SOLARPUMP' | translate}}</a></li>
+            <li><a href="http://agriculture.up.gov.in/pmsytoken/token/mainpage.aspx" target="_blank">{{'MACHINERY_FARMPONDS' | translate}}</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="nav-link scrollto" href="#">{{'KISAN_CORNER' | translate}} <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="https://upagripardarshi.gov.in/StaticPages/Article-hi.aspx"
+              target="_blank">{{'ARTICLES' | translate}}</a></li>
+            <li><a href="https://upagripardarshi.gov.in/StaticPages/Bulletin-hi.aspx"
+              target="_blank">{{'BULLETINES' | translate}}</a></li>
+            <li><a href="https://upagripardarshi.gov.in/StaticPages/Publication-hi.aspx"
+              target="_blank">{{'PUBLICATION' | translate}}</a></li>
+          </ul>
+        </li>
+
+        <li><a class="nav-link scrollto" href="#">{{'INFORMATION' | translate}}</a></li>
         <li><a class="nav-link scrollto" href="#">{{'FAQ' | translate}}</a></li>
 
-        <li><a class="nav-link scrollto" href="#">{{'CONTACT_US' | translate}}</a></li>
+        <li><a class="nav-link scrollto" href="https://upagripardarshi.gov.in/StaticPages/ContactUs-hi.aspx"
+          target="_blank">{{'CONTACT_US' | translate}}</a></li>
         <div class="button_link">
-          <a href="#" class="btn_frm_reg">Farmer Registration</a>
-            <a href="#" class="btn_dprt_login">Department Login</a>
+          <a href="http://agriculture.up.gov.in/registration/" target="_blank" class="btn_frm_reg">{{'FARMER_REGISTRATION' | translate}}</a>
+            <a href="http://agriculture.up.gov.in/dbt/" target="_blank" class="btn_dprt_login">{{'DEPARTMENT_LOGIN' | translate}}</a>
         </div>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>

@@ -1,5 +1,6 @@
 <app-header></app-header>
 <div class="carousel">
+  <div class="banner_bg"><img src="assets/img/banner_bg.jpeg"></div>
   <div class="carousel__slide">
     <carousel [interval]="3000" class="carousel">
       <slide *ngFor="let slide of bannerImages" [active]="slide.active">
@@ -45,9 +46,12 @@
       <div class="scroll-bar-wrap">
         <div class="scroll-box">
         <ul class="newsTicker">
-          <li><a href="#">{{'COMPLICATION_GOVERNMENT' | translate}}</a></li>
-          <li><a href="#">{{'RABI_STRATERGY' | translate}}</a></li>
-          <li><a href="#">{{'PERMISSIBLE_TO_FARMERS' | translate}}</a></li>
+          <li><a href="http://agriculture.up.gov.in/pdf_files/dbtgo.pdf"
+            target="_blank">{{'COMPLICATION_GOVERNMENT' | translate}}</a></li>
+          <li><a href="http://agriculture.up.gov.in/pdf_files/Rabi_abhiyan_2022-23.pdf"
+            target="_blank">{{'RABI_STRATERGY' | translate}}</a></li>
+          <li><a href="http://agriculture.up.gov.in/pdf_files/Anumanya%20Suvidhayen-2022-23%20final%20most.pdf"
+            target="_blank">{{'PERMISSIBLE_TO_FARMERS' | translate}}</a></li>
           <li><a href="#">{{'BENEFICERY_DDO_LOGIN' | translate}}</a></li>
           <li><a href="#">{{'FOUR_DISTRICT_SHAMLI' | translate}}</a></li>
           <li><a href="#">{{'SOLVING_PROBLEMS' | translate}}</a></li>
@@ -61,7 +65,10 @@
 </div>
 <!-- End Hero -->
 
-<!-- announcement start here -->
+
+
+<main id="main">
+  <!-- announcement start here -->
 <div class="announcement_sec">
   <div class="container-fluid">
     <div class="row">
@@ -73,7 +80,7 @@
               <marquee behavior="scroll" gap="0" truespeed="" direction="left" scrollamount="2" scrolldelay="50" onmouseover="this.stop();" onmouseout="this.start();">
               <ul class="ticker_list" data-ticker="list">
                 <li class="ticker_item" data-ticker="item">
-                  <a href="#">{{'ANNOUNCEMENT_1'|translate}}</a>
+                  <a href="http://agriculture.up.gov.in/Ltno-computer-392.pdf" target="_blank">{{'ANNOUNCEMENT_1'|translate}}</a>
                 </li>
                 <li class="ticker_item" data-ticker="item"><a href="#">{{'ANNOUNCEMENT_1'|translate}}</a></li>
               </ul>
@@ -84,74 +91,23 @@
       </div>
     </div>
   </div>
-  <div class="what_new">
-    <div class="whatnew_inner">
-      <h2>What’s New</h2>
-      <div class="scroll-bar-wrap">
-        <div class="scroll-box">
-        <ul class="newsTicker">
-          <li><a href="#">Borem ipsum dolor sit amet,</a></li>
-          <li><a href="#">consectetur adipiscing elit. Nunc vulputate libero et velit</a></li>
-          <li><a href="#">interdum, ac aliquet odio mattis. Class aptent taciti</a></li>
-          <li><a href="#">sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</a></li>
-          <li><a href="#">interdum, ac aliquet odio mattis. Class aptent taciti</a></li>
-          <li><a href="#">Borem ipsum dolor sit amet,</a></li>
-          <li><a href="#">consectetur adipiscing elit. Nunc vulputate libero et velit</a></li>
-          <li><a href="#">interdum, ac aliquet odio mattis. Class aptent taciti</a></li>
-          <li><a href="#">sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</a></li>
-          <li><a href="#">interdum, ac aliquet odio mattis. Class aptent taciti</a></li>
-        </ul>
-        </div>
-        <div class="cover-bar"></div>
-      </div>
-      <a href="#">view all</a>
-    </div>
-  </div>
-</div>
-<!-- End Hero -->
-
-<!-- announcement start here -->
-<div class="announcement_sec">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="annunc_notice">
-          <div class="ticker_wrap">
-            <div class="ticker_breaking"> <img src="assets/img/announcment.svg" alt="announcement"><span>Important
-                Announcements:</span></div>
-            <div class="ticker_viewport">
-              <ul class="ticker_list" data-ticker="list">
-                <li class="ticker_item" data-ticker="item">
-                  <a href="#">Invitation for Empanelment of Manufactures of Agricultural Drones (Krishi Drone)</a>
-                </li>
-                <li class="ticker_item" data-ticker="item"><a href="#">Invitation for Empanelment of Manufactures of
-                    Agricultural Drone</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 <!-- announcement end here -->
-
-<main id="main">
   <!-- our leader start here -->
   <section class="leader_bg">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-8">
           <div class="leader">
-            <h2>Know Your Leader</h2>
+            <h2>{{'KNOW_YOUR_LEADER'|translate}}</h2>
             <div class="our_leader">
               <div class="card">
                 <div class="leader_box">
                   <img src="assets/img/yogi.png" alt="yogi">
                   <div class="leader_detail">
                     <a href="#">
-                      <h4>{{ 'YOGI_ADITYANATH' | translate }}</h4>
-                      <span>Hon’ble Chief Minister</span>
+                      <h4>{{'YOGI_ADITYANATH'|translate}}</h4>
+                      <span>{{'CHIEF_MINISTER'|translate}}</span>
                     </a>
                   </div>
                 </div>
@@ -161,8 +117,8 @@
                   <img src="assets/img/suriya.png" alt="yogi">
                   <div class="leader_detail">
                     <a href="#">
-                      <h4>Shri Surya Pratap Shahi</h4>
-                      <span>Hon'ble Agriculture Minister</span>
+                      <h4>{{'SHRI_SURYA_PRATAP_SHAHI'|translate}}</h4>
+                      <span>{{'AGRICULTURAL_MINISTER'|translate}}</span>
                     </a>
                   </div>
                 </div>
@@ -172,30 +128,30 @@
                   <img src="assets/img/baldev.png" alt="yogi">
                   <div class="leader_detail">
                     <a href="#">
-                      <h4>Shri Baldev Singh Aulakh</h4>
-                      <span>Hon'ble State Minister Agriculture</span>
+                      <h4>{{'SHRI_BALDEV_SINGH_AULAKH'|translate}}</h4>
+                      <span>{{'STATE_MINISTER_AGRICULTURE'|translate}}</span>
                     </a>
                   </div>
                 </div>
               </div>
-              <div class="card">
+              <div class="card ml-mr">
                 <div class="leader_box">
                   <img src="assets/img/devesh.png" alt="yogi">
                   <div class="leader_detail">
                     <a href="#">
-                      <h4>Dr. Devesh Chaturvedi</h4>
-                      <span>Add. Chief Secretary, Agriculture</span>
+                      <h4>{{'DR_DEVESH_CHATURVEDI'|translate}}</h4>
+                      <span>{{'ADD_CHIEF_SEC_AGRI'|translate}}</span>
                     </a>
                   </div>
                 </div>
               </div>
-              <div class="card">
+              <div class="card ml">
                 <div class="leader_box">
                   <img src="assets/img/vivek.png" alt="yogi">
                   <div class="leader_detail">
                     <a href="#">
-                      <h4>Vivek Kumar Singh</h4>
-                      <span>Director of Agriculture</span>
+                      <h4>{{'VIVEK_KUMAR_SINGH'|translate}}</h4>
+                      <span>{{'DIR_AGRI'|translate}}</span>
                     </a>
                   </div>
                 </div>
@@ -205,19 +161,41 @@
         </div>
         <div class="col-lg-4">
           <div class="circulars">
-            <h2>circulars</h2>
+            <h2>{{'CIRCULAR'|translate}}</h2>
+            <div class="scroll-bar-wrap">
+              <div class="scroll-box" style="height: 470px;">
             <ul>
-              <li><a href="#">Borem ipsum dolor sit amet,</a></li>
-              <li><a href="#">consectetur adipiscing elit. Nunc vulputate libero et velit</a></li>
-              <li><a href="#">interdum, ac aliquet odio mattis. Class aptent taciti</a></li>
-              <li><a href="#">sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</a></li>
-              <li><a href="#">interdum, ac aliquet odio mattis. Class aptent taciti</a></li>
-              <li><a href="#">Borem ipsum dolor sit amet,</a></li>
-              <li><a href="#">consectetur adipiscing elit. Nunc vulputate libero et velit</a></li>
-              <li><a href="#">interdum, ac aliquet odio mattis. Class aptent taciti</a></li>
-              <li><a href="#">sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/insitu.aspx"
+                target="_blank">{{'PROGRESS_REPORT'|translate}}</a></li>
+              <li><a href="#">{{'BILL_MONITORING_SYSYEM'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/yantrareport.aspx"
+                target="_blank">{{'PROGRESS_DBT'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/solaruploadnewrep.aspx"
+                target="_blank">{{'SOLAR_PUMP'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/instrumentphysicalreport.aspx"
+                target="_blank">{{'PROGRESS_REPORT_INSTRUMENTS'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/MillionFarmerReport.aspx"
+                target="_blank">{{'MILLIPN_FARMER_SCHOOL'|translate}}</a></li>
+              <li><a href="#">{{'SOIL_HEALTH_CARD_MS'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/inC2yojnayantradoc.pdf"
+                target="_blank">{{'PROM_AGRI_MECH'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/misdatareports.aspx"
+                target="_blank">{{'BENIFICERYWISE_REPORT'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/villagedatareports.aspx"
+                target="_blank">{{'DETAILED_LIST'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/farm_mach_regis_rep.aspx"
+                target="_blank">{{'LIST_OF_GROUP_REGISTRATION'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/item_total_hotri.aspx"
+                target="_blank">{{'REG_FOR_SCHEMES'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/dd/shm_applicationform.aspx"
+                target="_blank">{{'APPLICATION_FOR_SOIL_TESTING'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/Labharti_Shuchi.aspx"
+                target="_blank">{{'DBT_LIST'|translate}}</a></li>
             </ul>
-            <a href="#">view all</a>
+          </div>
+          <div class="cover-bar"></div>
+        </div>
+            <a href="#">{{'VIEW_ALL'|translate}}</a>
           </div>
         </div>
       </div>
@@ -232,7 +210,7 @@
           <div class="col-lg-8">
 
             <div class="dashboard_sec">
-              <h2>Dashboard</h2>
+              <h2><a class="dashboard_sec_color" href="http://agriculture.up.gov.in/dbt/misreports.aspx" target="_blank">{{'DASHBOARD'|translate}}</a></h2>
             </div>
           </div>
         </div>
@@ -241,10 +219,10 @@
           <div class="col-lg-4">
 
             <div class="card_box">
-              <h5>Direct Benifit Transfer (DBT)</h5>
+              <h5>{{'DBT' | translate}}</h5>
               <ul>
-                <li><a href="http://upagriculture.com:81/datareport_seed.aspx" target="_blank">Seed DBT Report</a></li>
-                <li><a href="http://upagriculture.com:81/datareport_yantra.aspx" target="_blank">Krishi Yantra DBT</a>
+                <li><a href="http://upagriculture.com:81/datareport_seed.aspx" target="_blank">{{'SEED_DBT'|translate}}</a></li>
+                <li><a href="http://upagriculture.com:81/datareport_yantra.aspx" target="_blank">{{'KRISHI_DBT'|translate}}</a>
                 </li>
                 <li><a href="http://upagriculture.com:81/datareport_upkaran.aspx" target="_blank">Krishi Upkaran DBT</a>
                 </li>
@@ -257,7 +235,7 @@
           <div class="col-lg-4">
 
             <div class="card_box">
-              <h5>PM-KISAN</h5>
+              <h5>{{'PMKISAN' | translate}}</h5>
               <ul>
                 <li><a href="http://upagriculture.com:81/pmkisan.html" target="_blank">PM-KISAN Reports</a></li>
               </ul>
@@ -271,7 +249,7 @@
           <div class="col-lg-4">
 
             <div class="card_box">
-              <h5>Online License</h5>
+              <h5>{{'ONLINE_LISENSE' | translate}}</h5>
               <ul>
                 <li><a href="http://upagriculture.com:81/License/#/Dashboard/Seed" target="_blank">Seed Sale License</a>
                 </li>
@@ -287,7 +265,7 @@
           <div class="col-lg-4">
 
             <div class="card_box">
-              <h5>Uplabdhata</h5>
+              <h5>{{'UPLABDHATA'| translate}}</h5>
               <ul>
                 <li><a href="http://upagriculture.com:81/License/#/FasalBimaUplabtaReport" target="_blank">Fasal Bima
                     Report</a></li>
@@ -308,7 +286,7 @@
           <div class="col-lg-4">
 
             <div class="card_box">
-              <h5>Solar Pump</h5>
+              <h5>{{'SOLAR_PUMP'|translate}}</h5>
               <ul>
                 <li><a href="http://upagriculture.com:81/misreports_solar.aspx" target="_blank">Solar Pump Report</a>
                 </li>
@@ -328,32 +306,62 @@
         <div class="col-lg-6">
           <div class="announcement">
             <div class="annc_heading">
-              <h2>Annocements</h2>
-              <a href="#">view all</a>
+              <h2>{{'ANNOUNCEMENT'|translate}}</h2>
+              <a href="#">{{'VIEW_ALL'|translate}}</a>
             </div>
+            <div class="scroll-bar-wrap">
+              <div class="scroll-box" style="height: 230px;">
             <ul>
-              <li><a href="#">Compilation of Government Orders related to DBT</a> <sup>New</sup></li>
-              <li><a href="#">Rabi Productivity Strategy (2022-23)</a></li>
-              <li><a href="#">Permissible facilities to farmers</a></li>
-              <li><a href="#">Compilation of Government Orders related to DBT</a></li>
-              <li><a href="#">Rabi Productivity Strategy (2022-23)</a></li>
-              <li><a href="#">Permissible facilities to farmers</a></li>
+              <li><a href="http://agriculture.up.gov.in/Ltno-computer-392.pdf"
+                target="_blank">{{'INVITATION_EMPANELMENT'|translate}}</a> <sup>New</sup></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/Labharti_Shuchi.aspx"
+                target="_blank">{{'LIST_BENEFICERIES'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/Labh_vitran.html"
+                target="_blank">{{'WHERE_WHO'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/other.html"
+                target="_blank">{{'KWM'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/dbttraking.aspx"
+                target="_blank">{{'CHECK_PROCESS_REMITTANCE'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/Mahatpurn_Suchna.html"
+                target="_blank">{{'DISTURBUTION_BENIFITS'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/searchifsc.aspx"
+                target="_blank">{{'IFSC_CODE'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/REPORTS/MiniKitReport.aspx"
+                target="_blank">{{'MINI_KIT'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/REPORTS/beejgramreport.aspx"
+                target="_blank">{{'BEEJGRAM_YOJANA'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/REPORTS/Public_FarmerDetailsReport.aspx"
+                target="_blank">{{'BENIFICERY_NATURAL_FARMING'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/REPORTS/PublicNaturalFarmingSummary.aspx"
+                target="_blank">{{'REVIEW_NATURAL_FARMING'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/REPORTS/Public_TrainingReport.aspx"
+                target="_blank">{{'TRAINING_REPORT'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/REPORTS/Public_FFS_Report.aspx"
+                target="_blank">{{'FARMERS_FIELD_SCHOOL'|translate}}</a></li>
+
+
             </ul>
+          </div>
+          <div class="cover-bar"></div>
+        </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="advisory">
             <div class="advisory_heading">
-              <h2>Advisory</h2>
-              <a href="#">view all</a>
+              <h2>{{'ADVISORY' | translate}}</h2>
+              <a href="#">{{'VIEW_ALL'|translate}}</a>
             </div>
             <ul>
-              <li><a href="#">Compilation of Government Orders related to DBT</a></li>
-              <li><a href="#">Rabi Productivity Strategy (2022-23)</a></li>
-              <li><a href="#">Permissible facilities to farmers</a></li>
-              <li><a href="#">Compilation of Government Orders related to DBT</a></li>
-              <li><a href="#">Rabi Productivity Strategy (2022-23)</a></li>
-              <li><a href="#">Permissible facilities to farmers</a></li>
+              <li><a href="#">{{'UPLOAD_DD'|translate}}</a></li>
+              <li><a href="http://upagriculture.com:88/vendor/login.aspx"
+                target="_blank">{{'CRM_EMPANELMENT'|translate}}</a></li>
+              <li><a href="http://agrilicense.upagriculture.com/"
+                target="_blank">{{'ONLINE_LISENSE'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/License/#/Verify"
+                target="_blank">{{'LISENSE_VERIFICATION'|translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/dbt/seedavailabilityreport.aspx"
+                target="_blank">{{'AVAILABILITY_OF_SEEDS_CHEMICALS'|translate}}</a></li>
             </ul>
           </div>
         </div>
@@ -368,8 +376,8 @@
         <div class="col-lg-6">
           <div class="gallry">
             <div class="gallery_sec">
-              <h2>Gallery</h2>
-              <a href="#">view all</a>
+              <h2>{{'GALLERY' | translate}}</h2>
+              <a href="#">{{'VIEW_ALL'|translate}}</a>
             </div>
             <div class="main">
               <div class="gallery_container">
@@ -421,10 +429,13 @@
         </div>
         <div class="col-lg-6">
           <div class="gallery_sec">
-            <h2>Video</h2>
-            <a href="#">view all</a>
+            <h2>{{'VIDEO_GALLERY' | translate}}</h2>
+            <a href="#">{{'VIEW_ALL'|translate}}</a>
           </div>
-          <div class="video"><img src="assets/img/gallery/video_bg.jpg"></div>
+          <div class="video"><video controls #videoPlayer style="width: 100%; height: 300px;">
+            <source src="assets/video/nf.mp4" type="video/mp4" />
+            Browser not supported
+        </video></div>
         </div>
       </div>
     </div>
@@ -667,7 +678,9 @@
                 slideActiveClass="swiper-active whyWouldIuseCustomClass"  [navigation]="true">
                 <ng-template swiperSlide *ngFor="let slide of slidesImg; index as i">
                     <!-- Slide {{ slide }} -->
-                    <img src="assets/img/client/{{ slide }}" alt="Slide" class="slide-img">
+                    <a href="{{slide.link}}" target="_blank">
+                      <img src="assets/img/client/{{ slide.image }}" alt="Slide" class="slide-img">
+                     </a>
                 </ng-template>
 
             </swiper>

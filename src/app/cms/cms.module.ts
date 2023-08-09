@@ -10,6 +10,11 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('../cms/home/home.module').then((m) => m.HomeModule)
+  },
+  {
+    path: 'screen-reader',
+    loadChildren: () =>
+      import('../cms/screen-reader/screen-reader.module').then((m) => m.ScreenReaderModule)
   }
 ];
 
