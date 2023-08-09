@@ -13,6 +13,7 @@
   .form-switch {
     line-height: 26px;
 }
-.scheme-submenu {height: 300px; overflow-y: auto;}
+.scheme-submenu {height: 300px; overflow-y: auto;   width: 350px;
+}
 .pointer {cursor: pointer;}
 .pointer:hover {color: #ffc451;}

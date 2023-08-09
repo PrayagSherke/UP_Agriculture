@@ -270,11 +270,11 @@ h6 {
   background: #c99f43;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: 0.3s;
-  word-break: break-all;
 }
 
 .navbar .dropdown ul li {
   min-width: 200px;
+  border-bottom: solid 1px #f8e68e;
 }
 
 .navbar .dropdown ul a {
@@ -283,6 +283,7 @@ h6 {
   text-transform: none;
   color: #fff;
   font-weight: 400;
+  white-space: break-spaces;
 }
 
 .navbar .dropdown ul a i {
