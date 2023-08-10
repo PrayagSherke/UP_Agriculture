@@ -27,7 +27,7 @@
         <span>
           <div class="form-check form-switch">
             <input class="form-check-input mt-2" type="checkbox" role="switch" id="toggleStyle"
-              (click)="toggleTheme($event)" />
+              (click)="toggleTheme($event)" [checked]="isSavedTheme" />
             <label class="form-check-label" for="flexSwitchCheckDefault">{{'DARK_LIGHT_MODE' | translate}}</label>
           </div>
         </span>

@@ -12,17 +12,27 @@ import { FontSizeService } from '../../services/font-size.service';
 
 export class HeaderComponent implements OnInit {
   supportedLanguages: string[] = [];
-  displayLanguage:any = ""
+  displayLanguage: any = "";
+  isSavedTheme: boolean;
   @ViewChild('main') myDivRef: ElementRef;
   constructor(
     public bilingualService: BilingualService,
     private themeService: ThemeService,
-    private fontSizeService:FontSizeService
+    private fontSizeService: FontSizeService
 
   ) { }
 
   toggleTheme(event: any) {
-   this.themeService.toggleTheme(event.target.checked)
+    if (event.target.checked) {
+      this.themeService.toggleTheme(true)
+    }
+    else {
+      this.themeService.toggleTheme(false)
+    }
+  }
+
+  LocalStorageToggleTheme(theme: any) {
+    this.themeService.toggleTheme(theme)
   }
 
   increaseFontSize() {
@@ -32,25 +42,30 @@ export class HeaderComponent implements OnInit {
   decreaseFontSize() {
     this.fontSizeService.decreaseFontSize();
   }
-  
+
   resetFontSize() {
     this.fontSizeService.resetFontSize();
   }
 
   scroll() {
     const mainContent = document.getElementById('main');
-    mainContent ?  window.scroll(0, 430) :  window.scroll(0, 100);
-}
+    mainContent ? window.scroll(0, 430) : window.scroll(0, 100);
+  }
   ngOnInit(): void {
     let getLanguage = localStorage.getItem('selectedLanguage');
-    this.displayLanguage= getLanguage=='hi'?'English':'Hindi';
+    this.displayLanguage = getLanguage == 'hi' ? 'English' : 'Hindi';
     this.bilingualService.init().then(() => {
       this.supportedLanguages = this.bilingualService.getSupportedLanguages();
     });
+
+    let tempSavedTheme: any = localStorage.getItem('selectedTheme');
+    this.isSavedTheme = JSON.parse(tempSavedTheme);
+    this.LocalStorageToggleTheme(this.isSavedTheme)
+
   }
 
   changeLanguage(lang: any): void {
-    this.displayLanguage= lang=='hi'?'English':'Hindi';
+    this.displayLanguage = lang == 'hi' ? 'English' : 'Hindi';
     this.bilingualService.setLanguage(lang);
   }
 
