@@ -13,26 +13,27 @@ export class FontSizeService {
   increaseFontSize(): void {
     if (this.currentFontSize == 14 || this.currentFontSize == 12) {
       this.currentFontSize += 2;
-      this.applyFontSize()
+      this.applyFontSize(this.currentFontSize)
     }
   }
 
   decreaseFontSize(): void {
     if (this.currentFontSize > 12) {
     this.currentFontSize -= 2;
-    this.applyFontSize()
+    this.applyFontSize(this.currentFontSize)
     }
   }
 
 
   resetFontSize(): void {
     this.currentFontSize = this.defaultFontSize;
-    this.applyFontSize()
+    this.applyFontSize(this.currentFontSize)
   }
 
 
-  private applyFontSize(): void {
-    document.body.style.fontSize = `${this.currentFontSize}px`
+  public applyFontSize(currentFontSize:any): void {
+    localStorage.setItem('SETFONTSIZE',JSON.stringify(currentFontSize))
+    document.body.style.fontSize = `${currentFontSize}px`
   }
 
 }

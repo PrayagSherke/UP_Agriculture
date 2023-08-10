@@ -62,6 +62,13 @@ export class HeaderComponent implements OnInit {
     this.isSavedTheme = JSON.parse(tempSavedTheme);
     this.LocalStorageToggleTheme(this.isSavedTheme)
 
+    let tempSavedFontSize: any = localStorage.getItem('SETFONTSIZE');
+    let convert2NumberFont: number = +tempSavedFontSize;
+    if(convert2NumberFont==0) {
+      convert2NumberFont = 14
+    }
+    this.fontSizeService.applyFontSize(convert2NumberFont);
+
   }
 
   changeLanguage(lang: any): void {
