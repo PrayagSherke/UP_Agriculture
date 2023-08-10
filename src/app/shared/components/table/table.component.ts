@@ -70,7 +70,6 @@ export class TableComponent implements OnInit, AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.tableDataSource.filter = filterValue.trim().toLowerCase();
-    debugger;
     this.recordCount = this.tableDataSource.filteredData.length
   }
 
