@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BilingualService } from '../../services/bilingual.service';
 import { ThemeService } from '../../services/theme.service';
+import { FontSizeService } from '../../services/font-size.service';
 
 
 @Component({
@@ -16,11 +17,24 @@ export class HeaderComponent implements OnInit {
   constructor(
     public bilingualService: BilingualService,
     private themeService: ThemeService,
+    private fontSizeService:FontSizeService
 
   ) { }
 
   toggleTheme(event: any) {
    this.themeService.toggleTheme(event.target.checked)
+  }
+
+  increaseFontSize() {
+    this.fontSizeService.increaseFontSize();
+  }
+
+  decreaseFontSize() {
+    this.fontSizeService.decreaseFontSize();
+  }
+  
+  resetFontSize() {
+    this.fontSizeService.resetFontSize();
   }
 
   scroll() {

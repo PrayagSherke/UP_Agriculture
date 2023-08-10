@@ -14,7 +14,7 @@
 :root {
 	--d-blue: #1f00dd;
 	--green: #0b8511;
-	--orange: #ffbd00;
+	--orange: #ffbd00; 
 	--purple: #6a0dad;
 	--white: #fff;
 	--red: #f14141;
@@ -34,9 +34,95 @@
     --box-shadow-regular: 0px 2px 12px 0px #e7e7e7;
     --bg-gray: #eff2f5;
     --bg-gradient: linear-gradient(97deg, #49a760 50%, rgba(252,197,27,1) 100%);
-    --darkbrown: #c15635
+    --darkbrown: #c15635;
+    --bs-body-font-size: 14px !important;
+    --yellow-text:#ffd800;
+    --green-text: #2EB73D;
 }
 
+html {
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+  }
+
+  
+
+body {
+    font-size: var(--bs-body-font-size)
+}
+a {
+  color: #ffc451;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: #ffd584;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 996;
+    background: #ffc451;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+  }
+
+  
+/*--------------------------------------------------------------
+# Preloader
+--------------------------------------------------------------*/
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #151515;
+  }
+  
+  #preloader:before {
+    content: "";
+    position: fixed;
+    top: calc(50% - 0px);
+    left: calc(50% - 30px);
+    border: 6px solid #ffc451;
+    border-top-color: #151515;
+    border-bottom-color: #151515;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: animate-preloader 1s linear infinite;
+  }
+  
+  @keyframes animate-preloader {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 .green-snackbar {
 	background-color: var(--green);
 	color: var(--white);
@@ -49,3 +135,44 @@
 .secondary-color {color: var(--color-secondary);}
 .brown {color: var(--darkbrown);}
 .text-green {color: var(--dark);}
+
+
+#header .logo p {
+    font-size: 1.4rem;
+}
+
+#header .logo span {
+    font-size: 1rem;
+}
+.leader h2 {
+    padding-top: 1rem;
+}
+ .subheading {
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+ } 
+
+
+ .leader_detail h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.leader_detail span {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+
+}
+.card_box li a {
+  border-bottom: 1px solid #212121;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.05rem;
+  }
+  
