@@ -14,7 +14,7 @@
 :root {
 	--d-blue: #1f00dd;
 	--green: #0b8511;
-	--orange: #ffbd00; 
+	--orange: #ffbd00;
 	--purple: #6a0dad;
 	--white: #fff;
 	--red: #f14141;
@@ -24,7 +24,6 @@
     --fontawesome: "Font Awesome 5 Pro";
     --black: #000000;
     --dark: #1f4e3d;
-    --white: #ffffff;
     --color-primary: #49a760;
     --color-secondary: #f7c35f;
     --color-heading: #04000b;
@@ -38,22 +37,25 @@
     --bs-body-font-size: 14px !important;
     --yellow-text:#ffd800;
     --green-text: #2EB73D;
+    --black-border: #151515;
+    --golden-tainoi: #ffc451;
+    --chinese-silver: #ccc;
 }
 
 html {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
-    background: #fff;
+    background: var(--white);
   }
 
-  
+
 
 body {
     font-size: var(--bs-body-font-size)
 }
 a {
-  color: #ffc451;
+  color: var(--golden-tainoi);
   text-decoration: none !important;
 }
 
@@ -78,14 +80,14 @@ h6 {
     right: 15px;
     bottom: 15px;
     z-index: 996;
-    background: #ffc451;
+    background: var(--golden-tainoi);
     width: 40px;
     height: 40px;
     border-radius: 4px;
     transition: all 0.4s;
   }
 
-  
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -97,28 +99,28 @@ h6 {
     bottom: 0;
     z-index: 9999;
     overflow: hidden;
-    background: #151515;
+    background: var(--black-border);
   }
-  
+
   #preloader:before {
     content: "";
     position: fixed;
     top: calc(50% - 0px);
     left: calc(50% - 30px);
-    border: 6px solid #ffc451;
-    border-top-color: #151515;
-    border-bottom-color: #151515;
+    border: 6px solid var(--golden-tainoi);
+    border-top-color: var(--black-border);
+    border-bottom-color: var(--black-border);
     border-radius: 50%;
     width: 60px;
     height: 60px;
     animation: animate-preloader 1s linear infinite;
   }
-  
+
   @keyframes animate-preloader {
     0% {
       transform: rotate(0deg);
     }
-  
+
     100% {
       transform: rotate(360deg);
     }
@@ -153,18 +155,18 @@ h6 {
     text-transform: uppercase;
     padding-top: 1rem;
     padding-bottom: 1rem;
- } 
+ }
 
 
  .leader_detail h4 {
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--white);
 }
 
 .leader_detail span {
-  color: #fff;
+  color: var(--white);
   font-size: 12px;
   font-weight: 400;
 
@@ -175,4 +177,4 @@ h6 {
   font-weight: 500;
   line-height: 1.05rem;
   }
-  
+
