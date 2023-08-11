@@ -127,16 +127,41 @@
         </ul>
       </li>
 
-      <li><a class="nav-link scrollto" href="#">{{'INFORMATION' | translate}}</a></li>
-      <li><a class="nav-link scrollto" href="#">{{'FAQ' | translate}}</a></li>
+      <!-- <li><a class="nav-link scrollto" href="#">{{'INFORMATION' | translate}}</a></li> -->
+      <li class="dropdown">
+        <a class="nav-link scrollto" href="#">{{'USEFUL_LINKS' | translate}} <i class="bi bi-chevron-down"></i></a>
+        <ul>
+          <li><a href="http://agrilicense.upagriculture.com/pcrs/"
+            target="_blank">{{'PARTICIPATORY_CROP_MONITORING'| translate}}</a></li>
+          <li><a href="http://agriculture.up.gov.in/seed/"
+            target="_blank">{{'SEED_MONITORING_SYSTEM'| translate}}</a></li>
+          <li><a href="http://agrilicense.upagriculture.com:81/cms/"
+            target="_blank">{{'PM_KISSAN'| translate}}</a></li>
+          <li><a href="http://agriculture.up.gov.in/nmnf/natural_farming/nmnf"
+            target="_blank">{{'NATURAL_FARMING'| translate}}</a></li>
+          <li><a href="http://www.upfposhakti.com/"
+            target="_blank">{{'FPO_SHAKTI'| translate}}</a></li>
+          <li><a href="https://soilhealth.dac.gov.in/home"
+            target="_blank">{{'SOIL_HEALTH_CARD'| translate}}</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-link scrollto" href="https://upagripardarshi.gov.in/StaticPages/Prashanuttari-hi.aspx"
+          target="_blank">{{'FAQ' | translate}}</a></li>
 
       <li><a class="nav-link scrollto" href="https://upagripardarshi.gov.in/StaticPages/ContactUs-hi.aspx"
           target="_blank">{{'CONTACT_US' | translate}}</a></li>
       <div class="button_link">
         <a href="http://agriculture.up.gov.in/registration/" target="_blank" class="btn_frm_reg">{{'FARMER_REGISTRATION'
           | translate}}</a>
-        <a href="http://agriculture.up.gov.in/dbt/" target="_blank" class="btn_dprt_login">{{'DEPARTMENT_LOGIN' |
-          translate}}</a>
+        <!-- <a href="http://agriculture.up.gov.in/dbt/" target="_blank" class="btn_dprt_login">{{'LOGIN' |
+          translate}}</a> -->
+          <li class="dropdown">
+            <a href="#" class="btn_frm_reg">{{'LOGIN' | translate}} <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="http://agriculture.up.gov.in/dbt/" target="_blank">{{'DEPARTMENT' | translate}}</a></li>
+              <li><a href="http://agriculture.up.gov.in/oth_login.aspx" target="_blank">{{'CUG' | translate}}</a></li>
+            </ul>
+          </li>
       </div>
     </ul>
     <i class="bi bi-list mobile-nav-toggle"></i>
