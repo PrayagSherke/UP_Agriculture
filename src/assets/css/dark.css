@@ -137,3 +137,6 @@ body {
 .screen-reader p {
   color: var(--yellow-text);
 }
+.navbar .dropdown ul{
+  background: #521e1b;
+}
