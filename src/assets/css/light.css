@@ -2961,7 +2961,7 @@ max-width: 450px;
   /* font-size: 0.75rem; */
   padding: 0;
   margin: 0;
-  color: #747474;
+  color: var(--grey);
 }
 
 .footer_visitor p span {
@@ -2970,7 +2970,7 @@ max-width: 450px;
 
 .footer_social h6 {
   /* font-size: 0.75rem; */
-  color: #747474;
+  color: var(--grey);
   font-weight: 800;
   padding-bottom: 0.938rem;
 }
@@ -3023,8 +3023,8 @@ max-width: 450px;
 .footer_social .youtube {
   /* font-size: 10px; */
   color: var(--white);
-  background-color: #c8131a;
-  border: 3px solid #c8131a;
+  background-color: var(--dark-red);
+  border: 3px solid var(--dark-red);
   border-radius: 50px;
   width: 32px;
   height: 32px;
@@ -3053,7 +3053,7 @@ max-width: 450px;
 
 .footer_menulist li a {
   text-align: center;
-  color: #747474;
+  color: var(--grey);
   font-weight: 400;
   /* font-size: 0.875rem; */
   padding: 0 .6rem;
@@ -3069,7 +3069,7 @@ max-width: 450px;
 
 .footer_copyright p {
   text-align: center;
-  color: #747474;
+  color: var(--grey);
   font-weight: 400;
   /* font-size: 0.875rem; */
 }
