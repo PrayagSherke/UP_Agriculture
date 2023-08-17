@@ -117,3 +117,23 @@ body {
 .footer_copyright p {
   color: var(--yellow-text);
 }
+.screen-reader h1 {
+  font-weight: 700;
+  color: var(--white);
+ }
+ .form-check label{
+  color: var(--yellow-text);
+  }
+ .table tr th {
+  color: #000;
+  background: var(--yellow-text);
+}
+.table tr td a {
+  color: var(--yellow-text);
+}
+.table tr td {
+  color: var(--yellow-text);
+}
+.screen-reader p {
+  color: var(--yellow-text);
+}
