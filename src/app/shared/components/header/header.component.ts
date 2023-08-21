@@ -54,6 +54,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     let getLanguage = localStorage.getItem('selectedLanguage');
     this.displayLanguage = getLanguage == 'hi' ? 'English' : 'Hindi';
+    this.hindFontSize(getLanguage)
     this.bilingualService.init().then(() => {
       this.supportedLanguages = this.bilingualService.getSupportedLanguages();
     });
@@ -73,7 +74,18 @@ export class HeaderComponent implements OnInit {
 
   changeLanguage(lang: any): void {
     this.displayLanguage = lang == 'hi' ? 'English' : 'Hindi';
+    this.hindFontSize(lang)
     this.bilingualService.setLanguage(lang);
+  }
+
+  hindFontSize(lang:any) {
+    let d: any = document.getElementById("navbar");
+    if (lang == 'hi') {
+      d.classList.add('HINDI')
+    }
+    else {
+      d.classList.remove('HINDI')
+    }
   }
 
 }

@@ -2,17 +2,19 @@
 
 <header id="header" class="fixed-top">
   <div class="topbar white-bg">
+    <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 d-none d-sm-block">
         &nbsp;
         <img src="assets/img/Flag_of_India.svg.png" style="width: 24px" />
         {{'GOVERNMENT_OF_INDIA' | translate}}
       </div>
-      <div class="col-md-9 text-end topbar-right d-none d-sm-block">
-
-        <a href="http://agriculture.up.gov.in/kisan_suvidha.html" target="_blank" class="btn_chqreg"><img
-            src="assets/img/reg-top.svg" alt="">{{'CHECK_REGISTRATION'|translate}}</a>
-        <span><a href="screen-reader">{{'SCREEN_READER' | translate}}</a> &nbsp; |
+      <div class="col-md-9 text-end topbar-right">
+        <span>
+        <a href="http://agriculture.up.gov.in/kisan_suvidha.html" target="_blank" class="btn_chqreg">
+          <img src="assets/img/reg-top.svg" alt="">{{'CHECK_REGISTRATION'|translate}}</a>
+        </span>
+        <span><a href="screen-reader" class=" d_none">{{'SCREEN_READER' | translate}}</a> |
         </span>
 
         <span class="pointer" (click)="changeLanguage(displayLanguage=='English' ? 'en' : 'hi')">
@@ -20,10 +22,10 @@
 
           &nbsp; |</span>
 
-        <span (click)="scroll()" class="pointer">{{'SKIP_TO_MAIN' | translate}} &nbsp; | </span>
-        <span class="pointer" (click)="increaseFontSize()">A+ &nbsp; | </span>
-        <span class="pointer" (click)="resetFontSize()">A &nbsp; | </span>
-        <span class="pointer" (click)="decreaseFontSize()">A- &nbsp; |</span>
+        <span (click)="scroll()" class="pointer  d_none">{{'SKIP_TO_MAIN' | translate}} &nbsp; | </span>
+        <span class="pointer  d_none" (click)="increaseFontSize()">A+ &nbsp; | </span>
+        <span class="pointer d_none" (click)="resetFontSize()">A &nbsp; | </span>
+        <span class="pointer d_none" (click)="decreaseFontSize()">A- &nbsp; |</span>
         <span>
           <div class="form-check form-switch">
             <input class="form-check-input mt-2" type="checkbox" role="switch" id="toggleStyle"
@@ -31,6 +33,8 @@
             <label class="form-check-label" for="flexSwitchCheckDefault">{{'DARK_LIGHT_MODE' | translate}}</label>
           </div>
         </span>
+      </div>
+
       </div>
     </div>
   </div>
@@ -64,83 +68,133 @@
     </div>
   </div>
 
-  <nav id="navbar" class="navbar menu-bg">
-    <ul>
-      <li>
-        <a class="nav-link scrollto active" href="index.html"><i class="fa fa-home"></i></a>
-      </li>
-      <li class="dropdown">
-        <a href="#"><span>{{ 'ABOUT_US' | translate }}</span> <i class="bi bi-chevron-down"></i></a>
-        <ul>
-          <li><a href="https://upagripardarshi.gov.in/StaticPages/History-hi.aspx" target="_blank">{{ 'HISTORY' |
-              translate }}</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a class="nav-link scrollto" href="#">{{'SCHEMES_GUIDELINES' | translate}} <i
-            class="bi bi-chevron-down"></i></a>
-        <ul class="scheme-submenu">
-          <li><a href="#">{{'option1' | translate}}</a></li>
-          <li><a href="#">{{'option2' | translate}}</a></li>
-          <li><a href="#">{{'option3' | translate}}</a></li>
-          <li><a href="#">{{'option4' | translate}}</a></li>
-          <li><a href="#">{{'option5' | translate}}</a></li>
-          <li><a href="#">{{'option6' | translate}}</a></li>
-          <li><a href="#">{{'option7' | translate}}</a></li>
-          <li><a href="#">{{'option8' | translate}}</a></li>
-          <li><a href="#">{{'option9' | translate}}</a></li>
-          <li><a href="#">{{'option10' | translate}}</a></li>
-          <li><a href="#">{{'option11' | translate}}</a></li>
-          <li><a href="#">{{'option12' | translate}}</a></li>
-          <li><a href="#">{{'option13' | translate}}</a></li>
-          <li><a href="#">{{'option14' | translate}}</a></li>
-          <li><a href="#">{{'option15' | translate}}</a></li>
-          <li><a href="#">{{'option16' | translate}}</a></li>
-          <li><a href="#">{{'option17' | translate}}</a></li>
-          <li><a href="#">{{'option18' | translate}}</a></li>
-          <li><a href="#">{{'option19' | translate}}</a></li>
-          <li><a href="#">{{'option20' | translate}}</a></li>
-          <li><a href="#">{{'option21' | translate}}</a></li>
-          <li><a href="#">{{'option22' | translate}}</a></li>
-          <li><a href="#">{{'option23' | translate}}</a></li>
-          <li><a href="#">{{'option24' | translate}}</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#"><span>{{'BOOKING_GENERATE_TOKEN' | translate}}</span> <i class="bi bi-chevron-down"></i></a>
-        <ul>
-          <li><a href="https://pmkusum.upagriculture.com/" target="_blank">{{'MACHINES_DRONES_SOLARPUMP' |
-              translate}}</a></li>
-          <li><a href="http://agriculture.up.gov.in/pmsytoken/token/mainpage.aspx"
-              target="_blank">{{'MACHINERY_FARMPONDS' | translate}}</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a class="nav-link scrollto" href="#">{{'KISAN_CORNER' | translate}} <i class="bi bi-chevron-down"></i></a>
-        <ul>
-          <li><a href="https://upagripardarshi.gov.in/StaticPages/Article-hi.aspx" target="_blank">{{'ARTICLES' |
-              translate}}</a></li>
-          <li><a href="https://upagripardarshi.gov.in/StaticPages/Bulletin-hi.aspx" target="_blank">{{'BULLETINES' |
-              translate}}</a></li>
-          <li><a href="https://upagripardarshi.gov.in/StaticPages/Publication-hi.aspx" target="_blank">{{'PUBLICATION' |
-              translate}}</a></li>
-        </ul>
-      </li>
+  <nav id="navbar" class="navbar navbar-expand-lg menu-bg">
 
-      <li><a class="nav-link scrollto" href="#">{{'INFORMATION' | translate}}</a></li>
-      <li><a class="nav-link scrollto" href="#">{{'FAQ' | translate}}</a></li>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li>
+            <a class="nav-link scrollto active" href="index.html"><i class="fa fa-home"></i></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span>{{ 'ABOUT_US' | translate }}</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="https://upagripardarshi.gov.in/StaticPages/History-hi.aspx" target="_blank">{{ 'HISTORY' |
+                  translate }}</a></li>
+            </ul>
+          </li>
 
-      <li><a class="nav-link scrollto" href="https://upagripardarshi.gov.in/StaticPages/ContactUs-hi.aspx"
-          target="_blank">{{'CONTACT_US' | translate}}</a></li>
-      <div class="button_link">
-        <a href="http://agriculture.up.gov.in/registration/" target="_blank" class="btn_frm_reg">{{'FARMER_REGISTRATION'
-          | translate}}</a>
-        <a href="http://agriculture.up.gov.in/dbt/" target="_blank" class="btn_dprt_login">{{'DEPARTMENT_LOGIN' |
-          translate}}</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+              {{'SCHEMES_GUIDELINES' | translate}}
+            </a>
+            <ul class="dropdown-menu scheme-submenu scroll-box" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">{{'option1' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option2' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option3' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option4' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option5' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option6' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option7' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option8' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option9' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option10' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option11' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option12' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option13' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option14' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option15' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option16' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option17' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option18' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option19' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option20' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option21' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option22' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option23' | translate}}</a></li>
+              <li><a class="dropdown-item" href="#">{{'option24' | translate}}</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span>{{'BOOKING_GENERATE_TOKEN' | translate}}</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="https://pmkusum.upagriculture.com/" target="_blank">{{'MACHINES_DRONES_SOLARPUMP' |
+                translate}}</a></li>
+              <li><a class="dropdown-item" href="http://agriculture.up.gov.in/pmsytoken/token/mainpage.aspx"
+                target="_blank">{{'MACHINERY_FARMPONDS' | translate}}</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span>{{'KISAN_CORNER' | translate}}</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="https://upagripardarshi.gov.in/StaticPages/Article-hi.aspx" target="_blank">{{'ARTICLES' |
+                translate}}</a></li>
+              <li><a class="dropdown-item" href="https://upagripardarshi.gov.in/StaticPages/Bulletin-hi.aspx" target="_blank">{{'BULLETINES' |
+                translate}}</a></li>
+              <li><a class="dropdown-item" href="https://upagripardarshi.gov.in/StaticPages/Publication-hi.aspx" target="_blank">{{'PUBLICATION' |
+                translate}}</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span>{{'USEFUL_LINKS' | translate}}</span>
+            </a>
+            <ul class="dropdown-menu scheme-submenu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="http://agrilicense.upagriculture.com/pcrs/"
+                target="_blank">{{'PARTICIPATORY_CROP_MONITORING'| translate}}</a></li>
+              <li><a class="dropdown-item" href="http://agriculture.up.gov.in/seed/"
+                target="_blank">{{'SEED_MONITORING_SYSTEM'| translate}}</a></li>
+              <li><a class="dropdown-item" href="http://agrilicense.upagriculture.com:81/cms/"
+                target="_blank">{{'PM_KISSAN'| translate}}</a></li>
+              <li><a class="dropdown-item" href="http://agriculture.up.gov.in/nmnf/natural_farming/nmnf"
+                target="_blank">{{'NATURAL_FARMING'| translate}}</a></li>
+              <li><a class="dropdown-item" href="http://www.upfposhakti.com/"
+                target="_blank">{{'FPO_SHAKTI'| translate}}</a></li>
+              <li><a class="dropdown-item" href="https://soilhealth.dac.gov.in/home"
+                target="_blank">{{'SOIL_HEALTH_CARD'| translate}}</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="https://upagripardarshi.gov.in/StaticPages/Prashanuttari-hi.aspx"
+            target="_blank">{{'FAQ' | translate}}</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="https://upagripardarshi.gov.in/StaticPages/ContactUs-hi.aspx"
+            target="_blank">{{'CONTACT_US' | translate}}</a>
+          </li>
+
+          <div class="button_link">
+            <a href="http://agriculture.up.gov.in/registration/" target="_blank" class="btn_frm_reg">{{'FARMER_REGISTRATION'
+              | translate}}</a>
+            <!-- <a href="http://agriculture.up.gov.in/dbt/" target="_blank" class="btn_dprt_login">{{'LOGIN' |
+              translate}}</a> -->
+              <li class="nav-item dropdown">
+                <a href="#" class="btn_frm_reg">{{'LOGIN' | translate}} <i class="bi bi-chevron-down"></i></a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="http://agriculture.up.gov.in/dbt/" target="_blank">{{'DEPARTMENT' | translate}}</a></li>
+                  <li><a class="dropdown-item" href="http://agriculture.up.gov.in/oth_login.aspx" target="_blank">{{'CUG' | translate}}</a></li>
+                </ul>
+              </li>
+          </div>
+        </ul>
       </div>
-    </ul>
-    <i class="bi bi-list mobile-nav-toggle"></i>
 
   </nav>
+
+
+
 </header>
 <!-- End Header -->
