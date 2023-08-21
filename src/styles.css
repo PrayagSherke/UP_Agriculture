@@ -40,6 +40,9 @@
     --black-border: #151515;
     --golden-tainoi: #ffc451;
     --chinese-silver: #ccc;
+    --light-maroon: #521e1b;
+    --dark-red: #c8131a;
+    --grey: #747474;
 }
 
 html {
@@ -86,7 +89,10 @@ h6 {
     border-radius: 4px;
     transition: all 0.4s;
   }
-
+/* img {
+  max-width: 100%;
+  height: auto;
+} */
 
 /*--------------------------------------------------------------
 # Preloader
