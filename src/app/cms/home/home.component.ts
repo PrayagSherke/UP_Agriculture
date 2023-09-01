@@ -100,50 +100,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.bilingualService.init().then(() => {
-    //   this.supportedLanguages = this.bilingualService.getSupportedLanguages();
-    // });
-  }
 
-  // thumbsSwiper: any;
-  // setThumbsSwiper(swiper:any) {
-  //   this.thumbsSwiper = swiper;
-  // }
-  // controlledSwiper: any;
-  // setControlledSwiper(swiper:any) {
-  //   this.controlledSwiper = swiper;
-  // }
+  }
 
   exampleConfig = { slidesPerView: 1 };
   slidesPerView: number = 2;
   pagination: any = false;
 
-  // slides2 = ["abc 1", "slide 2", "slide 3"];
-  // replaceSlides() {
-  //   this.slides2 = ["foo", "bar"];
-  // }
-
-  // togglePagination() {
-  //   if (!this.pagination) {
-  //     this.pagination = { type: "fraction" };
-  //   } else {
-  //     this.pagination = false;
-  //   }
-  // }
-
-  // navigation = false;
-  // toggleNavigation() {
-  //   this.navigation = !this.navigation;
-  // }
-
-  // scrollbar: any = false;
-  // toggleScrollbar() {
-  //   if (!this.scrollbar) {
-  //     this.scrollbar = { draggable: true };
-  //   } else {
-  //     this.scrollbar = false;
-  //   }
-  // }
+  
   breakpoints = {
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 4, spaceBetween: 40 },

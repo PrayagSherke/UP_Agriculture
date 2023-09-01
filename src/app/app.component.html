@@ -1,7 +1,7 @@
 
-<div class="alert alert-danger" *ngIf="errorMessage | async as error">
-  
-   {{error}}
+<div class="alert alert-danger" *ngIf="displayErrorMsg" [ngClass]="{'show': displayErrorMsg}"
+style="position: absolute; z-index: 999; top: 0px; right: 0px; width: 100%; text-align: center;">
+   {{displayErrorMsg}}
 </div>
 <app-loading *ngIf="showLoading | async"></app-loading>
 <router-outlet></router-outlet>

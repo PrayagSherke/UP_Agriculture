@@ -1,8 +1,14 @@
-<label [for]="inputId" class="form-label">{{lable}} <span *ngIf="isRequired" class="text-danger">*</span></label>
+
+<label [for]="inputId" class="form-label" *ngIf="isLabel">{{lable}} <span *ngIf="isRequired" class="text-danger">*</span></label>
 
 <div *ngIf="inputType=='input'">
     <input type="text" [formControl]="control" class="form-control" [placeholder]="placeholder"
-        [maxlength]="maxlength" />
+        [maxlength]="maxlength" [minlength]="minlength" />
+</div>
+
+<div *ngIf="inputType=='password'">
+    <input type="password" [formControl]="control" class="form-control" [placeholder]="placeholder"
+        [maxlength]="maxlength" [minlength]="minlength" />
 </div>
 
 <div *ngIf="inputType=='select'">
@@ -11,8 +17,16 @@
     </select>
 </div>
 
+<button [type]="btnType" class="btn" *ngIf="inputType=='submitbtn'" [ngClass]="cssClass">
+    <mat-icon *ngIf="isIcon">{{maticon}}</mat-icon>
+    {{lable}}</button>
+
 <ng-container *ngIf="control.invalid && control.touched">
     <div *ngFor="let err of control.errors | keyvalue " class="text-danger fs-7">
-        {{errorMessage[err.key]}}
+        {{errorMessage[err.key]}} {{err.value.requiredLength}} 
+        <span *ngIf="err.value.requiredLength">
+            characters long
+        </span>
+        
     </div>
 </ng-container>

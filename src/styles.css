@@ -40,7 +40,7 @@
     --black-border: #151515;
     --golden-tainoi: #ffc451;
     --chinese-silver: #ccc;
-    --light-maroon: #521e1b;
+    --light-maroon: #521e1b; 
     --dark-red: #c8131a;
     --grey: #747474;
 }
@@ -201,3 +201,6 @@ h6 {
   .HINDI ul >li {
     font-size: 16px;
   }
+
+  .without-menu {margin-top: 130px;}
+  .heading-img {background: url(assets/img/banner1.jpg);}

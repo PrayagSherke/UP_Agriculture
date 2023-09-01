@@ -1,20 +1,46 @@
-<form [formGroup]="formGroup" (ngSubmit)="login()">
-  <div class="container">
-    <div class="row  justify-content-md-center">
-      <div class="col-md-6">
-        <legend>Login</legend>
-        <div class="mb-3">
-          <app-form-control [inputId]="'email'" [lable]="'Email'" [placeholder]="placeholderValue + ' email'" [control]="formGroup.controls.email"
-            [inputType]="'input'" [isRequired]="true"></app-form-control>
-        </div>
-        <div class="mb-3">
-          <app-form-control [inputId]="'password'" [placeholder]="placeholderValue + ' password'" [lable]="'Password'" [control]="formGroup.controls.password"
-            [inputType]="'input'" [isRequired]="true"></app-form-control>
-        </div>
-        <div class="mb-3">
-          <button type="submit" class="btn btn-dark">Login</button>
+<app-header [isMenu]="false"></app-header>
+<main id="mainInner">
+
+  <section class="p-10 without-menu inner-header divider layer-overlay overlay-dark heading-img">
+    <div class="container ">
+      <!-- Section Content -->
+      <div class="section-content text-left">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-left">
+            <ol class="breadcrumb text-center mt-10 white">
+              <li><a routerLink="/">Home</a></li>
+              <li>/</li>
+              <li class="font-weight-bold">Login</li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </section>
+  <form [formGroup]="formGroup" (ngSubmit)="login()">
+    <div class="container">
+      <div class="row  justify-content-md-center">
+        <div class="col-md-6 mt-5 mb-4">
+          <div class="shadow rounded p-3 login-bg">
+            <legend class="font-weight-bold pb-2">Login</legend>
+            <div class="mb-3">
+              <app-form-control [inputId]="'email'" [lable]="'Email'" [placeholder]="placeholderValue + ' email'"
+                [control]="formGroup.controls.email" [inputType]="'input'" [isRequired]="true"
+                [maxlength]="100"></app-form-control>
+            </div>
+            <div class="mb-3">
+              <app-form-control [inputId]="'password'" [placeholder]="placeholderValue + ' password'"
+                [lable]="'Password'" [control]="formGroup.controls.password" [inputType]="'password'"
+                [isRequired]="true" [minlength]="8"></app-form-control>
+            </div>
+            <div class="mb-3">
+              <app-form-control [lable]="'Login'" [inputType]="'submitbtn'" [isLabel]="false" ></app-form-control>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</main>
+<app-footer></app-footer>

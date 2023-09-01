@@ -3112,3 +3112,14 @@ max-width: 450px;
   padding-bottom: 3rem;
 }
 }
+
+.btn-brown {
+  background-color: var(--light-maroon);
+  color: var(--white);
+}
+.btn-brown:hover { background-color: var(--dark-red); 
+  color: var(--white);}
+.btn-orange {background-color: var(--orange); color: var(--white);}
+
+.btn-orange:hover { background-color: var(--dark-red); 
+  color: var(--white);}

@@ -14,7 +14,7 @@
         <a href="http://agriculture.up.gov.in/kisan_suvidha.html" target="_blank" class="btn_chqreg">
           <img src="assets/img/reg-top.svg" alt="">{{'CHECK_REGISTRATION'|translate}}</a>
         </span>
-        <span><a href="screen-reader" class=" d_none">{{'SCREEN_READER' | translate}}</a> |
+        <span><a routerLink="/screen-reader" class=" d_none">{{'SCREEN_READER' | translate}}</a> |
         </span>
 
         <span class="pointer" (click)="changeLanguage(displayLanguage=='English' ? 'en' : 'hi')">
@@ -68,7 +68,7 @@
     </div>
   </div>
 
-  <nav id="navbar" class="navbar navbar-expand-lg menu-bg">
+  <nav id="navbar" class="navbar navbar-expand-lg menu-bg" *ngIf="isMenu">
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -76,7 +76,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li>
-            <a class="nav-link scrollto active" href="index.html"><i class="fa fa-home"></i></a>
+            <a class="nav-link scrollto active" routerLink="/"><i class="fa fa-home"></i></a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -184,6 +184,7 @@
               <li class="nav-item dropdown">
                 <a href="#" class="btn_frm_reg">{{'LOGIN' | translate}} <i class="bi bi-chevron-down"></i></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" routerLink="/login">{{'LOGIN' | translate}}</a></li>
                   <li><a class="dropdown-item" href="http://agriculture.up.gov.in/dbt/" target="_blank">{{'DEPARTMENT' | translate}}</a></li>
                   <li><a class="dropdown-item" href="http://agriculture.up.gov.in/oth_login.aspx" target="_blank">{{'CUG' | translate}}</a></li>
                 </ul>

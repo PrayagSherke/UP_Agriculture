@@ -140,3 +140,5 @@ body {
 .navbar .dropdown ul{
   background: #521e1b;
 }
+.login-bg {background-color: var(--black); color: var(--yellow-text);}
+.btn-brown {background-color: var(--yellow-text); color: var(--black);}

@@ -10,15 +10,17 @@ import { getErrorMessage, showLoadingSpinner } from './shared/store/app.selector
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'ngrx14-ang14';
+  title = 'UP Agri';
   errorMessage!: Observable<string>;
   showLoading!:Observable<boolean>;
+  displayErrorMsg:string='';
 
-  constructor(private store:Store<Appstate>) {}
+  constructor(
+    private store:Store<Appstate>,
+    ) {}
 
   ngOnInit() {    
      this.errorMessage = this.store.pipe(select(getErrorMessage));
      this.showLoading = this.store.pipe(select(showLoadingSpinner))
-
   }
 }

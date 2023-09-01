@@ -11,14 +11,13 @@
     </div>
     <div class="col-md-6 count">
     Total Count: {{recordCount}}
-
     </div>
 
   </div>
 
 
   <!-- Table -->
-  <table class="mat-elevation-z8" mat-table [dataSource]="tableDataSource" matSort (matSortChange)="sortTable($event)">
+  <table class="mat-elevation-z8 table-theme" mat-table [dataSource]="tableDataSource" matSort (matSortChange)="sortTable($event)">
 
     <ng-container *ngFor="let tableColumn of tableColumns" [matColumnDef]="tableColumn.name">
 
@@ -44,7 +43,7 @@
     </ng-container>
     <!-- action column -->
     <ng-container *ngIf="rowActionIcon?.length" [matColumnDef]="rowActionIcon">
-      <th mat-header-cell *matHeaderCellDef></th>
+      <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let element" [id]="rowActionIcon">
         <!-- <button mat-button (click)="emitRowAction(element)">
             <mat-icon>{{rowActionIcon}}</mat-icon>

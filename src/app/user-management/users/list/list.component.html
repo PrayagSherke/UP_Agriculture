@@ -1,15 +1,37 @@
+<app-header [isMenu]="false"></app-header>
+<main id="mainInner">
+  
+  <section class="p-10 without-menu inner-header divider layer-overlay overlay-dark heading-img">
+    <div class="container ">
+      <!-- Section Content -->
+      <div class="section-content text-left">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 text-left">
+            <ol class="breadcrumb text-center mt-10 white">
+              <li><a routerLink="/">Home</a></li>
+              <li>/</li>
+              <li class="font-weight-bold">User Registration</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <div class="container mt-2">
-  <button class="btn btn-primary me-2" (click)="showList()"><mat-icon>list</mat-icon></button>
-  <button class="btn btn-danger" (click)="showGrid()"><mat-icon>grid_on</mat-icon></button>
-  <div class="row">
-    <div class="col col-md-4 offset-md-0 mt-2">
-      <a routerLink="add-user" class="btn btn-dark">+ Add A New User</a>
-      <!-- <span *ngIf="users$ | async as users">
-        Count:: {{users.length}}
-      </span> -->
-    </div>
-  </div>
+  <!-- <button class="btn btn-primary me-2" (click)="showList()"><mat-icon>list</mat-icon></button>
+  <button class="btn btn-danger" (click)="showGrid()"><mat-icon>grid_on</mat-icon></button> -->
+
+  <!-- <app-form-control [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false" cssClass="btn-primary me-2" 
+  [maticon]="'list'" [isIcon]="true" (click)="showList()">
+  </app-form-control>
+
+  <app-form-control [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false" cssClass="btn-danger me-2" 
+  [maticon]="'grid_on'" [isIcon]="true" (click)="showGrid()">
+  </app-form-control> -->
+
+  <app-form-control [lable]="'+ Add A New User'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false" cssClass="btn-orange" routerLink="add-user" >
+  </app-form-control>
 </div>
 
 <div class="container mt-2" *ngIf="isShowList">
@@ -77,3 +99,6 @@
     </div>
   </div>
 </div>
+</main>
+
+<app-footer></app-footer>

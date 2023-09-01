@@ -12,6 +12,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BilingualService } from '../shared/services/bilingual.service';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router'
 
 // Create a custom TranslateLoader to load translations from the assets folder
 export function HttpLoaderFactory(http: HttpClient) {
@@ -23,6 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule, 
     FormsModule, 
     ReactiveFormsModule,
+    RouterModule,
     AppMaterialModule,
     TranslateModule.forRoot({
       loader: {
@@ -36,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   exports: [
     FormControlComponent,
     TableComponent,
+    RouterModule,
     AppMaterialModule,
     TranslateModule,
     HeaderComponent,
