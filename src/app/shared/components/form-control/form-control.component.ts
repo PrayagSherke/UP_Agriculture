@@ -32,7 +32,6 @@ export class FormControlComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.minlength)
   }
 
 }

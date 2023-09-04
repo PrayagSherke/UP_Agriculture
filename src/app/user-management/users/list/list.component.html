@@ -1,22 +1,7 @@
 <app-header [isMenu]="false"></app-header>
 <main id="mainInner">
   
-  <section class="p-10 without-menu inner-header divider layer-overlay overlay-dark heading-img">
-    <div class="container ">
-      <!-- Section Content -->
-      <div class="section-content text-left">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3 text-left">
-            <ol class="breadcrumb text-center mt-10 white">
-              <li><a routerLink="/">Home</a></li>
-              <li>/</li>
-              <li class="font-weight-bold">User Registration</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-page-heading [pageHeading]="'User Registration'"></app-page-heading>
 
 <div class="container mt-2">
   <!-- <button class="btn btn-primary me-2" (click)="showList()"><mat-icon>list</mat-icon></button>

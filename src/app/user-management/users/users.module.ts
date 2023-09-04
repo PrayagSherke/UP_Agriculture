@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { StoreModule } from '@ngrx/store';
@@ -10,8 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from "src/app/shared/shared.module";
-import {MatIconModule} from '@angular/material/icon';
-
+import { MatIconModule } from '@angular/material/icon';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
     component: ListComponent,
   },
   {
-    path: 'add-user', pathMatch:'full',
+    path: 'add-user', pathMatch: 'full',
     component: AddComponent,
   },
   {
@@ -43,7 +43,9 @@ const routes: Routes = [
     FormsModule, ReactiveFormsModule,
     StoreModule.forFeature('myusers', userReducer),
     EffectsModule.forFeature([UsersEffect]),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgMultiSelectDropDownModule.forRoot()
   ],
+  schemas: [NO_ERRORS_SCHEMA],
 })
-export class UsersModule {}
+export class UsersModule { }

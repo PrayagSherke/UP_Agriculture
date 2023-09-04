@@ -68,7 +68,6 @@ export class CommonService {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.getAccessToken()
     }
-    console.log(header)
     return header;
   }
    

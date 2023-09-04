@@ -11,7 +11,6 @@ export class AuthService {
 
 	public isAuthenticated(): boolean {
 		const token = this.commonService.getTokenHeader()
-		console.log(token)
 		if (token.Authorization == "Bearer null") {
 			return false;
 			//return !this.jwtHelper.isTokenExpired(token); //TODO
