@@ -1,44 +1,59 @@
 <app-header [isMenu]="false"></app-header>
 <main id="mainInner">
   <app-page-heading [pageHeading]="'User Registration'"></app-page-heading>
-<form [formGroup]="formGroup" class="shadow p-4">
-<div class="container">
-  <legend>Add A New User</legend>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="mb-3">
-        <app-form-control [inputId]="'firstName'" [lable]="'First Name'" [control]="formGroup.controls.firstName"
-          [inputType]="'input'" [isRequired]="true"  [placeholder]="placeholderValue + ' first name'" ></app-form-control>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <app-form-control [inputId]="'lastName'" [lable]="'Last Name'" [control]="formGroup.controls.lastName"
-          [inputType]="'input'" [isRequired]="true"  [placeholder]="placeholderValue + ' last name'" ></app-form-control>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <app-form-control [inputId]="'email'" [lable]="'Email'" [control]="formGroup.controls.email"
-          [inputType]="'input'" [isRequired]="true"  [placeholder]="placeholderValue + ' email'" ></app-form-control>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <app-form-control [inputId]="'mobileNo'" [lable]="'Mobile No.'" [control]="formGroup.controls.mobileNo"
-          [inputType]="'input'" [isRequired]="true" [maxlength]="10"  [placeholder]="placeholderValue + ' mobile no'" ></app-form-control>
-      </div>
-    </div>
+  <form [formGroup]="formGroup" class="shadow p-4">
+    <div class="container">
+      <legend>Add A New User</legend>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="mb-3">
+            <app-form-control [inputId]="'firstName'" [lable]="'First Name'" [control]="formGroup.controls.firstName"
+              [inputType]="'input'" [isRequired]="true"
+              [placeholder]="placeholderValue + ' first name'"></app-form-control>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <app-form-control [inputId]="'lastName'" [lable]="'Last Name'" [control]="formGroup.controls.lastName"
+              [inputType]="'input'" [isRequired]="true"
+              [placeholder]="placeholderValue + ' last name'"></app-form-control>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <app-form-control [inputId]="'email'" [lable]="'Email'" [control]="formGroup.controls.email"
+              [inputType]="'input'" [isRequired]="true" [placeholder]="placeholderValue + ' email'"></app-form-control>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mb-3">
+            <app-form-control [inputId]="'mobileNo'" [lable]="'Mobile No.'" [control]="formGroup.controls.mobileNo"
+              [inputType]="'input'" [isRequired]="true" [maxlength]="10"
+              [placeholder]="placeholderValue + ' mobile no'"></app-form-control>
+          </div>
+        </div>
 
-    <div class="col-md-4">
-      <div class="mb-3">
-        <app-form-control [inputId]="'gender'" [dropdownData]="gender" [lable]="'Gender'"
-          [control]="formGroup.controls.gender" [inputType]="'select'" [isRequired]="true"  [placeholder]="placeholderValue + ' gender'" ></app-form-control>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="mb-3">
-        <form [formGroup]="myForm">
+        <div class="col-md-4">
+          <div class="mb-3">
+            <app-form-control [inputId]="'gender'" [dropdownData]="gender" [lable]="'Gender'"
+              [control]="formGroup.controls.gender" [inputType]="'select'" [isRequired]="true"
+              [placeholder]="placeholderValue + ' gender'"></app-form-control>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="mb-3">
+            <app-form-control [inputId]="'datepicker'" [lable]="'DOB'"
+              [control]="formGroup.controls.dob" [inputType]="'date'" [isRequired]="false"
+              [placeholder]="placeholderValueSelect + ' date of birth'"></app-form-control>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-4">
+          <div class="mb-3">
+            <!-- <form [formGroup]="myForm">
           <label  class="form-label">Role <span class="text-danger">*</span></label>
           <ng-multiselect-dropdown
               name="role"
@@ -52,24 +67,33 @@
               (onDeSelectAll)="onItemDeSelectAll($event)"
               >
           </ng-multiselect-dropdown>
-     </form>
+     </form> -->
 
-        <!-- <app-form-control [inputId]="'role'" [dropdownData]="role" [lable]="'Role'" [control]="formGroup.controls.role"
+            <label class="form-label">Role <span class="text-danger">*</span></label>
+            <ng-multiselect-dropdown name="role" [placeholder]="'Select'" formControlName="role"
+              [settings]="dropdownSettings" [data]="roles" (onSelect)="onItemSelect($event)"
+              (onSelectAll)="onSelectAll($event)" (onDeSelect)="onItemDeSelect($event)"
+              (onDeSelectAll)="onItemDeSelectAll($event)">
+            </ng-multiselect-dropdown>
+            <span *ngIf="!formGroup.controls['role'].valid && formGroup.controls['role'].touched"  class="text-danger fs-7">
+              Please select role
+            </span>
+            <!-- <app-form-control [inputId]="'role'" [dropdownData]="role" [lable]="'Role'" [control]="formGroup.controls.role"
           [inputType]="'select'" [isRequired]="true"></app-form-control> -->
+          </div>
+        </div>
       </div>
+
+      <button type="submit" class="btn btn-dark" (click)="save()"
+        *ngIf="route.snapshot.params['page'] != 'edit'">Create</button>
+      <button type="submit" class="btn btn-dark" (click)="update()"
+        *ngIf="route.snapshot.params['page'] == 'edit'">Update</button>
+
+
+      <app-form-control [lable]="'Back'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false"
+        cssClass="btn-orange" class="ms-2" routerLink="/list-user">
+      </app-form-control>
+
     </div>
-  </div>
-
-  <button type="submit" class="btn btn-dark" (click)="save()"
-    *ngIf="route.snapshot.params['page'] != 'edit'">Create</button>
-  <button type="submit" class="btn btn-dark" (click)="update()"
-    *ngIf="route.snapshot.params['page'] == 'edit'">Update</button>
-
-    
-  <app-form-control [lable]="'Back'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false" cssClass="btn-orange"
-  class="ms-2" routerLink="/list-user" >
-  </app-form-control>
-
-</div>
-</form>
+  </form>
 </main>

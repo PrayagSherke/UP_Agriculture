@@ -11,10 +11,18 @@
         [maxlength]="maxlength" [minlength]="minlength" />
 </div>
 
+
 <div *ngIf="inputType=='select'">
     <select [formControl]="control" [id]="inputId" class="form-select">
         <option *ngFor="let item of dropdownData" [value]="item.value">{{item.name}}</option>
     </select>
+</div>
+
+
+
+<div *ngIf="inputType=='date'">
+    <input type="text" [formControl]="control" class="form-control" [placeholder]="placeholder"
+        [maxlength]="maxlength" [minlength]="minlength" bsDatepicker />
 </div>
 
 <button [type]="btnType" class="btn" *ngIf="inputType=='submitbtn'" [ngClass]="cssClass">

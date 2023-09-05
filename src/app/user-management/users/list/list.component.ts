@@ -21,9 +21,9 @@ export class ListComponent implements OnInit {
   userData!: Users[];
   usersTableColumns!: TableColumn[];
   tableActions: TableAction[] = [];
-  isShowList:boolean =true;
-  isShowGrid:boolean =false;
-  count:number
+  isShowList: boolean = true;
+  isShowGrid: boolean = false;
+  count: number
 
   constructor(
     private store: Store,
@@ -33,6 +33,13 @@ export class ListComponent implements OnInit {
 
     this.users$.subscribe(data => {
       this.userData = data;
+      // Bind Multiple Roles
+      const modifiedUserData = this.userData.map(user => {
+        const updateUser = { ...user };
+        updateUser.role = user.role.map((roleItem: any) => roleItem.value).join(', ')
+        return updateUser
+      })
+      this.userData = modifiedUserData;
       this.count = this.userData.length
     })
   }
@@ -46,7 +53,7 @@ export class ListComponent implements OnInit {
     this.usersTableColumns = [
       {
         name: 'Name',
-        dataKey: ['firstName','lastName'],
+        dataKey: ['firstName', 'lastName'],
         position: 'left',
         isSortable: true
       },

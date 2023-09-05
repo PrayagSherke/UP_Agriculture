@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { selectAppState } from 'src/app/shared/store/app.selector';
@@ -8,7 +8,7 @@ import { invokeSaveNewUserAPI, invokeUpdateUserAPI } from '../store/users.action
 import { switchMap } from 'rxjs';
 import { selectUserById } from '../store/users.selector';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { placehoder } from 'src/app/shared/constant/constant';
+import { dropdownSettingsConfig, placehoder } from 'src/app/shared/constant/constant';
 
 @Component({
   selector: 'app-add',
@@ -17,34 +17,25 @@ import { placehoder } from 'src/app/shared/constant/constant';
 })
 export class AddComponent implements OnInit {
 
-  placeholderValue: any = placehoder.pleaseEnter
+  placeholderValue: any = placehoder.pleaseEnter;
+  placeholderValueSelect: any = placehoder.pleaseSelect;
+  dropdownSettingsConf:any = dropdownSettingsConfig;
   userForm: Users = new Users();
   userPayload: any;
   gender: any;
   roles: any = [];
   selectedItems: any = [];
   dropdownSettings: any = {}
-  myForm: FormGroup;
+  formGroup: FormGroup;
   ShowFilter: boolean = true;
-
-  formGroup = new FormGroup({
-    firstName: new FormControl('', [Validators.required]),
-    lastName: new FormControl('', [Validators.required]),
-    mobileNo: new FormControl('', [Validators.required]),
-    gender: new FormControl('', [Validators.required]),
-   // role: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    _id: new FormControl(''),
-    password: new FormControl(''),
-  })
 
   constructor(
     private store: Store,
     private appStore: Store<Appstate>,
     private router: Router,
     public route: ActivatedRoute,
-    private fb: FormBuilder
   ) {
+
   }
 
   update() {
@@ -74,7 +65,7 @@ export class AddComponent implements OnInit {
 
   onItemDeSelect(item: any) {
     let id = item.id;
-    this.selectedItems = this.selectedItems.filter((item: any)=> item.id !== id);
+    this.selectedItems = this.selectedItems.filter((item: any) => item.id !== id);
     console.log(this.selectedItems);
   }
 
@@ -84,14 +75,12 @@ export class AddComponent implements OnInit {
   }
 
   onSelectAll(items: any) {
-    let selectAllItems:any = [];
-    selectAllItems.push(items);
-    this.selectedItems = selectAllItems[0];
+    this.selectedItems = items;
     console.log(this.selectedItems);
   }
 
-
   ngOnInit(): void {
+
     this.gender = [
       { name: 'Select', value: '' },
       { name: 'Male', value: 'Male' },
@@ -105,23 +94,29 @@ export class AddComponent implements OnInit {
       { id: 4, value: 'Pune' },
       { id: 5, value: 'Chennai' },
       { id: 6, value: 'Navsari' }
-    ]
-    
-    this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'id',
-      textField: 'value',
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
-      allowSearchFilter: this.ShowFilter
-    };
+    ];
+    // this.selectedItems = [
+    //   { id: 1, value: 'New Delhi' },
+    //   { id: 2, value: 'Mumbai' },
+    // ]
 
-    this.myForm = this.fb.group({
-      role: [this.selectedItems]
-    });
+    this.dropdownSettings = this.dropdownSettingsConf;
+
+    this.formGroup = new FormGroup({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      mobileNo: new FormControl('', [Validators.required]),
+      gender: new FormControl('', [Validators.required]),
+      dob: new FormControl(null,),
+      role: new FormControl(this.selectedItems, [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      _id: new FormControl(''),
+      password: new FormControl(''),
+
+    })
 
     if (this.route.snapshot.params['page'] == 'edit') {
+      debugger;
       this.disabledField()
       let fetchData$ = this.route.paramMap.pipe(
         switchMap((params) => {
@@ -133,6 +128,8 @@ export class AddComponent implements OnInit {
           this.userForm = { ...data };
           let editData: any = this.userForm
           this.formGroup.setValue(editData);
+          console.log(editData.dob);
+          this.formGroup.controls['dob'].setValue(new Date(editData.dob))  
           this.formGroup.valueChanges.subscribe((val) => this.userPayload = val)
           console.log(this.userPayload)
           // this.userPayload = this.formGroup.value;
@@ -145,6 +142,7 @@ export class AddComponent implements OnInit {
   }
 
   save() {
+    debugger;
     if (this.formGroup.status == 'INVALID') {
       this.formGroup.markAllAsTouched();
       return
@@ -154,7 +152,6 @@ export class AddComponent implements OnInit {
     this.userPayload.role = this.selectedItems;
 
     console.log(this.userPayload);
-    return;
     this.store.dispatch(invokeSaveNewUserAPI({ newUser: this.userPayload }))
     let apiStatus$ = this.appStore.pipe(select(selectAppState));
     apiStatus$.subscribe((apState) => {

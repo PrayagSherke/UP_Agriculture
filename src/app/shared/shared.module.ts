@@ -1,5 +1,5 @@
 import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormControlComponent } from './components/form-control/form-control.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TableComponent } from './components/table/table.component';
@@ -13,6 +13,7 @@ import { BilingualService } from '../shared/services/bilingual.service';
 import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router'
 import { PageHeadingComponent } from './components/page-heading/page-heading.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 
@@ -27,14 +28,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     DataPropertyGetterPipe, 
     HeaderComponent, 
     FooterComponent,
-    PageHeadingComponent],
+    PageHeadingComponent,
+    ],
   imports: [
     CommonModule, 
     FormsModule, 
     ReactiveFormsModule,
     RouterModule,
     AppMaterialModule,
-    
+    BsDatepickerModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -56,6 +58,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     PageHeadingComponent,
     
   ],
-  providers: [BilingualService],
+  providers: [BilingualService, DatePipe],
 })
 export class SharedModule { }
