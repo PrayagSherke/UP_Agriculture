@@ -21,10 +21,14 @@ export class CommonService {
     }))
   }
 
-  returnSuccessMessage() {
+  returnSuccessMessage(success:any) {
+    console.log(success);
     this.appStore.dispatch(
       setAPIStatus({
-        apiStatus: { apiResponseMessage: 'Suceessfully', apiStatus: 'success', isLoading:false },
+        apiStatus: { 
+          apiResponseMessage: success.message, 
+          apiStatus: 'success', 
+          isLoading:false },
       })
     );
   }
@@ -46,7 +50,7 @@ export class CommonService {
     );
   }
 
-  setUserInStorage(user:any) {
+  setUserDataInStorage(user:any) {
     sessionStorage.setItem('USERDATA', JSON.stringify(user))
   }
 

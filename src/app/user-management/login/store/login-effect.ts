@@ -26,8 +26,8 @@ export class LoginEffect {
         // );
         return this.usersService.login(action.login).pipe(
           map((data) => {
-            this.commonService.returnSuccessMessage();
-            this.commonService.setUserInStorage(data)
+            this.commonService.returnSuccessMessage(data);
+            this.commonService.setUserDataInStorage(data)
             return loginApiSuccess({ login: data });
           }),
           catchError((error) => {

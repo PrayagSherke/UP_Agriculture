@@ -24,6 +24,8 @@ export class ListComponent implements OnInit {
   isShowList: boolean = true;
   isShowGrid: boolean = false;
   count: number
+  userName: string='';
+  deleteText: string='Are you sure you want to delete';
 
   constructor(
     private store: Store,
@@ -83,7 +85,7 @@ export class ListComponent implements OnInit {
       {
         icon: 'delete',
         handler: (row: any) => {
-          this.removeUser(row._id)
+          this.removeUser(row)
         }
       },
       {
@@ -103,8 +105,10 @@ export class ListComponent implements OnInit {
     this.isShowList = false
     this.isShowGrid = true
   }
-  removeUser(id: any) {
-    this.idToDelete = id;
+  removeUser(user: any) {
+    console.log(user);
+    this.userName = `${this.deleteText} ${user.firstName} ${user.lastName} ?` 
+    this.idToDelete = user._id;
     this.deleteModal.show();
     // this.userData = this.userData.filter(item => item._id !== user._id);
   }
@@ -144,6 +148,7 @@ export class ListComponent implements OnInit {
   }
 
   delete() {
+    debugger;
     this.store.dispatch(
       invokeDeleteUserAPI({
         id: this.idToDelete,

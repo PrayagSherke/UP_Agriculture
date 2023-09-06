@@ -19,8 +19,12 @@ export class AppComponent implements OnInit{
     private store:Store<Appstate>,
     ) {}
 
-  ngOnInit() {    
+  ngOnInit() {   
      this.errorMessage = this.store.pipe(select(getErrorMessage));
      this.showLoading = this.store.pipe(select(showLoadingSpinner))
+  }
+
+  removeCss(css:HTMLElement) {
+    css.classList.remove('show');
   }
 }

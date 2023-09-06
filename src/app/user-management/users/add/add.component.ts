@@ -116,7 +116,6 @@ export class AddComponent implements OnInit {
     })
 
     if (this.route.snapshot.params['page'] == 'edit') {
-      debugger;
       this.disabledField()
       let fetchData$ = this.route.paramMap.pipe(
         switchMap((params) => {

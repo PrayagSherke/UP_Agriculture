@@ -14,6 +14,7 @@ import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router'
 import { PageHeadingComponent } from './components/page-heading/page-heading.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 
@@ -29,6 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent, 
     FooterComponent,
     PageHeadingComponent,
+    DialogComponent,
     ],
   imports: [
     CommonModule, 
@@ -56,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     FooterComponent,
     PageHeadingComponent,
+    DialogComponent
     
   ],
   providers: [BilingualService, DatePipe],

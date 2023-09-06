@@ -23,17 +23,6 @@ export class EditComponent implements OnInit {
     private appStore: Store<Appstate>
   ) {}
 
-  // userForm: Users = {
-  //   _id: 0,
-  //   email: '',
-  //   firstName: '',
-  //   lastName:'',
-  //   mobileNo: '',
-  //   role:'',
-  //   gender:'',
-  //   password:''
-  // };
-
   ngOnInit(): void {
     let fetchData$ = this.route.paramMap.pipe(
       switchMap((params) => {

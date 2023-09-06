@@ -56,7 +56,7 @@ export class UsersEffect {
         // );
         return this.usersService.create(action.newUser).pipe(
           map((data) => {
-            this.commonService.returnSuccessMessage();
+            this.commonService.returnSuccessMessage(data);
             return saveNewUserAPISucess({ newUser: data });
           }),
           catchError((error) => {
@@ -78,7 +78,7 @@ export class UsersEffect {
         this.commonService.showLoading();
         return this.usersService.update(action.updateUser).pipe(
           map((data) => {
-            this.commonService.returnSuccessMessage();
+            this.commonService.returnSuccessMessage(data);
             return updateUserAPISucess({ updateUser: data });
           }),
           catchError((error) => {
@@ -97,9 +97,13 @@ export class UsersEffect {
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
         // );
         return this.usersService.delete(actions.id).pipe(
-          map(() => {
-            this.commonService.returnSuccessMessage();
+          map((data) => {
+            console.log(data)
+            this.commonService.returnSuccessMessage(data);
             return deleteUserAPISuccess({ id: actions.id });
+          }),
+          catchError((error) => {
+            return this.commonService.returnErrorMessage(error)
           })
         );
       })
