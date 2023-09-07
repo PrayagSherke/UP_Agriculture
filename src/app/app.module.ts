@@ -8,7 +8,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import {  HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import { appReducer } from './shared/store/app.reducer';
+import { appReducer } from './shared/stores/app.reducer';
 import { LoadingComponent } from './shared/components/loading/loading.component';
 import { UserManagementModule } from './user-management/user-management.module';
 import { CMSModule } from './cms/cms.module';

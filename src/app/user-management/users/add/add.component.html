@@ -43,8 +43,8 @@
 
         <div class="col-md-4">
           <div class="mb-3">
-            <app-form-control [inputId]="'datepicker'" [lable]="'DOB'"
-              [control]="formGroup.controls.dob" [inputType]="'date'" [isRequired]="false"
+            <app-form-control [inputId]="'datepicker'" [lable]="'DOB'" [control]="formGroup.controls.dob"
+              [inputType]="'date'" [isRequired]="false"
               [placeholder]="placeholderValueSelect + ' date of birth'"></app-form-control>
           </div>
         </div>
@@ -75,7 +75,8 @@
               (onSelectAll)="onSelectAll($event)" (onDeSelect)="onItemDeSelect($event)"
               (onDeSelectAll)="onItemDeSelectAll($event)">
             </ng-multiselect-dropdown>
-            <span *ngIf="!formGroup.controls['role'].valid && formGroup.controls['role'].touched"  class="text-danger fs-7">
+            <span *ngIf="!formGroup.controls['role'].valid && formGroup.controls['role'].touched"
+              class="text-danger fs-7">
               Please select role
             </span>
             <!-- <app-form-control [inputId]="'role'" [dropdownData]="role" [lable]="'Role'" [control]="formGroup.controls.role"
@@ -91,7 +92,7 @@
 
 
       <app-form-control [lable]="'Back'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false"
-        cssClass="btn-orange" class="ms-2" routerLink="/list-user">
+        cssClass="btn-orange" class="ms-2" [routerLink]="['/list-user']" [queryParams]="{prop: 'back'}">
       </app-form-control>
 
     </div>

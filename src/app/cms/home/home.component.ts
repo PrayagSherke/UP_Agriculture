@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { Appstate } from 'src/app/shared/store/appstate';
+import { Appstate } from 'src/app/shared/stores/appstate';
 import { Store, select } from '@ngrx/store';
 import { invokeHomeAPI } from './store/home.action';
-import { selectAppState } from 'src/app/shared/store/app.selector';
+import { selectAppState } from 'src/app/shared/stores/app.selector';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { placehoder } from 'src/app/shared/constant/constant';
+import { placehoder } from 'src/app/shared/constants/constant';
 
 import { SwiperComponent } from "swiper/angular";
 
@@ -89,7 +89,6 @@ export class HomeComponent implements OnInit {
       // this.formGroup.markAsDirty();
       return
     }
-    console.log(this.homeForm)
     this.store.dispatch(invokeHomeAPI({ home: this.homeForm }));
     let apiStatus$ = this.appStore.pipe(select(selectAppState));
     apiStatus$.subscribe((apState) => {

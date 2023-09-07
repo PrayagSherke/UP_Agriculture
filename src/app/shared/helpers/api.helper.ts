@@ -28,12 +28,18 @@ export class ApiHelper {
 
     patch<T>(endpoint: string, payload: any): Observable<T> {
         const url = `${environment.APIUrl}${endpoint}`;
+        console.log('API CALLED')
         return this.http.patch<T>(url, payload, { headers: this.commonService.getTokenHeader() })
     }
 
     delete<T>(endpoint: string): Observable<T> {
         const url = `${environment.APIUrl}${endpoint}`;
         return this.http.delete<T>(url, { headers: this.commonService.getTokenHeader() })
+    }
+
+    postNoToken<T>(endpoint: string, payload: any): Observable<T> {
+        const url = `${environment.APIUrl}${endpoint}`;
+        return this.http.post<T>(url, payload, { headers: this.commonService.getHeaderContentTypeOnly() })
     }
 
 }

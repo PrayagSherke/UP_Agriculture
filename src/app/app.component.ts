@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Appstate } from './shared/store/appstate';
-import { getErrorMessage, showLoadingSpinner } from './shared/store/app.selector';
+import { Appstate } from './shared/stores/appstate';
+import { getErrorMessage, showLoadingSpinner } from './shared/stores/app.selector';
 
 @Component({
   selector: 'app-root',

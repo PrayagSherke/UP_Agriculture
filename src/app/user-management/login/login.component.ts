@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 //import { Login } from './store/login';
-import { Appstate } from 'src/app/shared/store/appstate';
+import { Appstate } from 'src/app/shared/stores/appstate';
 import { Store, select } from '@ngrx/store';
 import { invokeLoginAPI } from './store/login.action';
-import { selectAppState } from 'src/app/shared/store/app.selector';
+import { selectAppState } from 'src/app/shared/stores/app.selector';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { placehoder } from 'src/app/shared/constant/constant';
+import { placehoder } from 'src/app/shared/constants/constant';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
       // this.formGroup.markAsDirty();
       return
     }
-    console.log(this.loginForm)
     this.store.dispatch(invokeLoginAPI({ login: this.loginForm }));
     let apiStatus$ = this.appStore.pipe(select(selectAppState));
     apiStatus$.subscribe((apState) => {

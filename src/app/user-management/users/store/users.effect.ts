@@ -30,12 +30,15 @@ export class UsersEffect {
       ofType(invokeUsersAPI),
       withLatestFrom(this.store.pipe(select(selectUsers))),
       mergeMap(([, userformStore]) => {
-        if (userformStore.length > 0) {
-          return EMPTY;
-        }
+
+        // if (userformStore.length > 0) {// After update the user list not refreshed
+        //   return EMPTY;
+        // }
+        console.log('List API Call before service')
         this.commonService.showLoading();
-        return this.usersService.get().pipe(
+        return this.usersService.getUsers().pipe(
           map((data) => {
+            console.log('List API Call after service')
             this.commonService.hideLoading();
             return usersFetchAPISuccess({ allUsers: data })
           }),
@@ -54,7 +57,7 @@ export class UsersEffect {
         // this.appStore.dispatch(
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
         // );
-        return this.usersService.create(action.newUser).pipe(
+        return this.usersService.createUsers(action.newUser).pipe(
           map((data) => {
             this.commonService.returnSuccessMessage(data);
             return saveNewUserAPISucess({ newUser: data });
@@ -71,13 +74,15 @@ export class UsersEffect {
     return this.actions$.pipe(
       ofType(invokeUpdateUserAPI),
       switchMap((action) => {
+        console.log('Update Effect before service')
         // this.appStore.dispatch(
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: 'success' } })
         // );
         
         this.commonService.showLoading();
-        return this.usersService.update(action.updateUser).pipe(
+        return this.usersService.updateUsers(action.updateUser).pipe(
           map((data) => {
+            console.log('Update Effect After service')
             this.commonService.returnSuccessMessage(data);
             return updateUserAPISucess({ updateUser: data });
           }),
@@ -96,9 +101,8 @@ export class UsersEffect {
         // this.appStore.dispatch(
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
         // );
-        return this.usersService.delete(actions.id).pipe(
+        return this.usersService.deleteUsers(actions.id).pipe(
           map((data) => {
-            console.log(data)
             this.commonService.returnSuccessMessage(data);
             return deleteUserAPISuccess({ id: actions.id });
           }),

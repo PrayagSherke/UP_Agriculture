@@ -1,14 +1,14 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { selectAppState } from 'src/app/shared/store/app.selector';
-import { Appstate } from 'src/app/shared/store/appstate';
+import { selectAppState } from 'src/app/shared/stores/app.selector';
+import { Appstate } from 'src/app/shared/stores/appstate';
 import { Users } from '../store/users';
-import { invokeSaveNewUserAPI, invokeUpdateUserAPI } from '../store/users.action';
+import { invokeSaveNewUserAPI, invokeUpdateUserAPI, invokeUsersAPI } from '../store/users.action';
 import { switchMap } from 'rxjs';
 import { selectUserById } from '../store/users.selector';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { dropdownSettingsConfig, placehoder } from 'src/app/shared/constant/constant';
+import { dropdownSettingsConfig, placehoder } from 'src/app/shared/constants/constant';
 
 @Component({
   selector: 'app-add',
@@ -60,23 +60,19 @@ export class AddComponent implements OnInit {
 
   onItemSelect(item: any) {
     this.selectedItems.push(item);
-    console.log(this.selectedItems)
   }
 
   onItemDeSelect(item: any) {
     let id = item.id;
     this.selectedItems = this.selectedItems.filter((item: any) => item.id !== id);
-    console.log(this.selectedItems);
   }
 
   onItemDeSelectAll(item: any) {
     this.selectedItems = []
-    console.log(this.selectedItems);
   }
 
   onSelectAll(items: any) {
     this.selectedItems = items;
-    console.log(this.selectedItems);
   }
 
   ngOnInit(): void {
@@ -127,10 +123,8 @@ export class AddComponent implements OnInit {
           this.userForm = { ...data };
           let editData: any = this.userForm
           this.formGroup.setValue(editData);
-          console.log(editData.dob);
           this.formGroup.controls['dob'].setValue(new Date(editData.dob))  
           this.formGroup.valueChanges.subscribe((val) => this.userPayload = val)
-          console.log(this.userPayload)
           // this.userPayload = this.formGroup.value;
         }
         else {
@@ -141,7 +135,6 @@ export class AddComponent implements OnInit {
   }
 
   save() {
-    debugger;
     if (this.formGroup.status == 'INVALID') {
       this.formGroup.markAllAsTouched();
       return
@@ -150,7 +143,6 @@ export class AddComponent implements OnInit {
     this.userPayload.password = 'admin#123';
     this.userPayload.role = this.selectedItems;
 
-    console.log(this.userPayload);
     this.store.dispatch(invokeSaveNewUserAPI({ newUser: this.userPayload }))
     let apiStatus$ = this.appStore.pipe(select(selectAppState));
     apiStatus$.subscribe((apState) => {

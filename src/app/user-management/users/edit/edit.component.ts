@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { switchMap } from 'rxjs';
-import { setAPIStatus } from 'src/app/shared/store/app.action';
-import { selectAppState } from 'src/app/shared/store/app.selector';
-import { Appstate } from 'src/app/shared/store/appstate';
+import { setAPIStatus } from 'src/app/shared/stores/app.action';
+import { selectAppState } from 'src/app/shared/stores/app.selector';
+import { Appstate } from 'src/app/shared/stores/appstate';
 import { Users } from '../store/users';
-import { invokeUpdateUserAPI } from '../store/users.action';
+import { invokeUpdateUserAPI, invokeUsersAPI } from '../store/users.action';
 import { selectUserById } from '../store/users.selector';
 
 @Component({
@@ -50,6 +50,7 @@ export class EditComponent implements OnInit {
         // this.appStore.dispatch(
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
         // );
+        this.store.dispatch(invokeUsersAPI());
         this.router.navigate(['/list-user']);
       }
     });

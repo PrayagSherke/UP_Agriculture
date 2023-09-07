@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { selectAppState } from 'src/app/shared/store/app.selector';
-import { Appstate } from 'src/app/shared/store/appstate';
+import { selectAppState } from 'src/app/shared/stores/app.selector';
+import { Appstate } from 'src/app/shared/stores/appstate';
 import { invokeUsersAPI, invokeDeleteUserAPI } from '../store/users.action';
 import { selectUsers } from '../store/users.selector';
 import { Users } from '../store/users';
 import { TableAction, TableColumn } from 'src/app/shared/components/table/table-column';
 import { Sort } from '@angular/material/sort';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { COMMON_COLUMNS, CommonColumnsType } from 'src/app/user-management/users/list/common.columns'
+import { CommonService } from 'src/app/shared/services/common.service';
+
 
 declare var window: any;
 
@@ -16,32 +20,39 @@ declare var window: any;
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
 })
+
 export class ListComponent implements OnInit {
 
   userData!: Users[];
-  usersTableColumns!: TableColumn[];
+  usersTableColumns: CommonColumnsType = COMMON_COLUMNS;
   tableActions: TableAction[] = [];
-  isShowList: boolean = true;
-  isShowGrid: boolean = false;
   count: number
-  userName: string='';
-  deleteText: string='Are you sure you want to delete';
+  userName: string = '';
+  deleteText: string = 'Are you sure you want to delete';
+  paramValue: any = ''
 
   constructor(
     private store: Store,
     private appStore: Store<Appstate>,
     private router: Router,
+    public route: ActivatedRoute,
+    private commonService: CommonService
   ) {
 
     this.users$.subscribe(data => {
       this.userData = data;
       // Bind Multiple Roles
-      const modifiedUserData = this.userData.map(user => {
-        const updateUser = { ...user };
-        updateUser.role = user.role.map((roleItem: any) => roleItem.value).join(', ')
-        return updateUser
-      })
-      this.userData = modifiedUserData;
+      if (this.userData.length > 0) {
+        const modifiedUserData = this.userData.map(user => {
+          const updateUser = { ...user };
+          updateUser.dob = this.commonService.formatDDMMYYYY(updateUser.dob);
+          updateUser.role = user.role.map((roleItem: any) => roleItem.value).join(', ')
+          return updateUser
+        })
+        this.userData = modifiedUserData;
+        console.log('List User Data')
+        console.log(this.userData)
+      }
       this.count = this.userData.length
     })
   }
@@ -50,35 +61,6 @@ export class ListComponent implements OnInit {
 
   deleteModal: any;
   idToDelete: number = 0;
-
-  initializeColumns(): void {
-    this.usersTableColumns = [
-      {
-        name: 'Name',
-        dataKey: ['firstName', 'lastName'],
-        position: 'left',
-        isSortable: true
-      },
-      {
-        name: 'Email',
-        dataKey: ['email'],
-        position: 'center',
-        isSortable: true
-      },
-      {
-        name: 'Mobile No',
-        dataKey: ['mobileNo'],
-        position: 'left',
-        isSortable: true
-      },
-      {
-        name: 'Role',
-        dataKey: ['role'],
-        position: 'left',
-        isSortable: true
-      },
-    ];
-  }
 
   initializeActionColumns(): void {
     this.tableActions = [
@@ -97,20 +79,10 @@ export class ListComponent implements OnInit {
     ];
   }
 
-  showList() {
-    this.isShowList = true
-    this.isShowGrid = false
-  }
-  showGrid() {
-    this.isShowList = false
-    this.isShowGrid = true
-  }
   removeUser(user: any) {
-    console.log(user);
-    this.userName = `${this.deleteText} ${user.firstName} ${user.lastName} ?` 
+    this.userName = `${this.deleteText} ${user.firstName} ${user.lastName} ?`
     this.idToDelete = user._id;
     this.deleteModal.show();
-    // this.userData = this.userData.filter(item => item._id !== user._id);
   }
 
   editUser(id: any) {
@@ -118,9 +90,7 @@ export class ListComponent implements OnInit {
   }
 
   sortData(sortParameters: Sort) {
-    console.log(sortParameters)
     const keyName: any = sortParameters.active[0];
-    console.log(keyName)
     if (sortParameters.direction === 'asc') {
       this.userData = [...this.userData].sort((a: Users, b: Users) => a[keyName].localeCompare(b[keyName]));
     } else if (sortParameters.direction === 'desc') {
@@ -132,23 +102,22 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.initializeColumns();
+    // this.initializeColumns();
     this.initializeActionColumns();
-
     this.deleteModal = new window.bootstrap.Modal(
       document.getElementById('deleteModal')
     );
-    this.store.dispatch(invokeUsersAPI());
-  }
+   
+    this.route.queryParams.subscribe((queryParam) => {
+      this.paramValue = queryParam['prop']
+    })
 
-
-  openDeleteModal(id: any) {
-    this.idToDelete = id;
-    this.deleteModal.show();
+    if (this.paramValue == '' || this.paramValue==undefined) {
+      this.store.dispatch(invokeUsersAPI());
+    }
   }
 
   delete() {
-    debugger;
     this.store.dispatch(
       invokeDeleteUserAPI({
         id: this.idToDelete,
