@@ -34,11 +34,9 @@ export class UsersEffect {
         // if (userformStore.length > 0) {// After update the user list not refreshed
         //   return EMPTY;
         // }
-        console.log('List API Call before service')
         this.commonService.showLoading();
         return this.usersService.getUsers().pipe(
           map((data) => {
-            console.log('List API Call after service')
             this.commonService.hideLoading();
             return usersFetchAPISuccess({ allUsers: data })
           }),
@@ -74,7 +72,6 @@ export class UsersEffect {
     return this.actions$.pipe(
       ofType(invokeUpdateUserAPI),
       switchMap((action) => {
-        console.log('Update Effect before service')
         // this.appStore.dispatch(
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: 'success' } })
         // );
@@ -82,7 +79,6 @@ export class UsersEffect {
         this.commonService.showLoading();
         return this.usersService.updateUsers(action.updateUser).pipe(
           map((data) => {
-            console.log('Update Effect After service')
             this.commonService.returnSuccessMessage(data);
             return updateUserAPISucess({ updateUser: data });
           }),

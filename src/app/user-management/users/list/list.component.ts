@@ -5,13 +5,11 @@ import { Appstate } from 'src/app/shared/stores/appstate';
 import { invokeUsersAPI, invokeDeleteUserAPI } from '../store/users.action';
 import { selectUsers } from '../store/users.selector';
 import { Users } from '../store/users';
-import { TableAction, TableColumn } from 'src/app/shared/components/table/table-column';
+import { TableAction } from 'src/app/shared/components/table/table-column';
 import { Sort } from '@angular/material/sort';
 import { Router, ActivatedRoute } from '@angular/router';
-
 import { COMMON_COLUMNS, CommonColumnsType } from 'src/app/user-management/users/list/common.columns'
 import { CommonService } from 'src/app/shared/services/common.service';
-
 
 declare var window: any;
 
@@ -37,25 +35,7 @@ export class ListComponent implements OnInit {
     private router: Router,
     public route: ActivatedRoute,
     private commonService: CommonService
-  ) {
-
-    this.users$.subscribe(data => {
-      this.userData = data;
-      // Bind Multiple Roles
-      if (this.userData.length > 0) {
-        const modifiedUserData = this.userData.map(user => {
-          const updateUser = { ...user };
-          updateUser.dob = this.commonService.formatDDMMYYYY(updateUser.dob);
-          updateUser.role = user.role.map((roleItem: any) => roleItem.value).join(', ')
-          return updateUser
-        })
-        this.userData = modifiedUserData;
-        console.log('List User Data')
-        console.log(this.userData)
-      }
-      this.count = this.userData.length
-    })
-  }
+  ) { }
 
   users$ = this.store.pipe(select(selectUsers));
 
@@ -100,6 +80,24 @@ export class ListComponent implements OnInit {
     }
   }
 
+
+  users() {
+    this.users$.subscribe(data => {
+      this.userData = data;
+      // Bind Multiple Roles
+      if (this.userData.length > 0) {
+        const modifiedUserData = this.userData.map(user => {
+          const updateUser = { ...user };
+          updateUser.dob = this.commonService.formatDDMMYYYY(updateUser.dob);
+          updateUser.role = user.role.map((roleItem: any) => roleItem.value).join(', ')
+          return updateUser
+        })
+        this.userData = modifiedUserData;
+      }
+      this.count = this.userData.length
+    })
+  }
+ 
   ngOnInit(): void {
 
     // this.initializeColumns();
@@ -109,11 +107,16 @@ export class ListComponent implements OnInit {
     );
    
     this.route.queryParams.subscribe((queryParam) => {
-      this.paramValue = queryParam['prop']
+      this.paramValue = queryParam['prop'];
     })
 
-    if (this.paramValue == '' || this.paramValue==undefined) {
+    if (this.paramValue == 'back') {
+      this.users()
+      return
+    }
+    else {
       this.store.dispatch(invokeUsersAPI());
+      this.users()
     }
   }
 

@@ -28,7 +28,6 @@ export class ApiHelper {
 
     patch<T>(endpoint: string, payload: any): Observable<T> {
         const url = `${environment.APIUrl}${endpoint}`;
-        console.log('API CALLED')
         return this.http.patch<T>(url, payload, { headers: this.commonService.getTokenHeader() })
     }
 
