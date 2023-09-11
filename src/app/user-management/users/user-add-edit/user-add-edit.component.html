@@ -9,20 +9,20 @@
           <div class="mb-3">
             <app-form-control [inputId]="'firstName'" [lable]="'First Name'" [control]="formGroup.controls.firstName"
               [inputType]="'input'" [isRequired]="true"
-              [placeholder]="placeholderValue + ' first name'"></app-form-control>
+              [placeholder]="placeholderValue + ' first name'" [maxlength]="100"></app-form-control>
           </div>
         </div>
         <div class="col-md-4">
           <div class="mb-3">
             <app-form-control [inputId]="'lastName'" [lable]="'Last Name'" [control]="formGroup.controls.lastName"
               [inputType]="'input'" [isRequired]="true"
-              [placeholder]="placeholderValue + ' last name'"></app-form-control>
+              [placeholder]="placeholderValue + ' last name'" [maxlength]="100"></app-form-control>
           </div>
         </div>
         <div class="col-md-4">
           <div class="mb-3">
             <app-form-control [inputId]="'email'" [lable]="'Email'" [control]="formGroup.controls.email"
-              [inputType]="'input'" [isRequired]="true" [placeholder]="placeholderValue + ' email'"></app-form-control>
+              [inputType]="'input'" [isRequired]="true" [placeholder]="placeholderValue + ' email'" [maxlength]="100"></app-form-control>
           </div>
         </div>
         <div class="col-md-4">
@@ -43,11 +43,12 @@
 
         <div class="col-md-4">
           <div class="mb-3">
-            <app-form-control [inputId]="'datepicker'" [lable]="'DOB'" [control]="formGroup.controls.dob"
+            <app-form-control [inputId]="'datepicker'" [lable]="'Date of Birth'" [control]="formGroup.controls.dob"
               [inputType]="'date'" [isRequired]="false"
               [placeholder]="placeholderValueSelect + ' date of birth'"></app-form-control>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="mb-3">
             <label class="form-label">Role <span class="text-danger">*</span></label>

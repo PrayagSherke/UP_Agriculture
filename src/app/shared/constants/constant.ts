@@ -15,3 +15,7 @@ export const dropdownSettingsConfig = {
 export const dateFormate = {
     ddMMyyyy: 'dd-MM-yyyy'
 } 
+
+export const validationPattern = {
+    mobileNumber: /^[0-9]{10}$/
+}

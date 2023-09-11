@@ -24,13 +24,15 @@ export class FormControlComponent implements OnInit {
   @Input() btnType:string = 'submit';
   @Input() maticon:string = '';
   @Input() isIcon:boolean = false;
+  @Input() pattern:string=''
 
   datepickerConfig: Partial<BsDatepickerConfig>;
  
   errorMessage:Record<string, string> = {
     required:'The field is required',
     email:'Email is invalid',
-    minlength:`The field must be at least `
+    minlength:`The field must be at least `,
+    pattern:`Mobile number must be 10 digits.`
   }
 
   constructor() {

@@ -8,7 +8,7 @@ import { invokeSaveNewUserAPI, invokeUpdateUserAPI } from '../store/users.action
 import { switchMap } from 'rxjs';
 import { selectUserById } from '../store/users.selector';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { dropdownSettingsConfig, placehoder } from 'src/app/shared/constants/constant';
+import { dropdownSettingsConfig, placehoder, validationPattern } from 'src/app/shared/constants/constant';
 
 @Component({
   selector: 'app-user-add-edit',
@@ -28,6 +28,7 @@ export class UserAddEditComponent implements OnInit {
   dropdownSettings: any = {}
   formGroup: FormGroup;
   ShowFilter: boolean = true;
+  mobPattern:any = validationPattern.mobileNumber
 
   constructor(
     private store: Store,
@@ -125,6 +126,10 @@ export class UserAddEditComponent implements OnInit {
 
   // On Update User
   update() {
+    if (this.formGroup.status == 'INVALID') {
+      this.formGroup.markAllAsTouched();
+      return
+    }
     if (this.userPayload != undefined) {
       this.userPayload._id = this.userForm._id
       this.userPayload.email = this.formGroup.get('email')!.value;
@@ -152,11 +157,11 @@ export class UserAddEditComponent implements OnInit {
   //Initialize Form Controls
   initializeFormControls() {
     this.formGroup = new FormGroup({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      mobileNo: new FormControl('', [Validators.required]),
-      gender: new FormControl('', [Validators.required]),
-      dob: new FormControl(null,),
+      firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      lastName: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      mobileNo: new FormControl('', [Validators.required, Validators.pattern(this.mobPattern)]),
+      gender: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      dob: new FormControl(''),
       role: new FormControl(this.selectedItems, [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       _id: new FormControl(''),
