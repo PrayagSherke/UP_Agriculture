@@ -8,18 +8,18 @@ import { Users } from '../store/users';
 import { TableAction } from 'src/app/shared/components/table/table-column';
 import { Sort } from '@angular/material/sort';
 import { Router, ActivatedRoute } from '@angular/router';
-import { COMMON_COLUMNS, CommonColumnsType } from 'src/app/user-management/users/list/common.columns'
+import { COMMON_COLUMNS, CommonColumnsType } from 'src/app/user-management/users/user-list/common.columns'
 import { CommonService } from 'src/app/shared/services/common.service';
 
 declare var window: any;
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css'],
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css'],
 })
 
-export class ListComponent implements OnInit {
+export class UserListComponent implements OnInit {
 
   userData!: Users[];
   usersTableColumns: CommonColumnsType = COMMON_COLUMNS;
@@ -56,6 +56,12 @@ export class ListComponent implements OnInit {
           this.editUser(row._id)
         }
       },
+      {
+        icon: 'remove_red_eye',
+        handler: (row: any) => {
+          this.viewUser(row._id)
+        }
+      }
     ];
   }
 
@@ -69,6 +75,10 @@ export class ListComponent implements OnInit {
     this.router.navigate(['list-user/edit-user', id, 'edit'])
   }
 
+  viewUser(id: any) {
+    this.router.navigate(['list-user/view-user', id, 'view'])
+  }
+
   sortData(sortParameters: Sort) {
     const keyName: any = sortParameters.active[0];
     if (sortParameters.direction === 'asc') {
@@ -79,7 +89,6 @@ export class ListComponent implements OnInit {
       return this.userData = this.userData;
     }
   }
-
 
   users() {
     this.users$.subscribe(data => {
@@ -97,15 +106,15 @@ export class ListComponent implements OnInit {
       this.count = this.userData.length
     })
   }
- 
+
   ngOnInit(): void {
 
-    // this.initializeColumns();
     this.initializeActionColumns();
+
     this.deleteModal = new window.bootstrap.Modal(
       document.getElementById('deleteModal')
     );
-   
+
     this.route.queryParams.subscribe((queryParam) => {
       this.paramValue = queryParam['prop'];
     })
@@ -114,10 +123,12 @@ export class ListComponent implements OnInit {
       this.users()
       return
     }
+
     else {
       this.store.dispatch(invokeUsersAPI());
       this.users()
     }
+
   }
 
   delete() {
@@ -136,4 +147,5 @@ export class ListComponent implements OnInit {
       }
     });
   }
+
 }

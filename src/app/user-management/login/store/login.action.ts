@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Login } from "./login";
+import { Login } from "./login.model";
 
 export const invokeLoginAPI = createAction(
     '[Login API] invoke login API',

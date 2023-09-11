@@ -209,3 +209,35 @@ h6 {
     padding: 7px 12px !important;
     
   }
+
+  .view-page {
+    box-shadow: 0px 15px 60px -10px rgb(109 117 143 / 33%);
+      padding: 30px;
+      border-radius: 10px;
+      position: relative;
+  }
+  .view-page h2 {
+    margin-bottom: 1.1rem;
+    position: relative;
+    font-size: 20px; font-weight: bold;
+  }
+  
+  .view-page .fb {
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+    border: medium none;
+    padding: 0;
+  }
+  .view-page .brd_bottom {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0rem;
+  }
+  .view-page .form-control1 {
+    display: table-cell;
+    padding-right: 1rem;
+  }
+  .table-theme th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }

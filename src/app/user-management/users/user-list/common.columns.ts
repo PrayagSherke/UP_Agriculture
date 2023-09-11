@@ -26,10 +26,10 @@ export const COMMON_COLUMNS: TableColumn[] = [
         isSortable: true
     },
     {
-        name: 'Date Of Birth',
+        name: 'Date of Birth',
         dataKey: ['dob'],
         position: 'left',
-        isSortable: true
+        isSortable: false
     },
 ];
 

@@ -1,4 +1,4 @@
-export const placehoder = { 
+export const placehoder = {
     pleaseEnter: "Please enter",
     pleaseSelect: "Please select"
 }
@@ -11,4 +11,7 @@ export const dropdownSettingsConfig = {
     unSelectAllText: 'UnSelect All',
     itemsShowLimit: 3,
     allowSearchFilter: true
-  }
+}
+export const dateFormate = {
+    ddMMyyyy: 'dd-MM-yyyy'
+} 

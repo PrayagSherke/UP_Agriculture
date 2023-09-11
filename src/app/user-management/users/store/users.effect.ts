@@ -25,12 +25,12 @@ export class UsersEffect {
     private store: Store,
   ) { }
 
+  // All Users
   loadAllUsers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(invokeUsersAPI),
       withLatestFrom(this.store.pipe(select(selectUsers))),
       mergeMap(([, userformStore]) => {
-
         // if (userformStore.length > 0) {// After update the user list not refreshed
         //   return EMPTY;
         // }
@@ -48,6 +48,7 @@ export class UsersEffect {
     )
   );
 
+  // Save User
   saveNewUser$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(invokeSaveNewUserAPI),
@@ -55,7 +56,7 @@ export class UsersEffect {
         // this.appStore.dispatch(
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
         // );
-        return this.usersService.createUsers(action.newUser).pipe(
+        return this.usersService.createUser(action.newUser).pipe(
           map((data) => {
             this.commonService.returnSuccessMessage(data);
             return saveNewUserAPISucess({ newUser: data });
@@ -68,6 +69,7 @@ export class UsersEffect {
     );
   });
 
+  // Update User
   updateUserAPI$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(invokeUpdateUserAPI),
@@ -77,7 +79,7 @@ export class UsersEffect {
         // );
         
         this.commonService.showLoading();
-        return this.usersService.updateUsers(action.updateUser).pipe(
+        return this.usersService.updateUser(action.updateUser).pipe(
           map((data) => {
             this.commonService.returnSuccessMessage(data);
             return updateUserAPISucess({ updateUser: data });
@@ -90,6 +92,7 @@ export class UsersEffect {
     );
   });
 
+  // Delete User
   deleteUsersAPI$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(invokeDeleteUserAPI),
@@ -97,7 +100,7 @@ export class UsersEffect {
         // this.appStore.dispatch(
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
         // );
-        return this.usersService.deleteUsers(actions.id).pipe(
+        return this.usersService.deleteUser(actions.id).pipe(
           map((data) => {
             this.commonService.returnSuccessMessage(data);
             return deleteUserAPISuccess({ id: actions.id });

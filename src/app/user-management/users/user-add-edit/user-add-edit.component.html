@@ -48,27 +48,8 @@
               [placeholder]="placeholderValueSelect + ' date of birth'"></app-form-control>
           </div>
         </div>
-
-
-
         <div class="col-md-4">
           <div class="mb-3">
-            <!-- <form [formGroup]="myForm">
-          <label  class="form-label">Role <span class="text-danger">*</span></label>
-          <ng-multiselect-dropdown
-              name="role"
-              [placeholder]="'Select'"
-              formControlName="role"
-              [settings]="dropdownSettings"
-              [data]="roles"
-              (onSelect)="onItemSelect($event)"
-              (onSelectAll)="onSelectAll($event)"
-              (onDeSelect)="onItemDeSelect($event)"
-              (onDeSelectAll)="onItemDeSelectAll($event)"
-              >
-          </ng-multiselect-dropdown>
-     </form> -->
-
             <label class="form-label">Role <span class="text-danger">*</span></label>
             <ng-multiselect-dropdown name="role" [placeholder]="'Select'" formControlName="role"
               [settings]="dropdownSettings" [data]="roles" (onSelect)="onItemSelect($event)"
@@ -79,18 +60,13 @@
               class="text-danger fs-7">
               Please select role
             </span>
-            <!-- <app-form-control [inputId]="'role'" [dropdownData]="role" [lable]="'Role'" [control]="formGroup.controls.role"
-          [inputType]="'select'" [isRequired]="true"></app-form-control> -->
           </div>
         </div>
       </div>
-
       <button type="submit" class="btn btn-dark" (click)="save()"
         *ngIf="route.snapshot.params['page'] != 'edit'">Create</button>
       <button type="submit" class="btn btn-dark" (click)="update()"
         *ngIf="route.snapshot.params['page'] == 'edit'">Update</button>
-
-
       <app-form-control [lable]="'Back'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false"
         cssClass="btn-orange" class="ms-2" [routerLink]="['/list-user']" [queryParams]="{prop: 'back'}">
       </app-form-control>
