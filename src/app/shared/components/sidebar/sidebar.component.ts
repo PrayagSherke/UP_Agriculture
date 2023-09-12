@@ -34,7 +34,7 @@ export class SidebarComponent implements OnInit {
         }
       ]
     }, {
-      link_name: "Setting",
+      link_name: "Logout",
       link: "/setting",
       icon: "bx bx-cog",
       sub_menu: []

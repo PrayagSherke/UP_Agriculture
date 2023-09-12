@@ -171,6 +171,15 @@ export class UserAddEditComponent implements OnInit {
     this.formGroup.get('email')!.disable();
   }
 
+  handleUpload(error: string | null) {
+    debugger;
+    if (error) {
+      // Handle error here, e.g., display an error message
+    } else {
+      // Handle successful upload, e.g., refresh data or show a success message
+    }
+  }
+
   //Initialize Form Controls
   initializeFormControls() {
     this.formGroup = new FormGroup({

@@ -67,6 +67,13 @@
                 </span>
               </div>
             </div>
+
+            <div class="col-md-4">
+              <div class="mb-3">
+                <app-file-upload (upload)="handleUpload($event)"></app-file-upload>
+
+              </div>
+            </div>
           </div>
         </div>
         <!-- <button type="submit" class="btn btn-dark" (click)="save()"
@@ -95,6 +102,7 @@
             </app-form-control>
 
 
+
           </div>
         </div>
 
@@ -105,8 +113,8 @@
   </div>
 
   <div class="modal fade" id="dialogModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <app-dialog (callback)="reset()" [dialogContent]="resetForm" [closeText]="'Close'"
-      [actionButtonText]="'OK'" [dialogHeading]="'Form Reset'"></app-dialog>
+    <app-dialog (callback)="reset()" [dialogContent]="resetForm" [closeText]="'Close'" [actionButtonText]="'OK'"
+      [dialogHeading]="'Form Reset'"></app-dialog>
   </div>
 
 </main>

@@ -16,6 +16,7 @@ import { PageHeadingComponent } from './components/page-heading/page-heading.com
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PageHeadingComponent,
     DialogComponent,
     SidebarComponent,
+    FileUploadComponent,
     ],
   imports: [
     CommonModule, 
@@ -61,7 +63,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     PageHeadingComponent,
     DialogComponent,
-    SidebarComponent
+    SidebarComponent,
+    FileUploadComponent
     
   ],
   providers: [BilingualService, DatePipe],
