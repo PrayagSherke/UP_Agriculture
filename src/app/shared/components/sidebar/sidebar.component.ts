@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
 
   openSidebar: boolean = true;
 
-  menuSidebar:any = [
+  menuSidebar: any = [
     {
       link_name: "Dashboard",
       link: "/dashboard",
@@ -33,58 +33,6 @@ export class SidebarComponent implements OnInit {
           link: "/php-n-mysql",
         }
       ]
-    }, {
-      link_name: "Posts",
-      link: null,
-      icon: "bx bx-book-alt",
-      sub_menu: [
-        {
-          link_name: "Web Design",
-          link: "/posts/web-design",
-        }, {
-          link_name: "Login Form",
-          link: "/posts/login-form",
-        }, {
-          link_name: "Card Design",
-          link: "/posts/card-design",
-        }
-      ]
-    }, {
-      link_name: "Analytics",
-      link: "/analytics",
-      icon: "bx bx-pie-chart-alt-2",
-      sub_menu: []
-    }, {
-      link_name: "Chart",
-      link: "/chart",
-      icon: "bx bx-line-chart",
-      sub_menu: []
-    }, {
-      link_name: "Plugins",
-      link: null,
-      icon: "bx bx-plug",
-      sub_menu: [
-        {
-          link_name: "UI Face",
-          link: "/ui-face",
-        }, {
-          link_name: "Pigments",
-          link: "/pigments",
-        }, {
-          link_name: "Box Icons",
-          link: "/box-icons",
-        }
-      ]
-    }, {
-      link_name: "Explore",
-      link: "/explore",
-      icon: "bx bx-compass",
-      sub_menu: []
-    }, {
-      link_name: "History",
-      link: "/history",
-      icon: "bx bx-history",
-      sub_menu: []
     }, {
       link_name: "Setting",
       link: "/setting",

@@ -1,36 +1,29 @@
 <app-header [isMenu]="false"></app-header>
 <main id="mainInner">
+  <app-page-heading [pageHeading]="'User Registration'"></app-page-heading>
   <div class="container-fluid mt-2">
 
-
-    <div class="row">
-      <div class="col-md-3">
-        <app-sidebar></app-sidebar>
-      </div>
-      <div class="col-md-9">
-        <app-page-heading [pageHeading]="'User Registration'"></app-page-heading>
-
+    <section class="content-section">
+      <app-sidebar></app-sidebar>
+      <div class="row">
         <app-form-control [lable]="'+ Add A New User'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false"
-      cssClass="btn-orange" routerLink="add-user">
-    </app-form-control>
-
-
-    <div class="mt-2">
-      <app-table [tableData]="userData" [tableColumns]="usersTableColumns" [isFilterable]="true" [isPageable]="true"
-        [paginationSizes]="[5,10,25]" [defaultPageSize]="5" (sort)="sortData($event)" [rowActionIcon]="'edit'"
-        [actions]="tableActions" [recordCount]="count">
-      </app-table>
-      <!-- (rowAction)="editUser($event)" -->
-    </div>
+          cssClass="btn-orange" routerLink="add-user">
+        </app-form-control>
+        <div class="mt-2">
+          <app-table [tableData]="userData" [tableColumns]="usersTableColumns" [isFilterable]="true" [isPageable]="true"
+            [paginationSizes]="[5,10,25]" [defaultPageSize]="5" (sort)="sortData($event)" [rowActionIcon]="'edit'"
+            [actions]="tableActions" [recordCount]="count">
+          </app-table>
+          <!-- (rowAction)="editUser($event)" -->
+        </div>
       </div>
-    </div>
-
+    </section>
   </div>
 
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <app-dialog (callbackDelete)="delete()" [dialogContent]="userName" [closeText]="'Close'"
+  <div class="modal fade" id="dialogModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <app-dialog (callback)="delete()" [dialogContent]="userName" [closeText]="'Close'"
       [actionButtonText]="'Delete'" [dialogHeading]="'Confirm Delete'"></app-dialog>
   </div>
 </main>
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

@@ -39,7 +39,7 @@ export class UserListComponent implements OnInit {
 
   users$ = this.store.pipe(select(selectUsers));
 
-  deleteModal: any;
+  dialogModal: any;
   idToDelete: number = 0;
 
   initializeActionColumns(): void {
@@ -68,7 +68,7 @@ export class UserListComponent implements OnInit {
   removeUser(user: any) {
     this.userName = `${this.deleteText} ${user.firstName} ${user.lastName} ?`
     this.idToDelete = user._id;
-    this.deleteModal.show();
+    this.dialogModal.show();
   }
 
   editUser(id: any) {
@@ -111,8 +111,8 @@ export class UserListComponent implements OnInit {
 
     this.initializeActionColumns();
 
-    this.deleteModal = new window.bootstrap.Modal(
-      document.getElementById('deleteModal')
+    this.dialogModal = new window.bootstrap.Modal(
+      document.getElementById('dialogModal')
     );
 
     this.route.queryParams.subscribe((queryParam) => {
@@ -140,7 +140,7 @@ export class UserListComponent implements OnInit {
     let apiStatus$ = this.appStore.pipe(select(selectAppState));
     apiStatus$.subscribe((apState) => {
       if (apState.apiStatus == 'success') {
-        this.deleteModal.hide();
+        this.dialogModal.hide();
         // this.appStore.dispatch(
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
         // );

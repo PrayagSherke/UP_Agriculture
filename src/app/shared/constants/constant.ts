@@ -3,6 +3,10 @@ export const placehoder = {
     pleaseSelect: "Please select"
 }
 
+export const commonMessage = {
+    resetForm: "Are you sure you want to reset this form?",
+}
+
 export const dropdownSettingsConfig = {
     singleSelection: false,
     idField: 'id',
@@ -12,6 +16,7 @@ export const dropdownSettingsConfig = {
     itemsShowLimit: 3,
     allowSearchFilter: true
 }
+
 export const dateFormate = {
     ddMMyyyy: 'dd-MM-yyyy'
 } 

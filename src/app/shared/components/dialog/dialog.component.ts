@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class DialogComponent implements OnInit {
   
-  @Output() callbackDelete = new EventEmitter<string>();
+  @Output() callback = new EventEmitter<string>();
   @Input() dialogContent:string='';
   @Input() actionButtonText:string = '';
   @Input() closeText:string='';

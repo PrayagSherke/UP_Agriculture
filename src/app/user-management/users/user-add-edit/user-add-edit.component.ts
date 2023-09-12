@@ -8,7 +8,9 @@ import { invokeSaveNewUserAPI, invokeUpdateUserAPI } from '../store/users.action
 import { switchMap } from 'rxjs';
 import { selectUserById } from '../store/users.selector';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { dropdownSettingsConfig, placehoder, validationPattern } from 'src/app/shared/constants/constant';
+import { dropdownSettingsConfig, placehoder, validationPattern, commonMessage } from 'src/app/shared/constants/constant';
+
+declare var window: any;
 
 @Component({
   selector: 'app-user-add-edit',
@@ -28,7 +30,9 @@ export class UserAddEditComponent implements OnInit {
   dropdownSettings: any = {}
   formGroup: FormGroup;
   ShowFilter: boolean = true;
-  mobPattern:any = validationPattern.mobileNumber
+  mobPattern: any = validationPattern.mobileNumber;
+  resetForm: string = commonMessage.resetForm;
+  dialogModal:any;
 
   constructor(
     private store: Store,
@@ -55,6 +59,7 @@ export class UserAddEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
 
     this.gender = [
       { name: 'Select', value: '' },
@@ -76,6 +81,9 @@ export class UserAddEditComponent implements OnInit {
     if (this.route.snapshot.params['page'] == 'edit') {
       this.onEditUser();
     }
+    this.dialogModal = new window.bootstrap.Modal(
+      document.getElementById('dialogModal')
+    )
 
   }
 
@@ -147,6 +155,15 @@ export class UserAddEditComponent implements OnInit {
     else {
       this.router.navigate(['/list-user']);
     }
+  }
+
+  openDialog() {
+    this.dialogModal.show()
+  }
+  
+  reset() {
+    this.dialogModal.hide();
+    this.formGroup.reset()
   }
 
   // Disabled Form Controls
