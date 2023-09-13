@@ -12,6 +12,8 @@ import { COMMON_COLUMNS, CommonColumnsType } from 'src/app/user-management/users
 import { CommonService } from 'src/app/shared/services/common.service';
 import { ExcelExportService } from 'src/app/shared/services/excel-export.service';
 import { PdfExportService } from 'src/app/shared/services/pdf-export.service';
+import { commonMessage } from 'src/app/shared/constants/constant';
+
 
 declare var window: any;
 
@@ -28,7 +30,7 @@ export class UserListComponent implements OnInit {
   tableActions: TableAction[] = [];
   count: number
   userName: string = '';
-  deleteText: string = 'Are you sure you want to delete';
+  deleteText: string = commonMessage.deleteMessage;
   paramValue: any = '';
   @ViewChild('dialogModal') dialogModal!: ElementRef;
   modalPopup:any;
@@ -67,7 +69,7 @@ export class UserListComponent implements OnInit {
         handler: (row: any) => {
           this.viewUser(row._id)
         }
-      }
+      },
     ];
   }
 
