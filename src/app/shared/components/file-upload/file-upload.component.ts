@@ -30,7 +30,6 @@ export class FileUploadComponent implements OnInit {
 
 
   uploadFile() {
-    debugger;
     if (this.selectedFile) {
       this.fileUploadService.upload(this.selectedFile).subscribe((response) => {
         console.log(response)

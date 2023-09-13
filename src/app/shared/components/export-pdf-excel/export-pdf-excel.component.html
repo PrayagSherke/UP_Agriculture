@@ -1,7 +1,7 @@
 Export to:
-<app-buttons [lable]="'Excel'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false" *ngIf="isExcel"
+<app-buttons [lable]="'Excel'" [btnType]="'button'" [isLabel]="false" *ngIf="isExcel"
   cssClass="btn-success" (click)="callbackExcel.emit()" [isIcon]="true" [maticon]="'bi-file-earmark-excel-fill'">
 </app-buttons>
-<app-buttons [lable]="'PDF'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false" *ngIf="isPdf"
+<app-buttons [lable]="'PDF'" [btnType]="'button'" [isLabel]="false" *ngIf="isPdf"
   cssClass="btn-danger ms-2" (click)="callbackPdf.emit()" [isIcon]="true" [maticon]="'bi-file-pdf-fill'">
 </app-buttons>

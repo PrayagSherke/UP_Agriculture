@@ -21,11 +21,6 @@ export class FormControlComponent implements OnInit {
   @Input() minlength:number = 0;
   @Input() isLabel:boolean = true;
   @Input() cssClass:string = 'btn-brown';
-  @Input() btnType:string = 'submit';
-  @Input() maticon:string = '';
-  @Input() isIcon:boolean = false;
-  @Input() pattern:string=''
-
   datepickerConfig: Partial<BsDatepickerConfig>;
  
   errorMessage:Record<string, string> = {

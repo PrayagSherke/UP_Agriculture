@@ -33,6 +33,7 @@ export class UserAddEditComponent implements OnInit {
   mobPattern: any = validationPattern.mobileNumber;
   resetForm: string = commonMessage.resetForm;
   dialogModal:any;
+  pageTitle:string = 'Add A New User'
 
   constructor(
     private store: Store,
@@ -89,6 +90,7 @@ export class UserAddEditComponent implements OnInit {
 
   // On Edit User
   onEditUser() {
+    this.pageTitle = 'Update User'
     this.disabledField()
     let fetchData$ = this.route.paramMap.pipe(
       switchMap((params) => {

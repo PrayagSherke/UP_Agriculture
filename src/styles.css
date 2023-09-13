@@ -210,9 +210,19 @@ h6 {
     
   }
 
+  .add-edit-page {
+      position: relative;
+  }
+  .add-edit-page h2 {
+    margin-bottom: 1.1rem;
+    position: relative;
+    font-size: 20px; font-weight: bold;
+  }
+  
+
   .view-page {
-    box-shadow: 0px 15px 60px -10px rgb(109 117 143 / 33%);
-      padding: 30px;
+    /* box-shadow: 0px 15px 60px -10px rgb(109 117 143 / 33%); */
+      /* padding: 30px; */
       border-radius: 10px;
       position: relative;
   }

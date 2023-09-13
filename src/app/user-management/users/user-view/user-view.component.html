@@ -1,62 +1,62 @@
 <app-header [isMenu]="false"></app-header>
 <main id="mainInner">
-
   <app-page-heading [pageHeading]="'View User'"></app-page-heading>
+  <div class="container-fluid mt-2">
+    <section class="content-section">
+      <app-sidebar></app-sidebar>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="view-page">
+            <h2>User Details</h2>
+            <form>
+              <div class="row g-3">
+                <div class="col-md-4 brd_bottom">
+                  <label class="form-label">First Name</label>
+                  <span class="form-control fb">
+                    {{userForm?.firstName}}
+                  </span>
+                </div>
+                <div class="col-md-4 brd_bottom">
+                  <label class="form-label">Last Name</label>
+                  <span class="form-control fb">{{userForm?.lastName}}</span>
+                </div>
+                <div class="col-md-4 brd_bottom">
+                  <label class="form-label">Email</label>
+                  <span class="form-control  fb">{{userForm?.email}}</span>
+                </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="view-page">
-          <h2>User Details</h2>
-          <form>
-            <div class="row g-3">
-              <div class="col-md-4 brd_bottom">
-                <label class="form-label">First Name</label>
-                <span class="form-control fb">
-                  {{userForm?.firstName}}
-                </span>
-              </div>
-              <div class="col-md-4 brd_bottom">
-                <label class="form-label">Last Name</label>
-                <span class="form-control fb">{{userForm?.lastName}}</span>
-              </div>
-              <div class="col-md-4 brd_bottom">
-                <label class="form-label">Email</label>
-                <span class="form-control  fb">{{userForm?.email}}</span>
-              </div>
-
-              <div class="col-md-4 brd_bottom">
-                <label class="form-label">Mobile No.</label>
-                <span class="form-control fb">{{userForm?.mobileNo}}</span>
-              </div>
-              <div class="col-md-4 brd_bottom">
-                <label class="form-label">Gender</label>
-                <span class="form-control fb">{{userForm?.gender}}</span>
-              </div>
-              <div class="col-md-4 brd_bottom">
-                <label class="form-label">Date of Birth</label>
-                <span class="form-control  fb">{{userForm?.dob | date:ddMMyyyy}}</span>
-              </div>
-              <div class="col-md-12">
-                <label class="form-label">Role</label>
-                <span class="form-control1  fb" *ngFor="let role of userForm.role; last as isLast">
-                  {{role.value}} <span *ngIf="!isLast">,</span>
-                </span>
-              </div>
-              <div class="col-12">
-                <div class="row">
-                  <div class="col-md-12 pt-3 text-center border-top ">
-                    <app-form-control [lable]="'Back'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false"
-                      cssClass="btn-orange" class="ms-2" [routerLink]="['/list-user']" [queryParams]="{prop: 'back'}">
-                    </app-form-control>
+                <div class="col-md-4 brd_bottom">
+                  <label class="form-label">Mobile No.</label>
+                  <span class="form-control fb">{{userForm?.mobileNo}}</span>
+                </div>
+                <div class="col-md-4 brd_bottom">
+                  <label class="form-label">Gender</label>
+                  <span class="form-control fb">{{userForm?.gender}}</span>
+                </div>
+                <div class="col-md-4 brd_bottom">
+                  <label class="form-label">Date of Birth</label>
+                  <span class="form-control  fb">{{userForm?.dob | date:ddMMyyyy}}</span>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label">Role</label>
+                  <span class="form-control1  fb" *ngFor="let role of userForm.role; last as isLast">
+                    {{role.value}} <span *ngIf="!isLast">,</span>
+                  </span>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-md-12 pt-3 text-center border-top ">
+                      <app-buttons [lable]="'Back'" [btnType]="'button'" cssClass="btn-orange ps-4 pe-4" class="ms-2"
+                        [routerLink]="['/list-user']" [queryParams]="{prop: 'back'}"></app-buttons>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </main>
 <app-footer></app-footer>
