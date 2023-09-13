@@ -10,6 +10,8 @@ import { Sort } from '@angular/material/sort';
 import { Router, ActivatedRoute } from '@angular/router';
 import { COMMON_COLUMNS, CommonColumnsType } from 'src/app/user-management/users/user-list/common.columns'
 import { CommonService } from 'src/app/shared/services/common.service';
+import { ExcelExportService } from 'src/app/shared/services/excel-export.service';
+import { PdfExportService } from 'src/app/shared/services/pdf-export.service';
 
 declare var window: any;
 
@@ -34,7 +36,9 @@ export class UserListComponent implements OnInit {
     private appStore: Store<Appstate>,
     private router: Router,
     public route: ActivatedRoute,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private excelExportService:ExcelExportService,
+    private pdfExportService: PdfExportService
   ) { }
 
   users$ = this.store.pipe(select(selectUsers));
@@ -146,6 +150,22 @@ export class UserListComponent implements OnInit {
         // );
       }
     });
+  }
+
+  exportExcelData() {
+    const toExport = this.userData.map(item => {
+      const { _id, password, ...rest } = item; // to remove id and passowrd
+      return rest;
+    });
+    this.excelExportService.exportToExcel(toExport,'User Data');
+  }
+
+  exportPDFData() {
+    const toExport = this.userData.map(item => {
+      const { _id, password, ...rest } = item; // to remove id and passowrd
+      return rest;
+    });
+    this.pdfExportService.exportToPdf(toExport,'Users', 'User Data');
   }
 
 }

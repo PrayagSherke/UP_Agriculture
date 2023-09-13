@@ -39,6 +39,5 @@ export class UsersService {
     const endpoint = `auth/register/${_id}`
     return this.apiHelper.delete(endpoint)
   }
-    
 
 }

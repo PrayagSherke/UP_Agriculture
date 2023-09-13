@@ -41,4 +41,14 @@ export class ApiHelper {
         return this.http.post<T>(url, payload, { headers: this.commonService.getHeaderContentTypeOnly() })
     }
 
+    postUpload<T>(endpoint: string, payload: any): Observable<T> {//TODO
+        //const url = `${environment.APIUrl}${endpoint}`;
+        let header: any
+        header = {
+          'Authorization': 'Bearer Bearer eyJhbGciOiJIUzI1NiJ9.eyJmaXJzdE5hbWUiOiJTYW5qZWV2IiwibGFzdE5hbWUiOiJHdXB0YSIsInN1YiI6InNhbmplZXYuZ3VwdGFAYXVyaW9ucHJvLmNvbSIsInVzZXJwcm9maWxlSWQiOjIwODcyLCJleHAiOjE2OTQ1OTEyNjAsImlhdCI6MTY5NDU4NDA2MCwib3JnSWQiOjF9.3SzuVCnSoNVoISCEjs5-weKDeyg6cR8_UVXvjF8_iGU'
+        }
+
+        return this.http.post<T>(endpoint, payload, { headers: header })
+    }
+
 }

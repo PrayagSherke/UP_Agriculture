@@ -5,10 +5,24 @@
 
     <section class="content-section">
       <app-sidebar></app-sidebar>
+      <div class="d-flex">
+        <div class="">
+          <app-form-control [lable]="'+ Add A New User'" [btnType]="'button'" [inputType]="'submitbtn'"
+            [isLabel]="false" cssClass="btn-orange" routerLink="add-user">
+          </app-form-control>
+        </div>
+        <div class="ms-auto ">
+          <app-export-pdf-excel (callbackExcel)="exportExcelData()" (callbackPdf)="exportPDFData()"></app-export-pdf-excel>
+        </div>
+      </div>
       <div class="row">
-        <app-form-control [lable]="'+ Add A New User'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false"
-          cssClass="btn-orange" routerLink="add-user">
-        </app-form-control>
+
+
+
+
+
+
+
         <div class="mt-2">
           <app-table [tableData]="userData" [tableColumns]="usersTableColumns" [isFilterable]="true" [isPageable]="true"
             [paginationSizes]="[5,10,25]" [defaultPageSize]="5" (sort)="sortData($event)" [rowActionIcon]="'edit'"
@@ -21,8 +35,8 @@
   </div>
 
   <div class="modal fade" id="dialogModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <app-dialog (callback)="delete()" [dialogContent]="userName" [closeText]="'Close'"
-      [actionButtonText]="'Delete'" [dialogHeading]="'Confirm Delete'"></app-dialog>
+    <app-dialog (callback)="delete()" [dialogContent]="userName" [closeText]="'Close'" [actionButtonText]="'Delete'"
+      [dialogHeading]="'Confirm Delete'"></app-dialog>
   </div>
 </main>
 

@@ -343,3 +343,6 @@ h6 {
   color: white;
 }
 .login-bg {margin-top: 190px;}
+.btn-maroon {
+  background-color: var(--light-maroon) !important; color: var(--white) !important;
+}

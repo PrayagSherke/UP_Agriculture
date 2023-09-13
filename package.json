@@ -33,10 +33,12 @@
     "ng-multiselect-dropdown": "^1.0.0",
     "ngx-bootstrap": "^9.0.0",
     "ngx-slick-carousel": "^15.0.0",
+    "pdfmake": "^0.2.7",
     "rxjs": "~7.5.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^6",
     "tslib": "^2.3.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -46,6 +48,7 @@
     "@angular/localize": "^14.0.4",
     "@types/aos": "^3.0.4",
     "@types/jasmine": "~4.0.0",
+    "@types/pdfmake": "^0.2.2",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

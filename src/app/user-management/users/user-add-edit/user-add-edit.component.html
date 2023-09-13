@@ -68,20 +68,14 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="mb-3">
-                <app-file-upload (upload)="handleUpload($event)"></app-file-upload>
+                <app-file-upload (upload)="handleUpload($event)" [label]="'Profile Image'"></app-file-upload>
 
               </div>
             </div>
           </div>
         </div>
-        <!-- <button type="submit" class="btn btn-dark" (click)="save()"
-        *ngIf="route.snapshot.params['page'] != 'edit'">Create</button> -->
-
-        <!-- <button type="submit" class="btn btn-dark" (click)="update()"
-        *ngIf="route.snapshot.params['page'] == 'edit'">Update</button> -->
-
         <div class="d-flex bd-highlight mb-3 mt-0 bg-light p-2 rounded-bottom border border-top-0">
           <div class="bd-highlight">
             <app-form-control [lable]="'Back'" [btnType]="'button'" [inputType]="'submitbtn'" [isLabel]="false"

@@ -17,6 +17,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { ButtonsComponent } from './components/buttons/buttons.component';
+import { ExportPdfExcelComponent } from './components/export-pdf-excel/export-pdf-excel.component';
 
 
 
@@ -35,6 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DialogComponent,
     SidebarComponent,
     FileUploadComponent,
+    ButtonsComponent,
+    ExportPdfExcelComponent,
     ],
   imports: [
     CommonModule, 
@@ -64,7 +68,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     PageHeadingComponent,
     DialogComponent,
     SidebarComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    ButtonsComponent,
+    ExportPdfExcelComponent
     
   ],
   providers: [BilingualService, DatePipe],

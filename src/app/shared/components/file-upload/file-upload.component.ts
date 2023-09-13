@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
+import { FileUploadService } from './file-upload.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -8,10 +9,13 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class FileUploadComponent implements OnInit {
 
   @ViewChild('fileInput') fileInput: ElementRef;
+  @Input() label: string = ''
   selectedFile: File | null = null;
   error: string | null = null;
 
-  constructor() { }
+  constructor(
+    private fileUploadService: FileUploadService
+  ) { }
 
   onFileSelected(event: Event) {
     const inputElement = this.fileInput.nativeElement as HTMLInputElement;
@@ -25,35 +29,22 @@ export class FileUploadComponent implements OnInit {
   }
 
 
-uploadFile() {
-  debugger;
-  if(this.selectedFile) {
-    const formData = new FormData();
-    formData.append('file', this.selectedFile);
-    fetch('api', {
-      method:'POST',
-      body:formData
-    }).then((response)=>{
-      if(response.ok) {
-        this.error = null;
-        //inputElement.value = ''
-      }
-      else {
-        response.json().then((data)=>{
-          this.error = data.message
-        })
-      }
-    }).catch((error)=>{
-      this.error = 'An Error occured while uploading the file'
-    })
+  uploadFile() {
+    debugger;
+    if (this.selectedFile) {
+      this.fileUploadService.upload(this.selectedFile).subscribe((response) => {
+        console.log(response)
+      },(error)=>{
+        console.error('Error:', error);
+      })
+    }
+    else {
+      this.error = 'Please select a file to upload'
+    }
   }
-  else {
-    this.error = 'Please select a file to upload'
-  }
-}
 
-ngOnInit(): void {
-}
+  ngOnInit(): void {
+  }
 
 }
 
