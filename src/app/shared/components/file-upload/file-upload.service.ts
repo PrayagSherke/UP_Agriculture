@@ -14,7 +14,6 @@ export class FileUploadService {
   
     
    upload(payload: any) {
-    debugger
     const formData = new FormData();
     formData.append('file', payload);
     const endpoint = 'https://ipmstest.aurionpro.com:8092/ipms/ipms/userprofile/uploadProfileImage'//TODO

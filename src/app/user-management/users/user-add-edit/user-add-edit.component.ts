@@ -172,7 +172,6 @@ export class UserAddEditComponent implements OnInit {
   }
 
   handleUpload(error: string | null) {
-    debugger;
     if (error) {
       // Handle error here, e.g., display an error message
     } else {
