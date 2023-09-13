@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { selectAppState } from 'src/app/shared/stores/app.selector';
 import { Appstate } from 'src/app/shared/stores/appstate';
@@ -29,7 +29,10 @@ export class UserListComponent implements OnInit {
   count: number
   userName: string = '';
   deleteText: string = 'Are you sure you want to delete';
-  paramValue: any = ''
+  paramValue: any = '';
+  @ViewChild('dialogModal') dialogModal!: ElementRef;
+  modalPopup:any;
+
 
   constructor(
     private store: Store,
@@ -37,13 +40,12 @@ export class UserListComponent implements OnInit {
     private router: Router,
     public route: ActivatedRoute,
     private commonService: CommonService,
-    private excelExportService:ExcelExportService,
+    private excelExportService: ExcelExportService,
     private pdfExportService: PdfExportService
   ) { }
 
   users$ = this.store.pipe(select(selectUsers));
 
-  dialogModal: any;
   idToDelete: number = 0;
 
   initializeActionColumns(): void {
@@ -72,7 +74,8 @@ export class UserListComponent implements OnInit {
   removeUser(user: any) {
     this.userName = `${this.deleteText} ${user.firstName} ${user.lastName} ?`
     this.idToDelete = user._id;
-    this.dialogModal.show();
+    this.modalPopup = new window.bootstrap.Modal(this.dialogModal.nativeElement);
+    this.modalPopup.show();
   }
 
   editUser(id: any) {
@@ -112,27 +115,18 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.initializeActionColumns();
-
-    this.dialogModal = new window.bootstrap.Modal(
-      document.getElementById('dialogModal')
-    );
-
     this.route.queryParams.subscribe((queryParam) => {
       this.paramValue = queryParam['prop'];
     })
-
     if (this.paramValue == 'back') {
       this.users()
       return
     }
-
     else {
       this.store.dispatch(invokeUsersAPI());
       this.users()
     }
-
   }
 
   delete() {
@@ -144,7 +138,7 @@ export class UserListComponent implements OnInit {
     let apiStatus$ = this.appStore.pipe(select(selectAppState));
     apiStatus$.subscribe((apState) => {
       if (apState.apiStatus == 'success') {
-        this.dialogModal.hide();
+        this.modalPopup.hide();
         // this.appStore.dispatch(
         //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
         // );
@@ -157,7 +151,7 @@ export class UserListComponent implements OnInit {
       const { _id, password, ...rest } = item; // to remove id and passowrd
       return rest;
     });
-    this.excelExportService.exportToExcel(toExport,'User Data');
+    this.excelExportService.exportToExcel(toExport, 'User Data');
   }
 
   exportPDFData() {
@@ -165,7 +159,7 @@ export class UserListComponent implements OnInit {
       const { _id, password, ...rest } = item; // to remove id and passowrd
       return rest;
     });
-    this.pdfExportService.exportToPdf(toExport,'Users', 'User Data');
+    this.pdfExportService.exportToPdf(toExport, 'Users', 'User Data');
   }
 
 }

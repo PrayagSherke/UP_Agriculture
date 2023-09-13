@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { selectAppState } from 'src/app/shared/stores/app.selector';
@@ -32,8 +32,9 @@ export class UserAddEditComponent implements OnInit {
   ShowFilter: boolean = true;
   mobPattern: any = validationPattern.mobileNumber;
   resetForm: string = commonMessage.resetForm;
-  dialogModal:any;
-  pageTitle:string = 'Add A New User'
+  pageTitle: string = 'Add A New User';
+  @ViewChild('dialogModal') dialogModal!: ElementRef;
+  modalPopup:any;
 
   constructor(
     private store: Store,
@@ -60,7 +61,7 @@ export class UserAddEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+
 
     this.gender = [
       { name: 'Select', value: '' },
@@ -82,9 +83,6 @@ export class UserAddEditComponent implements OnInit {
     if (this.route.snapshot.params['page'] == 'edit') {
       this.onEditUser();
     }
-    this.dialogModal = new window.bootstrap.Modal(
-      document.getElementById('dialogModal')
-    )
 
   }
 
@@ -160,12 +158,13 @@ export class UserAddEditComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialogModal.show()
+    this.modalPopup = new window.bootstrap.Modal(this.dialogModal.nativeElement);
+    this.modalPopup.show();
   }
-  
+
   reset() {
-    this.dialogModal.hide();
-    this.formGroup.reset()
+    this.formGroup.reset();
+    this.modalPopup.hide();
   }
 
   // Disabled Form Controls

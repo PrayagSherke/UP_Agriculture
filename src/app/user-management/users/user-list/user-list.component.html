@@ -26,7 +26,7 @@
       </div>
     </section>
   </div>
-  <div class="modal fade" id="dialogModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" #dialogModal tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <app-dialog (callback)="delete()" [dialogContent]="userName" [closeText]="'Close'" [actionButtonText]="'Delete'"
       [dialogHeading]="'Confirm Delete'"></app-dialog>
   </div>
