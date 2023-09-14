@@ -1,26 +1,35 @@
 <app-header [isMenu]="false"></app-header>
 <main id="mainInner">
   <app-page-heading [pageHeading]="'Login'"></app-page-heading>
-  <form [formGroup]="formGroup" (ngSubmit)="login()">
+  <form [formGroup]="formGroup">
     <div class="container-fluid mt-2">
       <div class="row  justify-content-md-center">
         <div class="col-md-6 mt-5 mb-4">
           <div class="shadow rounded p-3 login-bg">
             <legend class="font-weight-bold pb-2">Login</legend>
             <div class="mb-3">
+              <app-buttons [lable]="'OTP'|translate" [btnType]="'button'"
+                [cssClass]="!isPassword?'btn-orange ps-4 pe-4 me-3':'btn-outline-warning ps-4 pe-4 me-3'"
+                (click)="togglePassword('OTP')"> </app-buttons>
+              <app-buttons [lable]="'Password'|translate" [btnType]="'button'"
+                [cssClass]="isPassword?'btn-orange ps-4 pe-4':'btn-outline-warning ps-4 pe-4'"
+                (click)="togglePassword('PASSWORD')"> </app-buttons>
+            </div>
+            <div class="mb-3">
               <app-form-control [inputId]="'email'" [lable]="'Email'" [placeholder]="placeholderValue + ' email'"
                 [control]="formGroup.controls.email" [inputType]="'input'" [isRequired]="true"
                 [maxlength]="100"></app-form-control>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" *ngIf="isPassword">
               <app-form-control [inputId]="'password'" [placeholder]="placeholderValue + ' password'"
                 [lable]="'Password'" [control]="formGroup.controls.password" [inputType]="'password'"
                 [isRequired]="true" [minlength]="8"></app-form-control>
             </div>
             <div class="mb-3">
-              <app-buttons [lable]="'Login'" [btnType]="'submit'"  cssClass="btn-brown ps-4 pe-4" class="ms-2"
-              >
-            </app-buttons>
+              <app-buttons [lable]="'Login'" [btnType]="'submit'" [cssClass]="'btn-brown ps-4 pe-4'" class="ms-2" (click)="login()" *ngIf="isPassword">
+              </app-buttons>
+              <app-buttons [lable]="'Generate OTP'" [btnType]="'submit'" [cssClass]="'btn-brown ps-4 pe-4'" class="ms-2" (click)="generateOtp()" *ngIf="!isPassword">
+              </app-buttons>
             </div>
           </div>
         </div>

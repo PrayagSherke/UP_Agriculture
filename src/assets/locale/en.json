@@ -219,6 +219,9 @@
   "option21":"Promotion of Agriculture Mechanization for In-Situ Management of Crop Residue",
   "option22":"National Mission on Agriculture Extension and Technology",
   "option23":"Trained Agricultural Entrepreneur Self Reliance Scheme",
-  "option24":"Vermi compost unit establishment plan"
+  "option24":"Vermi compost unit establishment plan",
+
+  "OTP":"OTP",
+  "Password":"Password"
 
 }
