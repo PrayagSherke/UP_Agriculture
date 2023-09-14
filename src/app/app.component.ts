@@ -20,7 +20,7 @@ export class AppComponent implements OnInit{
     ) {}
 
   ngOnInit() {   
-     this.errorMessage = this.store.pipe(select(getErrorMessage));
+     //this.errorMessage = this.store.pipe(select(getErrorMessage));
      this.showLoading = this.store.pipe(select(showLoadingSpinner))
   }
 

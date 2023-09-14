@@ -6,6 +6,7 @@ export const placehoder = {
 export const commonMessage = {
     resetForm: "Are you sure you want to reset this form?",
     deleteMessage: "Are you sure you want to reset this form?",
+    snackBarDuration:2000,
 }
 
 export const dropdownSettingsConfig = {

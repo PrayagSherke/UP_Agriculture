@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.formGroup.status == "INVALID") {
      this.formGroup.markAllAsTouched();
-      // this.formGroup.markAsDirty();
       return
     }
     this.store.dispatch(invokeLoginAPI({ login: this.loginForm }));

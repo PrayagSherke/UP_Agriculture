@@ -2,7 +2,7 @@ import { User } from "src/app/user-management/users/store/users";
 
 export interface Appstate {
   apiStatus: string;
-  apiResponseMessage: string;
+  // apiResponseMessage: string;
   isLoading:boolean;
 }
 

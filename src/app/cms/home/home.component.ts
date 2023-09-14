@@ -1,12 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { Appstate } from 'src/app/shared/stores/appstate';
-import { Store, select } from '@ngrx/store';
-import { invokeHomeAPI } from './store/home.action';
-import { selectAppState } from 'src/app/shared/stores/app.selector';
-import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { placehoder } from 'src/app/shared/constants/constant';
-
+import {  Component, OnInit, ViewChild } from '@angular/core';
 import { SwiperComponent } from "swiper/angular";
 
 // import Swiper core and required components
@@ -41,62 +33,28 @@ SwiperCore.use([
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
   bannerImages = [
-    {image:'assets/img/banner1.jpg',title:'Important Notice:', description: 'For Farmer Brothers', links: 'Draw tokens for Subsidy on Machinery/ Farm Ponds', active:true},
-    {image:'assets/img/banner2.jpg',title:'Important Notice:', description: 'For Farmer Brothers', links: 'Draw tokens for Subsidy on Machinery/ Farm Ponds', active:false}
+    { image: 'assets/img/banner1.jpg', title: 'Important Notice:', description: 'For Farmer Brothers', links: 'Draw tokens for Subsidy on Machinery/ Farm Ponds', active: true },
+    { image: 'assets/img/banner2.jpg', title: 'Important Notice:', description: 'For Farmer Brothers', links: 'Draw tokens for Subsidy on Machinery/ Farm Ponds', active: false }
   ];
 
   slidesImg = [
-    {image:'indiaGov.gif', link:"https://www.india.gov.in/"},
-    {image:'rti-icon.gif', link:"https://rti.gov.in/"},
-    {image:'upgov-icon.gif', link:"https://up.gov.in/en"},
-    {image:'cm-office.gif', link:"https://upcmo.up.nic.in/"},
-    {image:'chief.gif', link:"https://ceouttarpradesh.nic.in/"},
-    {image:'election.gif', link:"https://eci.gov.in/"},
-
-
-    // Add more image paths here
+    { image: 'indiaGov.gif', link: "https://www.india.gov.in/" },
+    { image: 'rti-icon.gif', link: "https://rti.gov.in/" },
+    { image: 'upgov-icon.gif', link: "https://up.gov.in/en" },
+    { image: 'cm-office.gif', link: "https://upcmo.up.nic.in/" },
+    { image: 'chief.gif', link: "https://ceouttarpradesh.nic.in/" },
+    { image: 'election.gif', link: "https://eci.gov.in/" },
   ];
 
   @ViewChild("swiperRef", { static: false }) swiperRef?: SwiperComponent;
 
-  formGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required])
-  })
   // supportedLanguages: string[] = [];
 
-  homeForm: any
-  placeholderValue:any = placehoder.pleaseEnter
-  constructor(
-    private appStore: Store<Appstate>,
-    private store: Store,
-    private router: Router,
-    private cd: ChangeDetectorRef
-  ) {
-    this.formGroup.valueChanges.subscribe((val) => this.homeForm = val)
-
-  }
-
-
-
-
-  home() {
-    if (this.formGroup.status == "INVALID") {
-     this.formGroup.markAllAsTouched();
-      // this.formGroup.markAsDirty();
-      return
-    }
-    this.store.dispatch(invokeHomeAPI({ home: this.homeForm }));
-    let apiStatus$ = this.appStore.pipe(select(selectAppState));
-    apiStatus$.subscribe((apState) => {
-      if (apState.apiStatus == 'success') {
-        this.router.navigate(['/list-user'])
-      }
-    })
-  }
+  constructor( ) { }
 
   ngOnInit(): void {
 
@@ -106,7 +64,7 @@ export class HomeComponent implements OnInit {
   slidesPerView: number = 2;
   pagination: any = false;
 
-  
+
   breakpoints = {
     640: { slidesPerView: 2, spaceBetween: 20 },
     768: { slidesPerView: 4, spaceBetween: 40 },
@@ -118,8 +76,6 @@ export class HomeComponent implements OnInit {
     (el, index) => `Slide ${index + 1}`
   );
 
-
-
   breakPointsToggle: boolean;
   breakpointChange() {
     this.breakPointsToggle = !this.breakPointsToggle;
@@ -129,6 +85,5 @@ export class HomeComponent implements OnInit {
       1024: { slidesPerView: this.breakPointsToggle ? 7 : 5, spaceBetween: 50 }
     };
   }
-
 
 }

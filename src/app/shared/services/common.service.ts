@@ -10,13 +10,14 @@ import { Store } from '@ngrx/store';
 
 export class CommonService {
 
-  constructor(private appStore: Store<Appstate>) { }
+  constructor(
+    private appStore: Store<Appstate>) { }
 
   // HTTP Failure
   returnErrorMessage(error: any) {
     return of(setAPIStatus({
       apiStatus: {
-        apiResponseMessage: error.error.error.message,
+        // apiResponseMessage: error.error.error.message,
         apiStatus: error.error.error.status,
         isLoading: false
       },
@@ -28,7 +29,7 @@ export class CommonService {
     this.appStore.dispatch(
       setAPIStatus({
         apiStatus: {
-          apiResponseMessage: success.message,
+          // apiResponseMessage: success.message,
           apiStatus: 'success',
           isLoading: false
         },
@@ -49,7 +50,8 @@ export class CommonService {
   showLoading() {
     this.appStore.dispatch(
       setAPIStatus({
-        apiStatus: { apiResponseMessage: '', apiStatus: '', isLoading: true },
+        apiStatus: { 
+           apiStatus: '', isLoading: true },
       })
     );
   }
@@ -57,7 +59,8 @@ export class CommonService {
   hideLoading() {
     this.appStore.dispatch(
       setAPIStatus({
-        apiStatus: { apiResponseMessage: '', apiStatus: '', isLoading: false },
+        apiStatus: { 
+          apiStatus: '', isLoading: false },
       })
     );
   }

@@ -356,3 +356,4 @@ h6 {
 .btn-maroon {
   background-color: var(--light-maroon) !important; color: var(--white) !important;
 }
+.mat-simple-snackbar-action {color: #fff;}

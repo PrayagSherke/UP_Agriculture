@@ -3,7 +3,7 @@ import { setAPIStatus, setErrorMessage } from './app.action';
 import { Appstate } from './appstate';
 
 export const initialState: Readonly<Appstate> = {
-  apiResponseMessage: '',
+  // apiResponseMessage: '',
   apiStatus: '',
   isLoading:false,
 };

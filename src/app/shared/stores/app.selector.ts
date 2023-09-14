@@ -12,7 +12,7 @@ const getAuthState = createFeatureSelector<AuthState>(AUTH_STATE_NAME);
 
 
 export const getErrorMessage = createSelector(selectAppState, state=>{
-    return state.apiResponseMessage
+    // return state.apiResponseMessage
 })
 
 
