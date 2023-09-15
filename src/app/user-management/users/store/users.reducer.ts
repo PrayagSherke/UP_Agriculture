@@ -16,7 +16,7 @@ export const userReducer = createReducer(
   }),
   on(updateUserAPISucess, (state, { updateUser }) => {
     let newState = state.filter((_) => _._id != updateUser._id);
-    newState.unshift(updateUser);
+    //newState.unshift(updateUser);
     return newState;
   }),
   on(deleteUserAPISuccess, (state, { id }) => {

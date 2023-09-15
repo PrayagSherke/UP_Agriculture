@@ -8,7 +8,7 @@
 @import "~aos/dist/aos.css";
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
-
+@import '~ngx-bootstrap/datepicker/bs-datepicker.css';
 
 
 :root {
@@ -40,7 +40,7 @@
     --black-border: #151515;
     --golden-tainoi: #ffc451;
     --chinese-silver: #ccc;
-    --light-maroon: #521e1b;
+    --light-maroon: #521e1b; 
     --dark-red: #c8131a;
     --grey: #747474;
 }
@@ -201,3 +201,160 @@ h6 {
   .HINDI ul >li {
     font-size: 16px;
   }
+
+  .without-menu {margin-top: 130px;}
+  
+  .multiselect-dropdown .dropdown-btn {
+    border: 1px solid #d5d4d4 !important;
+    padding: 7px 12px !important;
+    
+  }
+
+  .add-edit-page {
+      position: relative;
+  }
+  .add-edit-page h2 {
+    margin-bottom: 1.1rem;
+    position: relative;
+    font-size: 20px; font-weight: bold;
+  }
+  
+
+  .view-page {
+    /* box-shadow: 0px 15px 60px -10px rgb(109 117 143 / 33%); */
+      /* padding: 30px; */
+      border-radius: 10px;
+      position: relative;
+  }
+  .view-page h2 {
+    margin-bottom: 1.1rem;
+    position: relative;
+    font-size: 20px; font-weight: bold;
+  }
+  
+  .view-page .fb {
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+    border: medium none;
+    padding: 0;
+  }
+  .view-page .brd_bottom {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0rem;
+  }
+  .view-page .form-control1 {
+    display: table-cell;
+    padding-right: 1rem;
+  }
+  .table-theme th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+
+
+
+
+  /* Hamburger Menu */
+.hamburger-menu {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0 15px;
+}
+
+.label-hamburger-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.label-hamburger-menu:hover .bar {
+  /* box-shadow: 1px 1px 7px 1px RGBa(0, 0, 0, 0.3); */
+}
+
+.label-hamburger-menu .bar {
+  width: 40px;
+  height: 4px;
+  background: #fff;
+  /* box-shadow: 1px 1px 3px RGBa(0, 0, 0, 0.4); */
+  border-radius: 1px;
+  transition: 0.4s ease;
+}
+
+.label-hamburger-menu .bar:not(:first-child) {
+  margin-top: 5px;
+}
+
+#checkbox-hamburger-menu {
+  display: none;
+}
+
+#checkbox-hamburger-menu:checked + .label-hamburger-menu {
+  transform: translate(-50%, -50%) rotateY(180deg);
+}
+
+#checkbox-hamburger-menu:checked + .label-hamburger-menu .bar {
+  width: 30px;
+  transform: rotateY(180deg) rotateX(360deg);
+}
+
+#checkbox-hamburger-menu:checked + .label-hamburger-menu .bar:first-child {
+  transform: translateY(9px) rotate(-45deg);
+}
+
+#checkbox-hamburger-menu:checked + .label-hamburger-menu .bar:nth-child(2) {
+  opacity: 0;
+}
+
+#checkbox-hamburger-menu:checked + .label-hamburger-menu .bar:nth-child(3) {
+  transform: translateY(-10px) rotate(45deg);
+}
+
+/* Content Section */
+.content-section {
+  position: relative;
+  height: 100vh;
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  margin-top: 180px;
+}
+
+.content-section .home-header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.content-section .home-header .title {
+  color: white;
+  font-size: 35px;
+}
+
+.content-section .home-header .title {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.content-section .home-view {
+  /* height: 100%; */
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+.login-bg {margin-top: 190px;}
+.btn-maroon {
+  background-color: var(--light-maroon) !important; color: var(--white) !important;
+}
+.mat-simple-snackbar-action {color: #fff;}
+.btn-check:focus+.btn, .btn:focus {box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 0%) !important;}

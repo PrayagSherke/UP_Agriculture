@@ -1,7 +1,10 @@
-
-<div class="alert alert-danger" *ngIf="errorMessage | async as error">
-  
-   {{error}}
+<div  #clsoe class="alert alert-danger" [ngClass]="errorMessage ? 'show': 'alert' "  *ngIf="errorMessage | async"
+style="position: fixed; z-index: 9999999; top: 0px; right: 0px; width: 100%; text-align: center;">
+   {{errorMessage | async}} <span class="close" (click)="removeCss(clsoe)">X</span>
 </div>
+
 <app-loading *ngIf="showLoading | async"></app-loading>
+
+<!-- <h1 style="position: absolute; z-index: 99999999999;"> Test: {{showLoading | async}}</h1> -->
+
 <router-outlet></router-outlet>

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormControlComponent } from './components/form-control/form-control.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TableComponent } from './components/table/table.component';
@@ -7,23 +7,46 @@ import { DataPropertyGetterPipe } from '../shared/components/table/data-property
 import { AppMaterialModule } from '../app-material/app-material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BilingualService } from '../shared/services/bilingual.service';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router'
+import { PageHeadingComponent } from './components/page-heading/page-heading.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { ButtonsComponent } from './components/buttons/buttons.component';
+import { ExportPdfExcelComponent } from './components/export-pdf-excel/export-pdf-excel.component';
+
+
 
 // Create a custom TranslateLoader to load translations from the assets folder
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
 }
 @NgModule({
-  declarations: [FormControlComponent, TableComponent, DataPropertyGetterPipe, HeaderComponent, FooterComponent],
+  declarations: [
+    FormControlComponent, 
+    TableComponent, 
+    DataPropertyGetterPipe, 
+    HeaderComponent, 
+    FooterComponent,
+    PageHeadingComponent,
+    DialogComponent,
+    SidebarComponent,
+    FileUploadComponent,
+    ButtonsComponent,
+    ExportPdfExcelComponent,
+    ],
   imports: [
     CommonModule, 
     FormsModule, 
     ReactiveFormsModule,
+    RouterModule,
     AppMaterialModule,
+    BsDatepickerModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -33,15 +56,23 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
 
   ],
+  schemas:[NO_ERRORS_SCHEMA], 
   exports: [
     FormControlComponent,
     TableComponent,
+    RouterModule,
     AppMaterialModule,
     TranslateModule,
     HeaderComponent,
     FooterComponent,
+    PageHeadingComponent,
+    DialogComponent,
+    SidebarComponent,
+    FileUploadComponent,
+    ButtonsComponent,
+    ExportPdfExcelComponent
     
   ],
-  providers: [BilingualService],
+  providers: [BilingualService, DatePipe],
 })
 export class SharedModule { }

@@ -7,12 +7,9 @@ import { EffectsModule } from "@ngrx/effects";
 import { HomeEffect } from "./store/home-effect";
 import { StoreModule } from "@ngrx/store";
 import { homeReducer } from "./store/home-reducer";
-import { UsersEffect } from "../users/store/users.effect";
 import { SharedModule } from "src/app/shared/shared.module";
 import * as Aos from 'aos';
-
 import { CarouselModule } from "ngx-bootstrap/carousel";
-
 import { SwiperModule } from "swiper/angular";
 
 const routes: Routes = [

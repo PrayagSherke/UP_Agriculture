@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Appstate } from './shared/store/appstate';
-import { getErrorMessage, showLoadingSpinner } from './shared/store/app.selector';
+import { Appstate } from './shared/stores/appstate';
+import { getErrorMessage, showLoadingSpinner } from './shared/stores/app.selector';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +10,21 @@ import { getErrorMessage, showLoadingSpinner } from './shared/store/app.selector
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'ngrx14-ang14';
+  title = 'UP Agri';
   errorMessage!: Observable<string>;
   showLoading!:Observable<boolean>;
+  displayErrorMsg:string='';
 
-  constructor(private store:Store<Appstate>) {}
+  constructor(
+    private store:Store<Appstate>,
+    ) {}
 
-  ngOnInit() {    
-     this.errorMessage = this.store.pipe(select(getErrorMessage));
+  ngOnInit() {   
+     //this.errorMessage = this.store.pipe(select(getErrorMessage));
      this.showLoading = this.store.pipe(select(showLoadingSpinner))
+  }
 
+  removeCss(css:HTMLElement) {
+    css.classList.remove('show');
   }
 }

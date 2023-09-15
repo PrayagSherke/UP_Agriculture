@@ -1,49 +1,50 @@
-import { NgModule } from '@angular/core';
+import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListComponent } from './list/list.component';
+import { UserListComponent } from './user-list/user-list.component';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './store/users.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { UsersEffect } from './store/users.effect';
-import { AddComponent } from './add/add.component';
+import { UserAddEditComponent } from './user-add-edit/user-add-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditComponent } from './edit/edit.component';
+import { UserViewComponent } from './user-view/user-view.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from "src/app/shared/shared.module";
-import {MatIconModule} from '@angular/material/icon';
-
+import { MatIconModule } from '@angular/material/icon';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: ListComponent,
+    component: UserListComponent,
   },
   {
-    path: 'add-user', pathMatch:'full',
-    component: AddComponent,
+    path: 'add-user', pathMatch: 'full',
+    component: UserAddEditComponent,
   },
   {
     path: 'edit-user/:id/:page',
-    component: AddComponent,
+    component: UserAddEditComponent,
   },
-  // {
-  //   path: 'list-user',
-  //   component: ListComponent,
-  // },
+  {
+    path: 'view-user/:id/:page',
+    component: UserViewComponent,
+  },
 
 ];
 
-
-
 @NgModule({
-  declarations: [ListComponent, AddComponent, EditComponent],
+  declarations: [UserListComponent, UserAddEditComponent, UserViewComponent],
   imports: [
     CommonModule, SharedModule, MatIconModule,
     FormsModule, ReactiveFormsModule,
     StoreModule.forFeature('myusers', userReducer),
     EffectsModule.forFeature([UsersEffect]),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgMultiSelectDropDownModule.forRoot()
   ],
+  schemas: [NO_ERRORS_SCHEMA],
 })
-export class UsersModule {}
+
+export class UsersModule { }

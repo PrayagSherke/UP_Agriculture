@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { BilingualService } from '../../services/bilingual.service';
 import { ThemeService } from '../../services/theme.service';
 import { FontSizeService } from '../../services/font-size.service';
@@ -12,9 +12,13 @@ import { FontSizeService } from '../../services/font-size.service';
 
 export class HeaderComponent implements OnInit {
   supportedLanguages: string[] = [];
-  displayLanguage: any = "";
+  displayLanguage: any = "Hindi";
   isSavedTheme: boolean;
+  getLanguage: any;
   @ViewChild('main') myDivRef: ElementRef;
+
+  @Input() isMenu: boolean = false;
+
   constructor(
     public bilingualService: BilingualService,
     private themeService: ThemeService,
@@ -52,9 +56,7 @@ export class HeaderComponent implements OnInit {
     mainContent ? window.scroll(0, 430) : window.scroll(0, 100);
   }
   ngOnInit(): void {
-    let getLanguage = localStorage.getItem('selectedLanguage');
-    this.displayLanguage = getLanguage == 'hi' ? 'English' : 'Hindi';
-    this.hindFontSize(getLanguage)
+
     this.bilingualService.init().then(() => {
       this.supportedLanguages = this.bilingualService.getSupportedLanguages();
     });
@@ -65,26 +67,33 @@ export class HeaderComponent implements OnInit {
 
     let tempSavedFontSize: any = localStorage.getItem('SETFONTSIZE');
     let convert2NumberFont: number = +tempSavedFontSize;
-    if(convert2NumberFont==0) {
+    if (convert2NumberFont == 0) {
       convert2NumberFont = 14
     }
     this.fontSizeService.applyFontSize(convert2NumberFont);
 
+    this.getLanguage = localStorage.getItem('selectedLanguage');
+    this.displayLanguage = this.getLanguage == 'hi' ? 'English' : 'Hindi';
+
+  }
+
+  ngAfterViewInit(): void {
+    if (this.isMenu) this.hindFontSize(this.getLanguage)
   }
 
   changeLanguage(lang: any): void {
     this.displayLanguage = lang == 'hi' ? 'English' : 'Hindi';
-    this.hindFontSize(lang)
+    if (this.isMenu) this.hindFontSize(lang)
     this.bilingualService.setLanguage(lang);
   }
 
-  hindFontSize(lang:any) {
-    let d: any = document.getElementById("navbar");
+  hindFontSize(lang: any) {
+    let navbar: any = document.getElementById("navbar");
     if (lang == 'hi') {
-      d.classList.add('HINDI')
+      navbar.classList.add('HINDI')
     }
     else {
-      d.classList.remove('HINDI')
+      navbar.classList.remove('HINDI')
     }
   }
 

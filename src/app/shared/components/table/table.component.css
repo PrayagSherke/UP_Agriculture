@@ -3,7 +3,7 @@ table {
   }
   
   .mat-header-row {
-    background-color: #005173;
+    background-color: #1b1d1f;
   }
   
   th.mat-sort-header {
@@ -18,3 +18,5 @@ table {
     line-height: 60px;
     text-align: right;
   }
+  .table-theme th {background-color: var(--light-maroon); font-weight: bold !important; 
+    color: var(--white); font-size: 13px;}

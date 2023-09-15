@@ -1,0 +1,14 @@
+.file-upload {
+    line-height: 40px;
+    padding: 0px 0px 0px 10px;
+    font-size: 14px;
+    display: inline-block;
+    width: 65%;
+    margin-right: 25px;
+}
+.upload-btn {
+    margin-top: -6px;
+    margin-right: 0px;
+    margin-right: 25px;
+}
+.form-label {display: block;}

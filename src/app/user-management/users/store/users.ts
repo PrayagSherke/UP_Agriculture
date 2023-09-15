@@ -16,7 +16,7 @@ export class Users {
   lastName: string='';
   email: string='';
   mobileNo: string='';
-  role:string='';
+  role:any;
   gender:string='';
   password:string='';
   [key: string]: any;

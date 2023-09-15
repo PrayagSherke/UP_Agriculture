@@ -9,8 +9,8 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { isAuthenticated } from '../store/app.selector';
-import { Appstate } from '../store/appstate';
+import { isAuthenticated } from '../stores/app.selector';
+import { Appstate } from '../stores/appstate';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {

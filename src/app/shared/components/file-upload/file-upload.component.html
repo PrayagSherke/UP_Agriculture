@@ -1,0 +1,14 @@
+
+<!-- <div>
+    <input type="file" (change)="onFileSelected($event)" #fileInput>
+    <button (click)="uploadFile()">Upload</button>
+    <p *ngIf="error" class="error">{{ error }}</p>
+</div>     -->
+
+
+<div class="mb-3">
+    <label for="formFileSm" class="form-label">{{label}}</label>
+    <input class="form-control file-upload" id="formFileMd" type="file" (change)="onFileSelected($event)" #fileInput>
+    <button (click)="uploadFile()" class="btn btn-maroon upload-btn">Upload</button>
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </div>

@@ -15,31 +15,44 @@ import {
 } from './users.action';
 import { selectUsers } from './users.selector';
 import { CommonService } from 'src/app/shared/services/common.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { commonMessage} from 'src/app/shared/constants/constant'
+
 
 @Injectable()
 export class UsersEffect {
+
+  matSnakDuration:any = commonMessage.snackBarDuration;
+
   constructor(
     private actions$: Actions,
     private usersService: UsersService,
     private commonService: CommonService,
     private store: Store,
+    private snackBar: MatSnackBar,
   ) { }
 
+  // All Users
   loadAllUsers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(invokeUsersAPI),
       withLatestFrom(this.store.pipe(select(selectUsers))),
       mergeMap(([, userformStore]) => {
-        if (userformStore.length > 0) {
-          return EMPTY;
-        }
+        // if (userformStore.length > 0) {// After update the user list not refreshed
+        //   return EMPTY;
+        // }
         this.commonService.showLoading();
-        return this.usersService.get().pipe(
+        
+        return this.usersService.getUsers().pipe(
           map((data) => {
             this.commonService.hideLoading();
             return usersFetchAPISuccess({ allUsers: data })
           }),
           catchError((error) => {
+            this.snackBar.open(error.error.error.status, 'X', {
+              duration: this.matSnakDuration,
+              panelClass: ['red-snackbar'],
+            });
             return this.commonService.returnErrorMessage(error)
           })
         );
@@ -47,19 +60,25 @@ export class UsersEffect {
     )
   );
 
+  // Save User
   saveNewUser$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(invokeSaveNewUserAPI),
       switchMap((action) => {
-        // this.appStore.dispatch(
-        //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
-        // );
-        return this.usersService.create(action.newUser).pipe(
+        return this.usersService.createUser(action.newUser).pipe(
           map((data) => {
-            this.commonService.returnSuccessMessage();
+            this.snackBar.open(data.message, 'X', {
+              duration: this.matSnakDuration,
+              panelClass: ['green-snackbar'],
+            });
+            this.commonService.returnSuccessMessage(data);
             return saveNewUserAPISucess({ newUser: data });
           }),
           catchError((error) => {
+            this.snackBar.open(error.error.error.message, 'X', {
+              duration: this.matSnakDuration,
+              panelClass: ['red-snackbar'],
+            });
             return this.commonService.returnErrorMessage(error)
           })
         );
@@ -67,39 +86,49 @@ export class UsersEffect {
     );
   });
 
+  // Update User
   updateUserAPI$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(invokeUpdateUserAPI),
       switchMap((action) => {
-        // this.appStore.dispatch(
-        //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: 'success' } })
-        // );
-        
         this.commonService.showLoading();
-        return this.usersService.update(action.updateUser).pipe(
+        return this.usersService.updateUser(action.updateUser).pipe(
           map((data) => {
-            this.commonService.returnSuccessMessage();
+            this.snackBar.open(data.message, 'X', {
+              duration: this.matSnakDuration,
+              panelClass: ['green-snackbar'],
+            });
+            this.commonService.returnSuccessMessage(data);
             return updateUserAPISucess({ updateUser: data });
           }),
           catchError((error) => {
-            return this.commonService.returnErrorMessage(error)
+            this.snackBar.open(error.error.error.message, 'X', {
+              duration: this.matSnakDuration,
+              panelClass: ['red-snackbar'],
+            });
+            return this.commonService.returnErrorMessage(error);
           })
         );
       })
     );
   });
 
+  // Delete User
   deleteUsersAPI$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(invokeDeleteUserAPI),
       switchMap((actions) => {
-        // this.appStore.dispatch(
-        //   setAPIStatus({ apiStatus: { apiResponseMessage: '', apiStatus: '' } })
-        // );
-        return this.usersService.delete(actions.id).pipe(
-          map(() => {
-            this.commonService.returnSuccessMessage();
+        return this.usersService.deleteUser(actions.id).pipe(
+          map((data:any) => {
+            this.snackBar.open(data.message, 'X', {
+              duration: this.matSnakDuration,
+              panelClass: ['red-snackbar'],
+            });
+            this.commonService.returnSuccessMessage(data);
             return deleteUserAPISuccess({ id: actions.id });
+          }),
+          catchError((error) => {
+            return this.commonService.returnErrorMessage(error)
           })
         );
       })

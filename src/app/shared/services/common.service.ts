@@ -1,38 +1,57 @@
 import { Injectable } from '@angular/core';
-import { setAPIStatus } from 'src/app/shared/store/app.action';
+import { setAPIStatus } from 'src/app/shared/stores/app.action';
 import { of } from 'rxjs'
-import { Appstate } from '../store/appstate';
+import { Appstate } from '../stores/appstate';
 import { Store } from '@ngrx/store';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CommonService {
 
-  constructor(private appStore: Store<Appstate>) { }
+  constructor(
+    private appStore: Store<Appstate>) { }
 
+  // HTTP Failure
   returnErrorMessage(error: any) {
     return of(setAPIStatus({
       apiStatus: {
-        apiResponseMessage: error.error.error.message,
+        // apiResponseMessage: error.error.error.message,
         apiStatus: error.error.error.status,
-        isLoading:false
+        isLoading: false
       },
     }))
   }
 
-  returnSuccessMessage() {
+  // Http Success 
+  returnSuccessMessage(success: any) {
     this.appStore.dispatch(
       setAPIStatus({
-        apiStatus: { apiResponseMessage: 'Suceessfully', apiStatus: 'success', isLoading:false },
+        apiStatus: {
+          // apiResponseMessage: success.message,
+          apiStatus: 'success',
+          isLoading: false
+        },
       })
     );
   }
 
+  // Convert String Date to DD-MM-YYYY Format
+  formatDDMMYYYY(dateString: string) {
+    const dateObject = new Date(dateString);
+    const date = dateObject.getDate().toString().padStart(2, '0');
+    const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
+    const year = dateObject.getFullYear().toString();
+    return `${date}-${month}-${year}`
+  }
+
+  // Show and Hide Loader
   showLoading() {
     this.appStore.dispatch(
       setAPIStatus({
-        apiStatus: { apiResponseMessage: '', apiStatus: '', isLoading:true },
+        apiStatus: { 
+           apiStatus: '', isLoading: true },
       })
     );
   }
@@ -40,36 +59,46 @@ export class CommonService {
   hideLoading() {
     this.appStore.dispatch(
       setAPIStatus({
-        apiStatus: { apiResponseMessage: '', apiStatus: '', isLoading:false },
+        apiStatus: { 
+          apiStatus: '', isLoading: false },
       })
     );
   }
 
-  setUserInStorage(user:any) {
+  // Set Logged in user data in session storage
+  setUserDataInStorage(user: any) {
     sessionStorage.setItem('USERDATA', JSON.stringify(user))
   }
 
   getAccessToken() {
-    let userData:any = sessionStorage.getItem('USERDATA');
+    let userData: any = sessionStorage.getItem('USERDATA');
     let parseData = JSON.parse(userData);
-    if(parseData !=null) {
+    if (parseData != null) {
       return parseData.accessToken
     }
     else {
       return null
     }
-    
   }
 
+  // Set Token in header to use in API calling
   getTokenHeader() {
-    let header:any ='';
+    let header: any
     header = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.getAccessToken()
     }
-    console.log(header)
     return header;
   }
-   
+
+  // Set content type in header
+  getHeaderContentTypeOnly() {
+    let header: any;
+    header = {
+      'Content-Type': 'application/json'
+    }
+    return header;
+  }
+
 }
 

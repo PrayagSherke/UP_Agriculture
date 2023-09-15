@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+
 
 @Component({
   selector: 'app-form-control',
@@ -16,13 +18,25 @@ export class FormControlComponent implements OnInit {
   @Input() isRequired:boolean = false;
   @Input() dropdownData:any;
   @Input() maxlength:number=100;
-
+  @Input() minlength:number = 0;
+  @Input() isLabel:boolean = true;
+  @Input() cssClass:string = 'btn-brown';
+  datepickerConfig: Partial<BsDatepickerConfig>;
+ 
   errorMessage:Record<string, string> = {
     required:'The field is required',
-    email:'Email is invalid'
+    email:'Email is invalid',
+    minlength:`The field must be at least `,
+    pattern:`Mobile number must be 10 digits.`
   }
 
-  constructor() { }
+  constructor() {
+     this.datepickerConfig = {
+      containerClass: 'theme-dark-blue', // Add custom CSS classes
+      dateInputFormat: 'YYYY-MM-DD', // Customize date format
+      showWeekNumbers: false, // Show week numbers
+    };
+   }
 
   ngOnInit(): void {
   }
