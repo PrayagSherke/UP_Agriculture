@@ -16,13 +16,10 @@ import {
 import { selectUsers } from './users.selector';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { commonMessage} from 'src/app/shared/constants/constant'
 
 
 @Injectable()
 export class UsersEffect {
-
-  matSnakDuration:any = commonMessage.snackBarDuration;
 
   constructor(
     private actions$: Actions,
@@ -42,17 +39,12 @@ export class UsersEffect {
         //   return EMPTY;
         // }
         this.commonService.showLoading();
-        
         return this.usersService.getUsers().pipe(
           map((data) => {
             this.commonService.hideLoading();
             return usersFetchAPISuccess({ allUsers: data })
           }),
           catchError((error) => {
-            this.snackBar.open(error.error.error.status, 'X', {
-              duration: this.matSnakDuration,
-              panelClass: ['red-snackbar'],
-            });
             return this.commonService.returnErrorMessage(error)
           })
         );
@@ -67,18 +59,10 @@ export class UsersEffect {
       switchMap((action) => {
         return this.usersService.createUser(action.newUser).pipe(
           map((data) => {
-            this.snackBar.open(data.message, 'X', {
-              duration: this.matSnakDuration,
-              panelClass: ['green-snackbar'],
-            });
             this.commonService.returnSuccessMessage(data);
             return saveNewUserAPISucess({ newUser: data });
           }),
           catchError((error) => {
-            this.snackBar.open(error.error.error.message, 'X', {
-              duration: this.matSnakDuration,
-              panelClass: ['red-snackbar'],
-            });
             return this.commonService.returnErrorMessage(error)
           })
         );
@@ -94,18 +78,10 @@ export class UsersEffect {
         this.commonService.showLoading();
         return this.usersService.updateUser(action.updateUser).pipe(
           map((data) => {
-            this.snackBar.open(data.message, 'X', {
-              duration: this.matSnakDuration,
-              panelClass: ['green-snackbar'],
-            });
             this.commonService.returnSuccessMessage(data);
             return updateUserAPISucess({ updateUser: data });
           }),
           catchError((error) => {
-            this.snackBar.open(error.error.error.message, 'X', {
-              duration: this.matSnakDuration,
-              panelClass: ['red-snackbar'],
-            });
             return this.commonService.returnErrorMessage(error);
           })
         );
@@ -120,10 +96,6 @@ export class UsersEffect {
       switchMap((actions) => {
         return this.usersService.deleteUser(actions.id).pipe(
           map((data:any) => {
-            this.snackBar.open(data.message, 'X', {
-              duration: this.matSnakDuration,
-              panelClass: ['red-snackbar'],
-            });
             this.commonService.returnSuccessMessage(data);
             return deleteUserAPISuccess({ id: actions.id });
           }),

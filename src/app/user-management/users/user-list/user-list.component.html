@@ -17,7 +17,7 @@
       <div class="row">
         <div class="mt-2">
           <app-table [tableData]="userData" [tableColumns]="usersTableColumns" [isFilterable]="true" [isPageable]="true"
-            [paginationSizes]="[5,10,25]" [defaultPageSize]="5" (sort)="sortData($event)" [rowActionIcon]="'edit'"
+            (sort)="sortData($event)" [rowActionIcon]="'edit'"
             [actions]="tableActions" [recordCount]="count">
           </app-table>
           <!-- (rowAction)="editUser($event)" -->

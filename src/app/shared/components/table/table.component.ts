@@ -24,8 +24,8 @@ export class TableComponent implements OnInit, AfterViewInit {
   @Input() isFilterable = false;
   @Input() tableColumns: TableColumn[] = [];
   @Input() rowActionIcon: string;
-  @Input() paginationSizes: number[] = [5, 10, 15];
-  @Input() defaultPageSize = this.paginationSizes[1];
+  @Input() paginationSizes: number[] = [10, 25, 50, 100];
+  @Input() defaultPageSize = this.paginationSizes[0];
   @Input() recordCount: number;
 
   @Input() actions: TableAction[];

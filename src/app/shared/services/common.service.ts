@@ -3,6 +3,9 @@ import { setAPIStatus } from 'src/app/shared/stores/app.action';
 import { of } from 'rxjs'
 import { Appstate } from '../stores/appstate';
 import { Store } from '@ngrx/store';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { commonMessage } from '../constants/constant';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +13,19 @@ import { Store } from '@ngrx/store';
 
 export class CommonService {
 
+  matSnakDuration:any = commonMessage.snackBarDuration;
   constructor(
-    private appStore: Store<Appstate>) { }
+    private appStore: Store<Appstate>,
+    private snackBar: MatSnackBar
+    ) { }
 
   // HTTP Failure
   returnErrorMessage(error: any) {
+    this.snackBar.open(error.error.error.status, 'X', {
+      duration: this.matSnakDuration,
+      panelClass: ['red-snackbar'],
+    });
+    
     return of(setAPIStatus({
       apiStatus: {
         // apiResponseMessage: error.error.error.message,
@@ -26,6 +37,11 @@ export class CommonService {
 
   // Http Success 
   returnSuccessMessage(success: any) {
+    this.snackBar.open(success.message, 'X', {
+      duration: this.matSnakDuration,
+      panelClass: ['green-snackbar'],
+    });
+
     this.appStore.dispatch(
       setAPIStatus({
         apiStatus: {
